@@ -46,3 +46,16 @@ html, body {
     --height: calc(100vw * 16 / 9);
   }
 }
+
+
+.pid-32-9.landscape {
+  --width: calc(100vh / 9 * 32);
+  --height: 100vh;
+}
+
+@media (max-aspect-ratio: 32/9) {
+  .pid-32-9.landscape {
+    --width: 100vw;
+    --height: calc(100vw * 9 / 32);
+  }
+}
