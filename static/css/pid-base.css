@@ -1,5 +1,5 @@
 html, body {
-  background-color: #000000;
+  background-color: #fff;
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -32,5 +32,17 @@ html, body {
   .pid-16-9.landscape {
     --width: 100vw;
     --height: calc(100vw * 9 / 16);
+  }
+}
+
+.pid-16-9.portrait {
+  --width: calc(100vh / 16 * 9);
+  --height: 100vh;
+}
+
+@media (max-aspect-ratio: 9/16) {
+  .pid-16-9.portrait {
+    --width: 100vw;
+    --height: calc(100vw * 16 / 9);
   }
 }
