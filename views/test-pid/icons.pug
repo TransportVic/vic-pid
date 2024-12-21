@@ -25,7 +25,7 @@ block pid
     //-   }
     //- }
   div.pid.pid-16-9.landscape
-    div(style='background: #000; display: flex; justify-content: center; align-items: center; position: absolute; width: var(--width); height: var(--height); gap: calc(var(--width) * 0.02);')#announcements
+    //- div(style='background: #000; display: flex; justify-content: center; align-items: center; position: absolute; width: var(--width); height: var(--height); gap: calc(var(--width) * 0.02);')#announcements
       img(style='height: calc(var(--height) * 0.125);' src=`${staticContent}/img/announcements.svg`)
       p(style='font-size: calc(var(--height) * 0.08);') Please Listen For Announcements
 
@@ -72,3 +72,20 @@ block pid
           span(style='font-size: calc(var(--height) * 0.05);') Driver Announcement
         div(style='height: calc(var(--height) * 0.15); width: calc(var(--width) * 0.3); border: calc(var(--width) * 0.003) solid #fff; display: flex; justify-content: center; align-items: center; box-sizing: border-box;')
           p(style='margin: 0; font-size: calc(var(--height) * 0.1)') 12:34:56
+
+      div(style='display: flex; margin-bottom: calc(var(--height) * -0.035)')
+        div(style='width: calc(var(--width) * 0.0075); height: calc(var(--height) * 0.05); background-color: #FF8200; display: inline-block; margin-right: calc(var(--width) * 0.0075);')
+        div(style='width: calc(var(--width) * 0.07);')
+          span(style='font-size: calc(var(--height) * 0.04)') 670
+        span(style='font-size: calc(var(--height) * 0.04); width: calc(var(--width) * 0.25);') Lilydale Lakeside
+        span(style='margin-left: calc(var(--width) * 0.2); font-size: calc(var(--height) * 0.04); width: calc(var(--width) * 0.07)') 10:50
+        span(style='margin-left: calc(var(--width) * 0.05); font-size: calc(var(--height) * 0.04); width: calc(var(--width) * 0.07)') Now
+
+      div(style='display: flex')
+        div(style='width: calc(var(--width) * 0.0075); height: calc(var(--height) * 0.05); background-color: #0072CE; display: inline-block; margin-right: calc(var(--width) * 0.0075);')
+        div(style='width: calc(var(--width) * 0.07);')
+          img(style='height: calc(var(--height) * 0.05);' src=`${staticContent}/img/metro-train.svg`)
+        span(style='font-size: calc(var(--height) * 0.04); width: calc(var(--width) * 0.25);') Flinders Street
+          span(style='margin-left: calc(var(--width) * 0.01); font-size: calc(var(--height) * 0.03)') Platform 2
+        span(style='margin-left: calc(var(--width) * 0.2); font-size: calc(var(--height) * 0.04); width: calc(var(--width) * 0.07)') 10:59
+        span(style='margin-left: calc(var(--width) * 0.05); font-size: calc(var(--height) * 0.04); width: calc(var(--width) * 0.07)') 10 min
