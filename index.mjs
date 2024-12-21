@@ -13,8 +13,10 @@ app.use('/static', express.static(path.join(__dirname, 'static'), {
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
-app.get('/:pid-type', (req, res) => {
-  res.render(req.params['pid-type'])
+app.get('/favico.ico' , (req , res) => res.status(404).end())
+
+app.get('/:pidType', (req, res) => {
+  res.render(req.params.pidType)
 })
 
 app.listen(8014)
