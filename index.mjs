@@ -16,11 +16,11 @@ app.set('view engine', 'pug')
 app.get('/favico.ico' , (req , res) => res.status(404).end())
 
 app.get('/:pidType', (req, res) => {
-  res.render(req.params.pidType)
+  res.render(req.params.pidType, { staticContent: '/static' })
 })
 
 app.get('/test/:pidType', (req, res) => {
-  res.render('test-pid/' + req.params.pidType)
+  res.render('test-pid/' + req.params.pidType, { staticContent: '/static' })
 })
 
 app.listen(8014)
