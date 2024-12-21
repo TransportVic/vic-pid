@@ -1,9 +1,93 @@
+@font-face {
+  font-family: "NetworkSans";
+  font-display: fallback;
+  font-weight: 300;
+  src: local('NetworkSans-K-Light'), local('Network Sans 2018 Light'), local('Network Sans Light'), local('Network Sans 2019 Light'), url(../fonts/NetworkSans-Light.ttf);
+}
+
+@font-face {
+  font-family: "NetworkSans";
+  font-display: fallback;
+  font-weight: 400;
+  src: local('NetworkSans-K-Regular'), local('Network Sans 2018 Regular'), local('Network Sans Regular'), local('Network Sans 2019 Regular'), url(../fonts/NetworkSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "NetworkSans";
+  font-display: fallback;
+  font-weight: 500;
+  src: local('NetworkSans-K-Medium'), local('Network Sans 2018 Medium'),local('Network Sans Medium'), local('Network Sans 2019 Medium'), url(../fonts/NetworkSans-Medium.ttf);
+}
+
+@font-face {
+  font-family: "NetworkSans";
+  font-display: fallback;
+  font-weight: 700;
+  src: local('NetworkSans-K-Bold'), local('Network Sans 2018 Bold'), local('Network Sans Bold'), local('Network Sans 2019 Bold'), url(../fonts/NetworkSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: "NetworkSans";
+  font-display: fallback;
+  font-weight: 900;
+  src: local('NetworkSans-K-Heavy'), local('Network Sans 2018 Heavy'), local('Network Sans Heavy'), local('Network Sans 2019 Heavy'), url(../fonts/NetworkSans-Heavy.ttf);
+}
+
+
+@font-face {
+  font-family: "NetworkMono";
+  font-display: fallback;
+  font-weight: 500;
+  src: local('Network Sans 2018 Mono'), local('Network Sans Mono'), local('Network Sans 2019 Mono'), url(../fonts/NetworkSans-Medium-Mono.ttf);
+}
+
+
+@font-face {
+  font-family: "NetworkGeo";
+  font-display: fallback;
+  font-weight: 900;
+  src: url(../fonts/NetworkGeo.ttf);
+}
+
+
+@font-face {
+  font-family: "Helvetica";
+  font-display: fallback;
+  font-weight: 400;
+  src: url(../fonts/Helvetica.ttf);
+}
+
+@font-face {
+  font-family: "Helvetica";
+  font-display: fallback;
+  font-weight: 700;
+  src: url(../fonts/Helvetica-Bold.ttf);
+}
+
+
+@font-face {
+  font-family: "Arial";
+  font-display: fallback;
+  font-weight: 400;
+  src: url(../fonts/Arial.ttf);
+}
+
+@font-face {
+  font-family: "Arial";
+  font-display: fallback;
+  font-weight: 700;
+  src: url(../fonts/Arial-Bold.ttf);
+}
+
 html, body {
   background-color: #fff;
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 100vh;
+
+  font-family: NetworkSans;
+  font-weight: 500;
 
   display: flex;
   align-items: center;
