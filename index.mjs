@@ -19,4 +19,8 @@ app.get('/:pidType', (req, res) => {
   res.render(req.params.pidType)
 })
 
+app.get('/test/:pidType', (req, res) => {
+  res.render('test-pid/' + req.params.pidType)
+})
+
 app.listen(8014)
