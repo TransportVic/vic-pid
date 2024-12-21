@@ -1,28 +1,65 @@
 extends ../core/pid
 
 block pid
+  style.
+    #announcements {
+      animation: fadeInOut 10s ease-in-out;
+      opacity: 0;
+    }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 1;
+      }
+
+      37% {
+        opacity: 1;
+      }
+
+      40% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
   div.pid.pid-16-9.landscape
-    div(style='text-align: center')
-      img(style='height: calc(var(--height) * 0.1);' src=`${staticContent}/img/do-not-board.svg`)
-      span(style=`font-size: calc(var(--height) * 0.08); font-weight: 400; margin-inline: calc(var(--width) * 0.03)`) 7:50pm
-      span(style=`font-size: calc(var(--height) * 0.1)`) Do not board 
-      img(style='height: calc(var(--height) * 0.06);' src=`${staticContent}/img/alert.svg`)
-      br
-      p(style=`font-size: calc(var(--height) * 0.05); font-weight: 200; margin: 0; margin-top: calc(var(--height) * 0.005)`) Not taking passengers, please don't board
+    div(style='background: #000; display: flex; justify-content: center; align-items: center; position: absolute; width: var(--width); height: var(--height); gap: calc(var(--width) * 0.02);')#announcements
+      img(style='height: calc(var(--height) * 0.125);' src=`${staticContent}/img/announcements.svg`)
+      p(style='font-size: calc(var(--height) * 0.08);') Please Listen For Announcements
 
-    div(style='display: flex; gap: calc(var(--width) * 0.02); margin-top: calc(var(--height) * 0.04);')
-      div(style='text-align: center; width: calc(var(--width) * 0.4); padding: calc(var(--height) * 0.03); background-color: #333; display: flex')
-        div(style=`width: calc(var(--width) * 0.015); background-image: url(${staticContent}/img/disruption-hatch.svg); background-repeat: no-repeat; background-size: cover; margin-right: calc(var(--width) * 0.005);`)
-        p(style='font-size: calc(var(--height) * 0.032); font-weight: 400; margin-block: calc(var(--height) * 0.0075); width: calc(var(--width) * 0.38); text-align: left')
-          | Belgrave - Lilydale - Buses replace trains between PARLIAMENT and CAMBERWELL.
-          br
-          | Glen Waverley - Please board the next service to Richmond station and change for a replacement bus service.
+    div(style='display: flex; flex-direction: column; align-items: center; gap: calc(var(--height) * 0.05);')
+      div(style='text-align: center')
+        img(style='height: calc(var(--height) * 0.1);' src=`${staticContent}/img/do-not-board.svg`)
+        span(style=`font-size: calc(var(--height) * 0.08); font-weight: 400; margin-inline: calc(var(--width) * 0.03)`) 7:50pm
+        span(style=`font-size: calc(var(--height) * 0.1)`) Do not board 
+        img(style='height: calc(var(--height) * 0.06);' src=`${staticContent}/img/alert.svg`)
+        br
+        p(style=`font-size: calc(var(--height) * 0.05); font-weight: 200; margin: 0; margin-top: calc(var(--height) * 0.005)`) Not taking passengers, please don't board
 
-      div(style='text-align: center; width: calc(var(--width) * 0.17); padding: calc(var(--height) * 0.03); background-color: #333;')
-        img(style='height: calc(var(--height) * 0.05);' src=`${staticContent}/img/info-white.svg`)
-        p(style='font-size: calc(var(--height) * 0.032); font-weight: 400; margin-bottom: 0')
-          | For more information
-          br
-          | visit ptv.vic.gov.au
-          br
-          | or call 1800 800 007
+      div(style='display: flex; gap: calc(var(--width) * 0.02);')
+        div(style='text-align: center; width: calc(var(--width) * 0.4); padding: calc(var(--height) * 0.03); background-color: #333; display: flex')
+          div(style=`width: calc(var(--width) * 0.015); background-image: url(${staticContent}/img/disruption-hatch.svg); background-repeat: no-repeat; background-size: cover; margin-right: calc(var(--width) * 0.005);`)
+          p(style='font-size: calc(var(--height) * 0.032); font-weight: 400; margin-block: calc(var(--height) * 0.0075); width: calc(var(--width) * 0.38); text-align: left')
+            | <strong>Belgrave</strong> - Lilydale - Buses replace trains between PARLIAMENT and CAMBERWELL.
+            br
+            | <strong>Glen Waverley</strong> - Please board the next service to Richmond station and change for a replacement bus service.
+
+        div(style='text-align: center; width: calc(var(--width) * 0.17); padding: calc(var(--height) * 0.03); background-color: #333;')
+          img(style='height: calc(var(--height) * 0.05);' src=`${staticContent}/img/info-white.svg`)
+          p(style='font-size: calc(var(--height) * 0.032); font-weight: 400; margin-bottom: 0')
+            | For more information
+            br
+            | visit ptv.vic.gov.au
+            br
+            | or call 1800 800 007
+      div(style='display: flex; gap: calc(var(--width) * 0.02);')
+        div(style='display: flex; align-items: center; width: calc(var(--width) * 0.3); height: calc(var(--height) * 0.15); gap: calc(var(--width) * 0.015); background-color: #333;')
+          img(style='height: calc(var(--height) * 0.12); margin-left: calc(var(--width) * 0.0075);' src=`${staticContent}/img/hearing-loop.svg`)
+          span(style='font-size: calc(var(--height) * 0.05);') Announcement In Progress
+        div(style='display: flex; align-items: center; width: calc(var(--width) * 0.3); height: calc(var(--height) * 0.15); gap: calc(var(--width) * 0.015); background-color: #2C5097;')
+          img(style='height: calc(var(--height) * 0.1); margin-left: calc(var(--width) * 0.0075);' src=`${staticContent}/img/hearing-loop-inner.svg`)
+          span(style='font-size: calc(var(--height) * 0.05);') Driver Announcement
+        div(style='height: calc(var(--height) * 0.15); width: calc(var(--width) * 0.3); border: calc(var(--width) * 0.003) solid #fff; display: flex; justify-content: center; align-items: center; box-sizing: border-box;')
+          p(style='margin: 0; font-size: calc(var(--height) * 0.1)') 12:34:56
