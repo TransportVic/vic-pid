@@ -7,23 +7,23 @@ block pid
       opacity: 0;
     }
 
-    @keyframes fadeInOut {
-      0% {
-        opacity: 1;
-      }
+    //- @keyframes fadeInOut {
+    //-   0% {
+    //-     opacity: 1;
+    //-   }
 
-      37% {
-        opacity: 1;
-      }
+    //-   37% {
+    //-     opacity: 1;
+    //-   }
 
-      40% {
-        opacity: 0;
-      }
+    //-   40% {
+    //-     opacity: 0;
+    //-   }
 
-      100% {
-        opacity: 0;
-      }
-    }
+    //-   100% {
+    //-     opacity: 0;
+    //-   }
+    //- }
   div.pid.pid-16-9.landscape
     div(style='background: #000; display: flex; justify-content: center; align-items: center; position: absolute; width: var(--width); height: var(--height); gap: calc(var(--width) * 0.02);')#announcements
       img(style='height: calc(var(--height) * 0.125);' src=`${staticContent}/img/announcements.svg`)
@@ -54,6 +54,15 @@ block pid
             | visit ptv.vic.gov.au
             br
             | or call 1800 800 007
+
+        div(style='text-align: center; width: calc(var(--width) * 0.17); padding: calc(var(--height) * 0.03); background-color: #333;')
+          p(style='font-size: calc(var(--height) * 0.0375); font-weight: 400; text-align: left; margin: 0; margin-bottom: calc(var(--height) * 0.03);')
+            | Doors opening
+            br
+            | this side
+          img(style='height: calc(var(--height) * 0.075); margin-inline: calc(var(--width) * 0.03);' src=`${staticContent}/img/doors.svg`)
+          img(style='height: calc(var(--height) * 0.075);' src=`${staticContent}/img/arrow-right.svg`)
+          
       div(style='display: flex; gap: calc(var(--width) * 0.02);')
         div(style='display: flex; align-items: center; width: calc(var(--width) * 0.3); height: calc(var(--height) * 0.15); gap: calc(var(--width) * 0.015); background-color: #333;')
           img(style='height: calc(var(--height) * 0.12); margin-left: calc(var(--width) * 0.0075);' src=`${staticContent}/img/hearing-loop.svg`)
