@@ -1,5 +1,5 @@
 import fs from 'fs/promises'
-import pug from 'pug'
+import pug, { render } from 'pug'
 import path from 'path'
 import url from 'url'
 
@@ -49,6 +49,19 @@ for (let file of pugFiles) {
 
   await fs.writeFile(path.join(outputDir, file.file).replace('.pug', '.html'), compiled) 
 }
+
+let pids = pugFiles.filter(file => file.dir !== 'core').map(file => {
+  let name = path.join(file.dir, file.file).slice(0, -4)
+  return {
+    name,
+    href: name + '.html'
+  }
+})
+
+await fs.writeFile(path.join(renderedDir, 'index.html'), pug.compileFile(path.join(__dirname, 'index.pug'))({
+  staticContent: '/static',
+  pids
+})) 
 
 let staticDir = path.join(__dirname, '..', 'static')
 await fs.cp(staticDir, path.join(renderedDir, 'static'), { recursive: true })
