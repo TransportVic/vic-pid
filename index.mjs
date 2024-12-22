@@ -15,12 +15,8 @@ app.set('view engine', 'pug')
 
 app.use('/favicon.ico' , (req , res) => res.status(404).end())
 
-app.get('/:pidType', (req, res) => {
-  res.render(req.params.pidType, { staticContent: '/static' })
-})
-
-app.get('/test/:pidType', (req, res) => {
-  res.render('test-pid/' + req.params.pidType, { staticContent: '/static' })
+app.use((req, res) => {
+  res.render(req.url.slice(1), { staticContent: '/static' })
 })
 
 app.listen(8014)
