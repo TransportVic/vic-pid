@@ -1,0 +1,17 @@
+extends ../core/pid
+
+block head
+  link(rel='stylesheet' href=`${staticContent}/css/colours.css`)
+  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/base.css`)
+  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/platform.css`)
+
+block pid
+  div.pid.pid-16-9.landscape.light
+    div.line-marker.pakenham
+    div.next-service-info
+      div.next-service-header
+        span.next-service-sch-time 12:34pm
+        span.next-service-destination East Pakenham
+        span.next-service-est-time 12 min
+      div.next-service-pattern
+        span.next-service-summary Stops All, Change at Dandenong for Cranbourne
