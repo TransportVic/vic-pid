@@ -44,7 +44,7 @@ for (let file of pugFiles) {
   }
 
   let compiled = pug.compileFile(file.path)({
-    staticContent: '/vic-pid/static'
+    staticContent: '/static'
   })
 
   await fs.writeFile(path.join(outputDir, file.file).replace('.pug', '.html'), compiled) 
