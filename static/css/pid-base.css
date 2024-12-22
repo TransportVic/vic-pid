@@ -98,7 +98,7 @@ html, body {
   width: var(--width);
   height: var(--height);
   background-color: #222222;
-  color: white;
+  color: #fff;
 
   display: flex;
   justify-content: center;
@@ -108,6 +108,10 @@ html, body {
   user-select: none;
 }
 
+.pid.light {
+  background-color: #f0f0f0;
+  color: #000;
+}
 
 
 .pid-16-9.landscape {
