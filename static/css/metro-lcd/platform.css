@@ -40,6 +40,6 @@ div.next-service-pattern {
 }
 
 span.next-service-summary {
-  font-size: calc(var(--height) * 0.055);
+  font-size: calc(var(--height) * 0.052);
   font-weight: 400;
 }
