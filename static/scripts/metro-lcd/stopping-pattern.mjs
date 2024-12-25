@@ -66,7 +66,7 @@ export class Stop {
 
   toHTML() {
     return `<div class="station-row stopping">
-      <div>
+      <div class="column-bullet-container">
         <div class="column-backing"></div>
         <div class="column-bullet"></div>
       </div>

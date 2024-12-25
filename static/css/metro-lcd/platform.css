@@ -46,5 +46,5 @@ span.next-service-summary {
 
 div.next-service-pattern {
   width: 96%;
-  font-size: calc(var(--height) * 0.05);
+  font-size: calc(var(--height) * 0.04);
 }
