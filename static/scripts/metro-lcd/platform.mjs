@@ -50,8 +50,14 @@ class MetroLCDPlatformPID extends PID {
   #updateNextService(service) {
     this.#updateNextServiceInfo(service)
     this.#updateNextServicePattern(service)
+
     if (service.isArrival) this.#setArrival()
     else this.hideMainServiceMessage()
+
+    if (service.disruptions.length > 0) {
+      let disruption = service.disruptions[0]
+      this.#showDisruption(disruption.origin, disruption.text)
+    } else this.hideNextServiceMessage()
   }
 
   #updateNextServicePattern(service) {
@@ -119,11 +125,18 @@ class MetroLCDPlatformPID extends PID {
   }
 
   showNextServiceMessage(text) {
-    let pid = $('div.pid')
-    pid.classList.add('next-service-message-active')
-
     $('div.next-service-message').textContent = text
     $('div.next-service-message').className = `next-service-message text ${getTextSize(1, text.length)}`
+  }
+
+  hideNextServiceMessage(text) {
+    $('div.next-service-message').textContent = ''
+    $('div.next-service-message').className = `next-service-message`
+  }
+
+  #showDisruption(origin, text) {
+    $('div.next-service-message').innerHTML = `<span><strong>${origin}</strong> - ${text}</span>`
+    $('div.next-service-message').className = `next-service-message disruption ${getTextSize(1, text.length)}`
   }
 
   #setArrival() {
@@ -201,7 +214,7 @@ let westall = [
 let pid = new MetroLCDPlatformPID()
 window.pid = pid
 pid.updateServices([{
-  schTime: '07:30am',
+  schTime: '7:30am',
   estTime: 0,
   destination: 'Bairnsdale',
   summary: 'Not Taking Suburban Passengers',
@@ -209,11 +222,12 @@ pid.updateServices([{
   platform: '6',
   stops: bairnsdale,
   disruptions: [{
+    origin: 'Bairnsdale',
     text: 'Due to the forecast temperature on Thursday, 26 December, we are runing a Full Extreme Heat timetable on the Traralgon and Bairnsdale Lines.'
   }],
   isArrival: false
 }, {
-  schTime: '07:34am',
+  schTime: '7:34am',
   estTime: 4,
   destination: 'Westall',
   summary: 'Express',
@@ -223,7 +237,7 @@ pid.updateServices([{
   disruptions: [],
   isArrival: false
 }, {
-  schTime: '07:37am',
+  schTime: '7:37am',
   estTime: 7,
   destination: 'Cheltenham',
   summary: 'Express',
@@ -231,6 +245,7 @@ pid.updateServices([{
   platform: '6',
   stops: westall,
   disruptions: [{
+    origin: 'Cheltenham',
     text: 'Train services are disrupted between Cheltenham and Frankston. Alternative transport has been arranged Metro Trains apologises for any inconvenience.'
   }],
   isArrival: false
