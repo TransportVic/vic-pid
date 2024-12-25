@@ -827,4 +827,83 @@ describe('The stop splitting function - FSS Platform', () => {
       ]
     ])
   })
+
+  it('Melbourne Central - Westall', () => {
+    let stops = [
+      'Melbourne Central',
+      'Flagstaff',
+      'Southern Cross',
+      'Flinders Street',
+      'Richmond',
+      'South Yarra',
+      'Hawksburn',
+      'Toorak',
+      'Armadale',
+      'Malvern',
+      'Caulfield',
+      'Carnegie',
+      'Murrumbeena',
+      'Hughesdale',
+      'Oakleigh',
+      'Huntingdale',
+      'Clayton',
+      'Westall'
+    ]
+
+    expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
+      [
+        'Melbourne Central',
+        'Flagstaff',
+        'Southern Cross',
+        'Flinders Street',
+        'Richmond',
+        'South Yarra',
+        'Hawksburn'
+      ], [
+        'Toorak',
+        'Armadale',
+        'Malvern',
+        'Caulfield',
+        'Carnegie',
+        'Murrumbeena',
+        'Hughesdale'
+      ], [
+        'Oakleigh',
+        'Huntingdale',
+        'Clayton',
+        'Westall'
+      ]
+    ])
+  })
+
+  it('North Melbourne - Batman', () => {
+    let stops = [
+      'North Melbourne',
+      'Macaulay',
+      'Flemington Bridge',
+      'Royal Park',
+      'Jewell',
+      'Brunswick',
+      'Anstey',
+      'Moreland',
+      'Coburg',
+      'Batman',
+    ]
+
+    expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
+      [
+        'North Melbourne',
+        'Macaulay',
+        'Flemington Bridge',
+        'Royal Park',
+        'Jewell',
+        'Brunswick',
+        'Anstey',
+      ], [
+        'Moreland',
+        'Coburg',
+        'Batman',
+      ]
+    ])
+  })
 })
