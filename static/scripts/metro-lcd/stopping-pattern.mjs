@@ -46,8 +46,9 @@ export class StopsColumn {
 
   toHTML() {
     return `<div class="stop-column">
-      <div class="stop-column-top"></div>
+      <div class="stop-continuation-marker"></div>
       ${this.getStops().map(stop => stop.toHTML()).join('')}
+      <div class="stop-continuation-marker"></div>
     </div>`
   }
 

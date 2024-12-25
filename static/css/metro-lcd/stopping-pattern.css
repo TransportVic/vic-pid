@@ -23,7 +23,7 @@
   background-color: var(--line-colour);
 }
 
-.stop-column-top {
+.stop-continuation-marker {
   height: calc(var(--height) * 0.025);
   width: var(--stop-column-width);
   background-color: var(--line-colour);
@@ -46,8 +46,9 @@
 }
 
 .station-row.stopping .column-bullet {
+  --column-bullet-width: calc(var(--width) * 0.005);
   height: calc(var(--height) * 0.008);
-  width: calc(var(--width) * 0.005);
+  width: var(--column-bullet-width);
   background-color: var(--line-colour);
 }
 
@@ -64,7 +65,7 @@
 }
 
 .station-row.express.express-arrow .column-bullet {
-  transform: translateY(calc(var(--arrow-size) * 1))  translateX(calc(var(--stop-column-width) / 2)) rotate(-45deg);
+  transform: translateY(calc(var(--arrow-size) * 1)) translateX(calc(var(--stop-column-width) / 2)) rotate(-45deg);
   transform-origin: bottom left;
 
   --arrow-colour: var(--pid-background);
@@ -85,4 +86,31 @@
 
 .station-row.express .station-row-name {
   color: #a8a8a8;
+}
+
+.stopping-pattern > .stop-column:first-child > .stop-continuation-marker:first-child {
+  background: var(--line-colour);
+}
+
+.stopping-pattern > .stop-column > .stop-continuation-marker {
+  --dot-height: 25%;
+  background: repeating-linear-gradient(to bottom, var(--line-colour) 0, var(--line-colour) calc(var(--dot-height) * 1), transparent calc(var(--dot-height) * 1), transparent calc(var(--dot-height) * 2));
+}
+
+.stopping-pattern > .stop-column > .stop-continuation-marker:last-child {
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent calc(var(--dot-height) * 1), var(--line-colour) calc(var(--dot-height) * 1), var(--line-colour) calc(var(--dot-height) * 2));
+}
+
+.stopping-pattern > .stop-column:last-child > .stop-continuation-marker:last-child {
+  background: none;
+}
+
+.stopping-pattern > .stop-column:last-child > .station-row:nth-last-child(2) .column-backing {
+  background: linear-gradient(to bottom, var(--line-colour) 0, var(--line-colour) 50%, transparent 50%, transparent 100%);
+}
+
+.stopping-pattern > .stop-column:last-child > .station-row:nth-last-child(2) .column-bullet {
+  position: absolute;
+  width: calc(var(--column-bullet-width) * 2 + var(--stop-column-width));
+  margin-left: calc(var(--column-bullet-width) * -1);
 }
