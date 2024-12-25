@@ -18,6 +18,19 @@ class MetroLCDPlatformPID extends PID {
     MAX_COLUMN_SIZE: 9
   }
 
+  #updateSubsequentServices(services) {
+    services.forEach((service, i) => {
+      let correspondingRow = $(`.subsequent-service:nth-child(${i + 1})`)
+      correspondingRow.className = `subsequent-service ${service.line}`
+
+      $('.service-sch-time span', correspondingRow).textContent = service.schTime
+      $('.service-destination span', correspondingRow).textContent = service.destination
+      $('.service-summary span', correspondingRow).textContent = service.summary
+      $('.service-platform span', correspondingRow).textContent = service.platform
+      $('.service-est-time span', correspondingRow).textContent = this.formatEstimatedTime(service.estTime)
+    })
+  }
+
   #updateNextService(service) {
     this.#updateNextServiceInfo(service)
     this.#updateNextServicePattern(service)
@@ -33,12 +46,7 @@ class MetroLCDPlatformPID extends PID {
     $('div.next-service-info').className = `next-service-info ${service.line}`
 
     $('span.next-service-sch-time').textContent = service.schTime
-
-    if (service.estTime < 1) {
-      $('span.next-service-est-time').textContent = 'NOW'
-    } else {
-      $('span.next-service-est-time').textContent = service.estTime + ' min'
-    }
+    $('span.next-service-est-time').textContent = this.formatEstimatedTime(service.estTime)
 
     $('span.next-service-platform').textContent = service.platform
 
@@ -50,6 +58,7 @@ class MetroLCDPlatformPID extends PID {
 
   updateServices(services) {
     this.#updateNextService(services[0])
+    this.#updateSubsequentServices(services.slice(1, 3))
   }
 
 }
@@ -102,6 +111,7 @@ let bairnsdale = [
 ]
 
 let westall = [
+  { name: 'Flinders Street', stops: true },
   { name: 'Richmond', stops: true },
   { name: 'South Yarra', stops: true },
   { name: 'Hawksburn', stops: false },
@@ -121,10 +131,26 @@ let westall = [
 let pid = new MetroLCDPlatformPID()
 window.pid = pid
 pid.updateServices([{
-  schTime: '12:34pm',
-  estTime: 9,
+  schTime: '07:30am',
+  estTime: 0,
+  destination: 'Bairnsdale',
+  summary: 'Not Taking Suburban Passengers',
+  line: 'vline',
+  platform: '6',
+  stops: bairnsdale
+}, {
+  schTime: '07:34am',
+  estTime: 4,
   destination: 'Westall',
-  summary: 'Express, Change at Dandenong for Cranbourne',
+  summary: 'Express',
+  line: 'pakenham',
+  platform: '6',
+  stops: westall
+}, {
+  schTime: '07:37am',
+  estTime: 7,
+  destination: 'Pakenham',
+  summary: 'Express',
   line: 'pakenham',
   platform: '6',
   stops: westall

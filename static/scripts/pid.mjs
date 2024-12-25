@@ -55,4 +55,9 @@ export default class PID {
    * @param {object[]} services The services to be displayed on the screen
    */
   updateServices(services) {}
+
+  formatEstimatedTime(estTime) {
+    if (estTime < 1) return 'NOW'
+    return estTime + ' min'
+  }
 }
