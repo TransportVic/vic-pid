@@ -11,6 +11,7 @@ export default class StoppingPattern {
     )
 
     this.#columns = columns.map(column => new StopsColumn(column))
+    this.#columns[this.#columns.length - 1].markTerminating()
   }
 
   getColumns() { return this.#columns }
@@ -32,6 +33,11 @@ export class StopsColumn {
   }
 
   getStops() { return this.#stops }
+
+  markTerminating() {
+    let lastStop = this.#stops[this.#stops.length - 1]
+    this.#stops[this.#stops.length - 1] = new TerminatingStop(lastStop.getStopName())
+  }
 
 }
 
@@ -61,5 +67,5 @@ export class ArrowExpressStop extends ExpressStop {
 }
 
 export class TerminatingStop extends Stop {
-  
+
 }
