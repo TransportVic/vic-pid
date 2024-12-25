@@ -194,7 +194,8 @@ pid.updateServices([{
   stops: bairnsdale,
   disruptions: [{
     text: 'Due to the forecast temperature on Thursday, 26 December, we are runing a Full Extreme Heat timetable on the Traralgon and Bairnsdale Lines.'
-  }]
+  }],
+  isArrival: true
 }, {
   schTime: '07:34am',
   estTime: 4,
@@ -203,7 +204,8 @@ pid.updateServices([{
   line: 'pakenham',
   platform: '6',
   stops: westall,
-  disruptions: []
+  disruptions: [],
+  isArrival: false
 }, {
   schTime: '07:37am',
   estTime: 7,
@@ -214,5 +216,6 @@ pid.updateServices([{
   stops: westall,
   disruptions: [{
     text: 'Train services are disrupted between Cheltenham and Frankston. Alternative transport has been arranged Metro Trains apologises for any inconvenience.'
-  }]
+  }],
+  isArrival: false
 }])

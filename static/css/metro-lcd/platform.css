@@ -222,7 +222,11 @@ div.service-message {
   opacity: 0;
 }
 
-div.pid.service-message-active div.service-message {
+div.pid.service-message-active div.service-message:not(.alternating) {
+  opacity: 1;
+}
+
+div.pid.service-message-active div.service-message.alternating {
   animation: opacity 15s ease-in-out infinite;
 }
 
@@ -249,7 +253,7 @@ div.pid.showing-departure div.fixed-message {
   display: none;
 }
 
-div.pid.fixed-message-active div.next-service-info, div.pid.fixed-message-active div.next-service-pattern {
+div.pid.fixed-message-active div.next-service-info, div.pid.fixed-message-active div.next-service-detail {
   display: none;
 }
 
