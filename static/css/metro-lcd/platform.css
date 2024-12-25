@@ -80,9 +80,15 @@ span.next-service-summary {
   font-weight: 400;
 }
 
-div.next-service-pattern {
+div.next-service-detail {
   width: 96%;
+  height: calc(var(--height) * 0.55);
+}
+
+div.next-service-pattern {
+  width: 100%;
   font-size: calc(var(--height) * 0.037);
+  height: 100%;
 }
 
 div.pid-footer {
@@ -198,6 +204,47 @@ div.clock {
   font-size: calc(var(--height) * 0.05);
 }
 
+div.service-message {
+  display: flex;
+  position: absolute;
+
+  width: 100%;
+  height: calc(var(--height) * 0.55);
+
+  left: 0;
+  margin-top: calc(var(--height) * -0.55);
+  
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pid-background);
+
+  opacity: 0;
+}
+
+div.pid.service-message-active div.service-message {
+  animation: opacity 15s ease-in-out infinite;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  48% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  98% {
+    opacity: 1;
+  }
+}
+
+
 div.pid.showing-departure div.fixed-message {
   display: none;
 }
@@ -206,11 +253,7 @@ div.pid.fixed-message-active div.next-service-info, div.pid.fixed-message-active
   display: none;
 }
 
-div.pid.service-message-active div.next-service-pattern {
-  display: none;
-}
-
-div.pid.fixed-message-active div.fixed-message, div.pid.service-message-active div.fixed-message {
+div.pid.fixed-message-active div.fixed-message {
   display: flex;
   flex-grow: 1;
 
