@@ -3,7 +3,10 @@ import { splitStops } from '../pid-utils.mjs'
 export default class StoppingPattern {
 
   constructor(stops, cutoff, options) {
-    let columns = splitStops(stops.map(stop => new Stop(stop.name, stop.stops)), false, options)
+    let columns = splitStops(
+      stops.map(stop => stop.stops ? new Stop(stop.name) : new ExpressStop(stop.name)),
+      false, options
+    )
   }
 
 }
@@ -13,22 +16,40 @@ export class StopsColumn {
   #stops
 
   constructor(stops) {
-    this.#stops = stops
+    this.#stops = stops.map((stop, i) => {
+      if (stop.isExpress() && (i === 0 || !stops[i - 1].isExpress())) {
+        return new ArrowExpressStop(stop.getStopName())
+      }
+
+      return stop
+    })
   }
+
+  getStops() { return this.#stops }
 
 }
 
 export class Stop {
 
   #stopName
-  #stopsAt
 
-  constructor(stopName, stopsAt) {
+  constructor(stopName) {
     this.#stopName = stopName
-    this.#stopsAt = stopsAt
   }
 
   getStopName() { return this.#stopName }
-  stopsAt() { return this.#stopsAt }
+  isExpress() { return false }
+
+}
+
+export class ExpressStop extends Stop {
+  
+  isExpress() { return true }
+
+}
+
+export class ArrowExpressStop extends ExpressStop {
+  
+  isExpress() { return true }
 
 }
