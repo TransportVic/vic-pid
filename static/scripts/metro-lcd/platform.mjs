@@ -18,16 +18,28 @@ class MetroLCDPlatformPID extends PID {
     MAX_COLUMN_SIZE: 9
   }
 
+  #SUB_SVC_COUNT = 2
+
   #updateSubsequentServices(services) {
     services.forEach((service, i) => {
       let correspondingRow = $(`.subsequent-service:nth-child(${i + 1})`)
-      correspondingRow.className = `subsequent-service ${service.line}`
+      if (service) {
+        correspondingRow.className = `subsequent-service ${service.line}`
 
-      $('.service-sch-time span', correspondingRow).textContent = service.schTime
-      $('.service-destination span', correspondingRow).textContent = service.destination
-      $('.service-summary span', correspondingRow).textContent = service.summary
-      $('.service-platform span', correspondingRow).textContent = service.platform
-      $('.service-est-time span', correspondingRow).textContent = this.formatEstimatedTime(service.estTime)
+        $('.service-sch-time span', correspondingRow).textContent = service.schTime
+        $('.service-destination span', correspondingRow).textContent = service.destination
+        $('.service-summary span', correspondingRow).textContent = service.summary
+        $('.service-platform span', correspondingRow).textContent = service.platform
+        $('.service-est-time span', correspondingRow).textContent = this.formatEstimatedTime(service.estTime)
+      } else {
+        correspondingRow.className = `subsequent-service no-line`
+
+        $('.service-sch-time span', correspondingRow).textContent = '--'
+        $('.service-destination span', correspondingRow).textContent = '--'
+        $('.service-summary span', correspondingRow).textContent = ''
+        $('.service-platform span', correspondingRow).textContent = ''
+        $('.service-est-time span', correspondingRow).textContent = `-- min`
+      }
     })
   }
 
@@ -58,7 +70,11 @@ class MetroLCDPlatformPID extends PID {
 
   updateServices(services) {
     this.#updateNextService(services[0])
-    this.#updateSubsequentServices(services.slice(1, 3))
+
+    let subsequentServices = services.slice(1, 1 + this.#SUB_SVC_COUNT)
+      .concat(Array(this.#SUB_SVC_COUNT).fill(null))
+      .slice(0, this.#SUB_SVC_COUNT)
+    this.#updateSubsequentServices(subsequentServices)
   }
 
 }
