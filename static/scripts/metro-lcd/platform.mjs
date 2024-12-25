@@ -122,6 +122,14 @@ class MetroLCDPlatformPID extends PID {
     $('div.service-message').className = `service-message`
   }
 
+  showNextServiceMessage(text) {
+    let pid = $('div.pid')
+    pid.classList.add('next-service-message-active')
+
+    $('div.next-service-message').textContent = text
+    $('div.next-service-message').className = `next-service-message text ${getTextSize(1, text.length)}`
+  }
+
   #setArrival() {
     this.#setMainServiceMessageClasses()
     $('div.service-message').innerHTML = `This train is not taking passengers.<br>Don't board this train.`
@@ -207,7 +215,7 @@ pid.updateServices([{
   disruptions: [{
     text: 'Due to the forecast temperature on Thursday, 26 December, we are runing a Full Extreme Heat timetable on the Traralgon and Bairnsdale Lines.'
   }],
-  isArrival: true
+  isArrival: false
 }, {
   schTime: '07:34am',
   estTime: 4,
