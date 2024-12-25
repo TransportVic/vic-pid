@@ -17,6 +17,7 @@ class MetroLCDPlatformPID extends PID {
 
   #updateNextServicePattern(service) {
     let stoppingPattern = new StoppingPattern(service.stops, false, this.#PID_CONFIG)
+    $('.next-service-pattern').innerHTML = stoppingPattern.toHTML()
   }
 
   #updateNextServiceInfo(service) {

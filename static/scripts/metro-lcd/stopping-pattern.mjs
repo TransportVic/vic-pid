@@ -16,6 +16,11 @@ export default class StoppingPattern {
 
   getColumns() { return this.#columns }
 
+  toHTML() {
+    return `<div class="stopping-pattern stopping-pattern-${this.getColumns().length}">
+      ${this.getColumns().map(column => column.toHTML()).join('')}
+    </div>`
+  }
 }
 
 export class StopsColumn {
@@ -39,6 +44,13 @@ export class StopsColumn {
     this.#stops[this.#stops.length - 1] = new TerminatingStop(lastStop.getStopName())
   }
 
+  toHTML() {
+    return `<div class="stop-column">
+      <div class="stop-column-top"></div>
+      ${this.getStops().map(stop => stop.toHTML()).join('')}
+    </div>`
+  }
+
 }
 
 export class Stop {
@@ -51,6 +63,16 @@ export class Stop {
 
   getStopName() { return this.#stopName }
   isExpress() { return false }
+
+  toHTML() {
+    return `<div class="station-row stopping">
+      <div>
+        <div class="column-backing"></div>
+        <div class="column-bullet"></div>
+      </div>
+      <span class="station-row-name">${this.getStopName()}</span>
+    </div>`
+  }
 
 }
 
