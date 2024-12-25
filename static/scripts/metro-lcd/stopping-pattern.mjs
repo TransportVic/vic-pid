@@ -59,3 +59,7 @@ export class ArrowExpressStop extends ExpressStop {
   isExpress() { return true }
 
 }
+
+export class TerminatingStop extends Stop {
+  
+}
