@@ -10,7 +10,7 @@ block scripts
   script(src=`${staticContent}/scripts/metro-lcd/platform.mjs` type='module')
 
 block pid
-  div.pid.pid-16-9.platform.landscape.light
+  div.pid.pid-16-9.platform.landscape.showing-departure.light
     div.line-marker.no-line
     div.next-service-info
       div.next-service-header
@@ -21,6 +21,8 @@ block pid
       div.next-service-pattern-info
         span.next-service-summary
     div.next-service-pattern
+    div.fixed-message
+      span
     div.pid-footer
       table.subsequent-service-info
         mixin serviceRow()

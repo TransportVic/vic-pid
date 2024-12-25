@@ -38,6 +38,15 @@ export function splitStops(stops, hasConnections, options) {
   }
 }
 
+export function getTextSize(lines, length) {
+  if (lines > 4 || length > 120) return 'msg-size-1'
+  if (lines > 4 || length > 90) return 'msg-size-2'
+  if (lines > 2 || length > 40) return 'msg-size-3'
+  if (lines > 2 || length > 20) return 'msg-size-4'
+
+  return 'msg-size-5'
+}
+
 export class Clock {
 
   #element

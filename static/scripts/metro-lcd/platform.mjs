@@ -1,4 +1,4 @@
-import { Clock } from '../pid-utils.mjs'
+import { Clock, getTextSize } from '../pid-utils.mjs'
 import PID from '../pid.mjs'
 import StoppingPattern from './stopping-pattern.mjs'
 
@@ -69,6 +69,7 @@ class MetroLCDPlatformPID extends PID {
   }
 
   updateServices(services) {
+    this.hideFixedMessage()
     this.#updateNextService(services[0])
 
     let subsequentServices = services.slice(1, 1 + this.#SUB_SVC_COUNT)
@@ -77,6 +78,36 @@ class MetroLCDPlatformPID extends PID {
     this.#updateSubsequentServices(subsequentServices)
   }
 
+  showFixedMessage(text) {
+    let pid = $('div.pid')
+    pid.classList.remove('service-message-active')
+    pid.classList.remove('showing-departure')
+    pid.classList.add('fixed-message-active')
+
+    $('div.fixed-message').textContent = text
+    $('div.fixed-message').className = `fixed-message ${getTextSize(1, text.length)}`
+  }
+
+  hideFixedMessage() {
+    let pid = $('div.pid')
+    pid.classList.remove('service-message-active')
+    pid.classList.remove('fixed-message-active')
+    pid.classList.add('showing-departure')
+  }
+
+  showMainServiceMessage(text) {
+    let pid = $('div.pid')
+    pid.classList.remove('fixed-message-active')
+    pid.classList.remove('showing-departure')
+    pid.classList.add('service-message-active')
+
+    $('div.fixed-message').textContent = text
+    $('div.fixed-message').className = `fixed-message ${getTextSize(1, text.length)}`
+  }
+
+  hideMainServiceMessage() {
+    this.hideFixedMessage()
+  }
 }
 
 let bairnsdale = [
@@ -153,7 +184,10 @@ pid.updateServices([{
   summary: 'Not Taking Suburban Passengers',
   line: 'vline',
   platform: '6',
-  stops: bairnsdale
+  stops: bairnsdale,
+  disruptions: [{
+    text: 'Due to the forecast temperature on Thursday, 26 December, we are runing a Full Extreme Heat timetable on the Traralgon and Bairnsdale Lines.'
+  }]
 }, {
   schTime: '07:34am',
   estTime: 4,
@@ -161,13 +195,15 @@ pid.updateServices([{
   summary: 'Express',
   line: 'pakenham',
   platform: '6',
-  stops: westall
+  stops: westall,
+  disruptions: []
 }, {
   schTime: '07:37am',
   estTime: 7,
-  destination: 'Pakenham',
+  destination: 'Frankston',
   summary: 'Express',
-  line: 'pakenham',
+  line: 'frankston',
   platform: '6',
-  stops: westall
+  stops: westall,
+  disruptions: []
 }])

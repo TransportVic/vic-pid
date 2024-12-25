@@ -179,3 +179,25 @@ div.clock {
 
   font-size: calc(var(--height) * 0.05);
 }
+
+div.pid.showing-departure div.fixed-message {
+  display: none;
+}
+
+div.pid.fixed-message-active div.next-service-info, div.pid.fixed-message-active div.next-service-pattern {
+  display: none;
+}
+
+div.pid.service-message-active div.next-service-pattern {
+  display: none;
+}
+
+div.pid.fixed-message-active div.fixed-message, div.pid.service-message-active div.fixed-message {
+  display: flex;
+  flex-grow: 1;
+
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
