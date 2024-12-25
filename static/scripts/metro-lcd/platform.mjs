@@ -8,7 +8,7 @@ class MetroLCDPlatformPID extends PID {
 
   constructor() {
     super()
-    this.#clock = new Clock($('.clock'), 'H:mm:ss a')
+    this.#clock = new Clock($('.clock'), 'h:mm:ss a')
   }
 
   #PID_CONFIG = {

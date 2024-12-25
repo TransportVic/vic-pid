@@ -21,5 +21,18 @@ block pid
         span.next-service-summary
     div.next-service-pattern
     div.pid-footer
-      div.subsequent-service-info
+      table.subsequent-service-info
+        mixin serviceRow()
+          tr.subsequent-service.pakenham
+            td.service-sch-time
+              div.service-colour
+              span 12:34am
+            td.service-destination
+              span Pakenham
+            td.service-summary
+              span Stops All
+            td.service-est-time
+              span 9 min
+        +serviceRow()
+        +serviceRow()
       div.clock

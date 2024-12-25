@@ -1,6 +1,6 @@
 .stopping-pattern {
   display: flex;
-  --stop-column-width: calc(var(--width) * 0.01);
+  --stop-column-width: calc(var(--width) * 0.007);
   --column-bullet-width: calc(var(--width) * 0.005);
 }
 

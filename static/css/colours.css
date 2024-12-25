@@ -1,49 +1,49 @@
-div.alamein, div.belgrave, div.lilydale, div.glen-waverley {
+.alamein, .belgrave, .lilydale, .glen-waverley {
   --line-colour: #152C6B;
   --text-colour: #fff;
 }
 
-div.cranbourne, div.pakenham {
+.cranbourne, .pakenham {
   --line-colour: #279FD5;
   --text-colour: #000;
 }
 
-div.frankston, div.stony-point, div.werribee, div.williamstown {
+.frankston, .stony-point, .werribee, .williamstown {
   --line-colour: #028430;
   --text-colour: #fff;
 }
 
-div.craigieburn, div.sunbury, div.upfield {
+.craigieburn, .sunbury, .upfield {
   --line-colour: #FFBE00;
   --text-colour: #000;
 }
 
-div.hurstbridge, div.mernda {
+.hurstbridge, .mernda {
   --line-colour: #BC2431;
   --text-colour: #fff;
 }
 
-div.sandringham {
+.sandringham {
   --line-colour: #F178AF;
   --text-colour: #000;
 }
 
-div.flemington-racecourse {
+.flemington-racecourse {
   --line-colour: #CE0058;
   --text-colour: #fff;
 }
 
-div.no-line {
+.no-line {
   --line-colour: #95979A;
   --text-colour: #fff;
 }
 
-div.vline {
+.vline {
   --line-colour: #753F98;
   --text-colour: #fff;
 }
 
-div.city-circle {
+.city-circle {
   --line-colour: #000;
   --text-colour: #fff;
 }
