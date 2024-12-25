@@ -21,6 +21,19 @@ span.next-service-destination {
   font-weight: 700;
 }
 
+span.next-service-destination[disrupted=true]::after, td.service-destination span[disrupted=true]::after {
+  content: "";
+  display: inline-block;
+
+  background-image: url(../../img/alert.svg);
+  background-size: cover;
+
+  margin-left: calc(var(--width) * 0.007);
+
+  width: calc(var(--width) * 0.026);
+  height: calc(var(--width) * 0.026);
+}
+
 div.pid.pre-plat.landscape span.next-service-platform {
   width: calc(var(--width) * 0.075);
   font-size: calc(var(--height) * 0.075);
@@ -116,6 +129,11 @@ tr.subsequent-service td.service-sch-time {
 tr.subsequent-service td.service-destination {
   font-size: calc(var(--height) * 0.045);
   font-weight: 500;
+}
+
+td.service-destination span[disrupted=true]::after {
+  width: calc(var(--width) * 0.02);
+  height: calc(var(--width) * 0.02);
 }
 
 tr.subsequent-service td.service-summary {

@@ -27,7 +27,11 @@ class MetroLCDPlatformPID extends PID {
         correspondingRow.className = `subsequent-service ${service.line}`
 
         $('.service-sch-time span', correspondingRow).textContent = service.schTime
-        $('.service-destination span', correspondingRow).textContent = service.destination
+
+        let destination = $('.service-destination span', correspondingRow)
+        destination.textContent = service.destination
+        destination.setAttribute('disrupted', service.disruptions.length > 0)
+
         $('.service-summary span', correspondingRow).textContent = service.summary
         $('.service-platform span', correspondingRow).textContent = service.platform
         $('.service-est-time span', correspondingRow).textContent = this.formatEstimatedTime(service.estTime)
@@ -61,8 +65,10 @@ class MetroLCDPlatformPID extends PID {
     $('span.next-service-est-time').textContent = this.formatEstimatedTime(service.estTime)
 
     $('span.next-service-platform').textContent = service.platform
-
-    $('span.next-service-destination').textContent = service.destination
+    
+    let destination = $('span.next-service-destination')
+    destination.setAttribute('disrupted', service.disruptions.length > 0)
+    destination.textContent = service.destination
     $('span.next-service-summary').textContent = service.summary
 
     $('div.line-marker').className = `line-marker ${service.line}`
@@ -200,10 +206,12 @@ pid.updateServices([{
 }, {
   schTime: '07:37am',
   estTime: 7,
-  destination: 'Frankston',
+  destination: 'Cheltenham',
   summary: 'Express',
   line: 'frankston',
   platform: '6',
   stops: westall,
-  disruptions: []
+  disruptions: [{
+    text: 'Train services are disrupted between Cheltenham and Frankston. Alternative transport has been arranged Metro Trains apologises for any inconvenience.'
+  }]
 }])
