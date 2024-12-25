@@ -373,48 +373,48 @@ describe('The stop splitting function - FSS Platform', () => {
     ])
   })
 
-  // it('Richmond - Cheltenham', () => {
-  //   let stops = [
-  //     'Richmond',
-  //     'South Yarra',
-  //     'Hawksburn',
-  //     'Toorak',
-  //     'Armadale',
-  //     'Malvern',
-  //     'Caulfield',
-  //     'Glen Huntly',
-  //     'Ormond',
-  //     'McKinnon',
-  //     'Bentleigh',
-  //     'Patterson',
-  //     'Moorabbin',
-  //     'Highett',
-  //     'Southland',
-  //     'Cheltenham'
-  //   ]
+  it('Richmond - Cheltenham', () => {
+    let stops = [
+      'Richmond',
+      'South Yarra',
+      'Hawksburn',
+      'Toorak',
+      'Armadale',
+      'Malvern',
+      'Caulfield',
+      'Glen Huntly',
+      'Ormond',
+      'McKinnon',
+      'Bentleigh',
+      'Patterson',
+      'Moorabbin',
+      'Highett',
+      'Southland',
+      'Cheltenham'
+    ]
 
-  //   expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
-  //     [
-  //       'Richmond',
-  //       'South Yarra',
-  //       'Hawksburn',
-  //       'Toorak',
-  //       'Armadale',
-  //       'Malvern',
-  //       'Caulfield',
-  //       'Glen Huntly'
-  //     ], [
-  //       'Ormond',
-  //       'McKinnon',
-  //       'Bentleigh',
-  //       'Patterson',
-  //       'Moorabbin',
-  //       'Highett',
-  //       'Southland',
-  //       'Cheltenham'
-  //     ]
-  //   ])
-  // })
+    expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
+      [
+        'Richmond',
+        'South Yarra',
+        'Hawksburn',
+        'Toorak',
+        'Armadale',
+        'Malvern',
+        'Caulfield',
+        'Glen Huntly'
+      ], [
+        'Ormond',
+        'McKinnon',
+        'Bentleigh',
+        'Patterson',
+        'Moorabbin',
+        'Highett',
+        'Southland',
+        'Cheltenham'
+      ]
+    ])
+  })
 
   it('Glen Huntly - Laverton', () => {
     let stops = [
@@ -466,6 +466,35 @@ describe('The stop splitting function - FSS Platform', () => {
         'Altona',
         'Westona',
         'Laverton'
+      ]
+    ])
+  })
+
+  it('Glen Huntly - Flinders Street', () => {
+    let stops = [
+      'Glen Huntly',
+      'Caulfield',
+      'Malvern',
+      'Armadale',
+      'Toorak',
+      'Hawksburn',
+      'South Yarra',
+      'Richmond',
+      'Flinders Street'
+    ]
+
+    expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
+      [
+        'Glen Huntly',
+        'Caulfield',
+        'Malvern',
+        'Armadale',
+        'Toorak',
+        'Hawksburn',
+        'South Yarra'
+      ], [
+        'Richmond',
+        'Flinders Street',
       ]
     ])
   })
@@ -564,6 +593,237 @@ describe('The stop splitting function - FSS Platform', () => {
         'Flagstaff',
         'Southern Cross',
         'Flinders Street'
+      ]
+    ])
+  })
+
+  it('North Melbourne - Laverton', () => {
+    let stops = [
+      'North Melbourne',
+      'South Kensington',
+      'Footscray',
+      'Seddon',
+      'Yarraville',
+      'Spotswood',
+      'Newport',
+      'Seaholme',
+      'Altona',
+      'Westona',
+      'Laverton'
+    ]
+
+    expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
+      [
+        'North Melbourne',
+        'South Kensington',
+        'Footscray',
+        'Seddon',
+        'Yarraville',
+        'Spotswood',
+        'Newport'
+      ], [
+        'Seaholme',
+        'Altona',
+        'Westona',
+        'Laverton'
+      ]
+    ])
+  })
+
+  it('North Melbourne - Seymour', () => {
+    let stops = [
+      'North Melbourne',
+      'Kensington',
+      'Newmarket',
+      'Ascot Vale',
+      'Moonee Ponds',
+      'Essendon',
+      'Glenbervie',
+      'Strathmore',
+      'Pascoe Vale',
+      'Oak Park',
+      'Glenroy',
+      'Jacana',
+      'Broadmeadows',
+      'Coolaroo',
+      'Roxburgh Park',
+      'Craigieburn',
+      'Donnybrook',
+      'Wallan',
+      'Heathcote Junction',
+      'Wandong',
+      'Kilmore East',
+      'Broadford',
+      'Tallarook',
+      'Seymour'
+    ]
+
+    expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
+      [
+        'North Melbourne',
+        'Kensington',
+        'Newmarket',
+        'Ascot Vale',
+        'Moonee Ponds',
+        'Essendon',
+        'Glenbervie'
+      ], [
+        'Strathmore',
+        'Pascoe Vale',
+        'Oak Park',
+        'Glenroy',
+        'Jacana',
+        'Broadmeadows',
+        'Coolaroo'
+      ], [
+        'Roxburgh Park',
+        'Craigieburn',
+        'Donnybrook',
+        'Wallan',
+        'Heathcote Junction',
+        'Wandong',
+        'Kilmore East'
+      ], [
+        'Broadford',
+        'Tallarook',
+        'Seymour'
+      ]
+    ])
+  })
+
+  it('Melbourne Central - Alamein', () => {
+    let stops = [
+      'Melbourne Central',
+      'Flagstaff',
+      'Southern Cross',
+      'Flinders Street',
+      'Richmond',
+      'East Richmond',
+      'Burnley',
+      'Hawthorn',
+      'Glenferrie',
+      'Auburn',
+      'Camberwell',
+      'Riversdale',
+      'Willison',
+      'Hartwell',
+      'Burwood',
+      'Ashburton',
+      'Alamein'
+    ]
+
+    expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
+      [
+        'Melbourne Central',
+        'Flagstaff',
+        'Southern Cross',
+        'Flinders Street',
+        'Richmond',
+        'East Richmond',
+        'Burnley'
+      ], [
+        'Hawthorn',
+        'Glenferrie',
+        'Auburn',
+        'Camberwell',
+        'Riversdale',
+        'Willison',
+        'Hartwell'
+      ], [
+        'Burwood',
+        'Ashburton',
+        'Alamein'
+      ]
+    ])
+  })
+
+  it('Flagstaff - Broadmeadows', () => {
+    let stops = [
+      'Flagstaff',
+      'Melbourne Central',
+      'Parliament',
+      'Flinders Street',
+      'Southern Cross',
+      'North Melbourne',
+      'Kensington',
+      'Newmarket',
+      'Ascot Vale',
+      'Moonee Ponds',
+      'Essendon',
+      'Glenbervie',
+      'Strathmore',
+      'Pascoe Vale',
+      'Oak Park',
+      'Glenroy',
+      'Jacana',
+      'Broadmeadows'
+    ]
+
+    expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
+      [
+        'Flagstaff',
+        'Melbourne Central',
+        'Parliament',
+        'Flinders Street',
+        'Southern Cross',
+        'North Melbourne',
+        'Kensington'
+      ], [
+        'Newmarket',
+        'Ascot Vale',
+        'Moonee Ponds',
+        'Essendon',
+        'Glenbervie',
+        'Strathmore',
+        'Pascoe Vale'
+      ], [
+        'Oak Park',
+        'Glenroy',
+        'Jacana',
+        'Broadmeadows'
+      ]
+    ])
+  })
+
+  it('Flinders Street - Sunbury', () => {
+    let stops = [
+      'Flinders Street',
+      'Southern Cross',
+      'North Melbourne',
+      'South Kensington',
+      'Footscray',
+      'Middle Footscray',
+      'West Footscray',
+      'Tottenham',
+      'Sunshine',
+      'Albion',
+      'Ginifer',
+      'St. Albans',
+      'Keilor Plains',
+      'Watergardens',
+      'Diggers Rest',
+      'Sunbury'
+    ]
+
+    expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
+      [
+        'Flinders Street',
+        'Southern Cross',
+        'North Melbourne',
+        'South Kensington',
+        'Footscray',
+        'Middle Footscray',
+        'West Footscray',
+        'Tottenham',
+      ], [
+        'Sunshine',
+        'Albion',
+        'Ginifer',
+        'St. Albans',
+        'Keilor Plains',
+        'Watergardens',
+        'Diggers Rest',
+        'Sunbury'
       ]
     ])
   })

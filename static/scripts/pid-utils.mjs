@@ -5,7 +5,10 @@ export function calculateLineNumber(stationsCount, hasConnections, options) {
   let MAX_COLUMN_SIZE = options.MAX_COLUMN_SIZE
 
   // total stations with extras due to spillover from space lost due to connection message - 2 per row * last 3 rows = 6
-  let totalStations = stationsCount + (hasConnections ? (MAX_COLUMNS - 1) * CONNECTION_LOSS : 0)
+  let totalStations = stationsCount - 1 + (hasConnections ? (MAX_COLUMNS - 1) * CONNECTION_LOSS : 0)
+
+  let perfectSplit = stationsCount / 2
+  if (!hasConnections && (perfectSplit % 1 === 0) && MIN_COLUMN_SIZE < perfectSplit && perfectSplit < MAX_COLUMN_SIZE) return perfectSplit
 
   for (let columnSize = MIN_COLUMN_SIZE; columnSize <= MAX_COLUMN_SIZE; columnSize++) {
     if (MAX_COLUMNS * columnSize >= totalStations) {
@@ -17,7 +20,7 @@ export function calculateLineNumber(stationsCount, hasConnections, options) {
 }
 
 export function splitStops(stops, hasConnections, options) {
-  let size = calculateLineNumber(stops.length - 1, hasConnections, options)
+  let size = calculateLineNumber(stops.length, hasConnections, options)
 
   let parts = []
 
