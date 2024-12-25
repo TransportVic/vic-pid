@@ -906,4 +906,98 @@ describe('The stop splitting function - FSS Platform', () => {
       ]
     ])
   })
+
+  it('Frankston - Laverton: Note that an actual PID should cut off at Newport', () => {
+    let stops = [
+      'Frankston',
+      'Kananook',
+      'Seaford',
+      'Carrum',
+      'Bonbeach',
+      'Chelsea',
+      'Edithvale',
+      'Aspendale',
+      'Mordialloc',
+      'Parkdale',
+      'Mentone',
+      'Cheltenham',
+      'Southland',
+      'Highett',
+      'Moorabbin',
+      'Patterson',
+      'Bentleigh',
+      'McKinnon',
+      'Ormond',
+      'Glen Huntly',
+      'Caulfield',
+      'Malvern',
+      'Armadale',
+      'Toorak',
+      'Hawksburn',
+      'South Yarra',
+      'Richmond',
+      'Flinders Street',
+      'Southern Cross',
+      'North Melbourne',
+      'South Kensington',
+      'Footscray',
+      'Seddon',
+      'Yarraville',
+      'Spotswood',
+      'Newport',
+      'Seaholme',
+      'Altona',
+      'Westona',
+      'Laverton'
+    ]
+
+    expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
+      [
+        'Frankston',
+        'Kananook',
+        'Seaford',
+        'Carrum',
+        'Bonbeach',
+        'Chelsea',
+        'Edithvale',
+        'Aspendale',
+        'Mordialloc'
+      ], [
+        'Parkdale',
+        'Mentone',
+        'Cheltenham',
+        'Southland',
+        'Highett',
+        'Moorabbin',
+        'Patterson',
+        'Bentleigh',
+        'McKinnon'
+      ], [
+        'Ormond',
+        'Glen Huntly',
+        'Caulfield',
+        'Malvern',
+        'Armadale',
+        'Toorak',
+        'Hawksburn',
+        'South Yarra',
+        'Richmond'
+      ], [
+        'Flinders Street',
+        'Southern Cross',
+        'North Melbourne',
+        'South Kensington',
+        'Footscray',
+        'Seddon',
+        'Yarraville',
+        'Spotswood',
+        'Newport'
+      ], [
+        'Seaholme',
+        'Altona',
+        'Westona',
+        'Laverton'
+      ]
+    ])
+  })
 })
