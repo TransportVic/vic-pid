@@ -37,3 +37,28 @@ export function splitStops(stops, hasConnections, options) {
     start = end
   }
 }
+
+export class Clock {
+
+  #element
+  #format
+
+  constructor(element, format) {
+    this.#element = element
+    this.#format = format
+    this.setup()
+  }
+
+  setup() {
+    this.updateTime()
+    let msToNextSecond = 1000 - (+new Date() % 1000)
+    setTimeout(() => {
+      this.updateTime()
+      setInterval(this.updateTime, 1000)
+    }, msToNextSecond)
+  }
+
+  updateTime() {
+    this.#element.textContent = dayjs().format(this.#format)
+  }
+}

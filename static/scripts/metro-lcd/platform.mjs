@@ -1,7 +1,15 @@
+import { Clock } from '../pid-utils.mjs'
 import PID from '../pid.mjs'
 import StoppingPattern from './stopping-pattern.mjs'
 
 class MetroLCDPlatformPID extends PID {
+
+  #clock
+
+  constructor() {
+    super()
+    this.#clock = new Clock($('.clock'), 'H:mm:ss a')
+  }
 
   #PID_CONFIG = {
     MAX_COLUMNS: 4,
