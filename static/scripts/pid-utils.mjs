@@ -54,7 +54,7 @@ export class Clock {
     let msToNextSecond = 1000 - (+new Date() % 1000)
     setTimeout(() => {
       this.updateTime()
-      setInterval(this.updateTime, 1000)
+      setInterval(() => this.updateTime(), 1000)
     }, msToNextSecond)
   }
 
