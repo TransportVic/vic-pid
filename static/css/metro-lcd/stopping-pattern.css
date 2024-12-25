@@ -1,6 +1,7 @@
 .stopping-pattern {
   display: flex;
   --stop-column-width: calc(var(--width) * 0.01);
+  --column-bullet-width: calc(var(--width) * 0.005);
 }
 
 .stopping-pattern.col-2 .stop-column {
@@ -21,6 +22,7 @@
 
 .stopping-pattern > .stop-column:first-child > .station-row:nth-child(2) > .station-row-name {
   background-color: var(--line-colour);
+  color: var(--text-colour);
 }
 
 .stop-continuation-marker {
@@ -46,10 +48,13 @@
 }
 
 .station-row.stopping .column-bullet {
-  --column-bullet-width: calc(var(--width) * 0.005);
   height: calc(var(--height) * 0.008);
   width: var(--column-bullet-width);
   background-color: var(--line-colour);
+}
+
+.station-row.express .column-bullet {
+  width: var(--column-bullet-width);
 }
 
 .station-row.express.express-arrow .column-bullet, .station-row.express.express-arrow .column-bullet::before {
@@ -79,13 +84,16 @@
   --arrow-colour: var(--line-colour);
 }
 
-
 .station-row-name {
   padding: calc(var(--height) * 0.004) calc(var(--width) * 0.007);
 }
 
 .station-row.express .station-row-name {
   color: #a8a8a8;
+}
+
+.station-row.express-arrow .station-row-name {
+  margin-left: var(--column-bullet-width);
 }
 
 .stopping-pattern > .stop-column:first-child > .stop-continuation-marker:first-child {
