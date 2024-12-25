@@ -6,9 +6,13 @@ class MetroLCDPlatformPID extends PID {
 
   #clock
 
-  constructor() {
+  constructor(type = 'platform') {
     super()
     this.#clock = new Clock($('.clock'), 'h:mm:ss a')
+    if (type !== 'platform') {
+      $('div.pid').classList.remove('platform')
+      $('div.pid').classList.add(type)
+    }
   }
 
   #PID_CONFIG = {
@@ -211,7 +215,7 @@ let westall = [
   { name: 'Westall', stops: true }
 ]
 
-let pid = new MetroLCDPlatformPID()
+let pid = new MetroLCDPlatformPID(Object.keys(search.hash)[0] || 'platform')
 window.pid = pid
 pid.updateServices([{
   schTime: '7:30am',
