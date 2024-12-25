@@ -97,7 +97,9 @@ html, body {
 .pid {
   width: var(--width);
   height: var(--height);
-  background-color: #222222;
+
+  --pid-background: #222222;
+  background-color: var(--pid-background);
   color: #fff;
 
   display: flex;
@@ -108,7 +110,7 @@ html, body {
 }
 
 .pid.light {
-  background-color: #f0f0f0;
+  --pid-background: #f0f0f0;
   color: #000;
 }
 

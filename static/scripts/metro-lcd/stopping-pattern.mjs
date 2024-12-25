@@ -64,8 +64,10 @@ export class Stop {
   getStopName() { return this.#stopName }
   isExpress() { return false }
 
+  getClassName() { return 'stopping' }
+
   toHTML() {
-    return `<div class="station-row stopping">
+    return `<div class="station-row ${this.getClassName()}">
       <div class="column-bullet-container">
         <div class="column-backing"></div>
         <div class="column-bullet"></div>
@@ -79,12 +81,14 @@ export class Stop {
 export class ExpressStop extends Stop {
   
   isExpress() { return true }
+  getClassName() { return 'express' }
 
 }
 
 export class ArrowExpressStop extends ExpressStop {
   
   isExpress() { return true }
+  getClassName() { return 'express express-arrow' }
 
 }
 
