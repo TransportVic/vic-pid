@@ -62,10 +62,14 @@ table.subsequent-service-info {
   width: calc(var(--width) * 0.74);
   display: inline-table;
   border-collapse: collapse;
+  box-sizing: border-box;
 }
 
-tr.subsequent-service {
+tr.subsequent-service td {
   border-top: calc(var(--height) * 0.002) solid #000;
+  padding: 0;
+  padding-block: calc(var(--height) * 0.01);
+  vertical-align: baseline;
 }
 
 tr.subsequent-service div.service-colour {
@@ -87,7 +91,7 @@ tr.subsequent-service td.service-sch-time {
 }
 
 tr.subsequent-service td.service-destination {
-  font-size: calc(var(--height) * 0.04);
+  font-size: calc(var(--height) * 0.045);
   font-weight: 700;
 }
 
@@ -104,17 +108,22 @@ tr.subsequent-service td.service-est-time {
 
 tr.subsequent-service td.service-est-time span {
   display: inline-block;
+  padding-block: calc(var(--height) * 0.007);
+  width: calc(var(--width) * 0.11);
+
   background-color: #000;
   color: #fff;
+}
 
-  padding-block: calc(var(--height) * 0.006);
-  width: calc(var(--width) * 0.1);
+tr.subsequent-service:last-child td.service-est-time span {
+  padding-bottom: calc(var(--height) * 0.01);
 }
 
 div.clock {
   width: calc(var(--width) * 0.2);
   height: 100%;
   border: calc(var(--height) * 0.002) solid #000;
+  box-sizing: border-box;
 
   margin-left: auto;
   
