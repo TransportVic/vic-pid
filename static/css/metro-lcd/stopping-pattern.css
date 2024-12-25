@@ -122,3 +122,7 @@
   width: calc(var(--column-bullet-width) * 2 + var(--stop-column-width));
   margin-left: calc(var(--column-bullet-width) * -1);
 }
+
+.stopping-pattern > .stop-column:last-child > .station-row:nth-last-child(2) .station-row-name {
+  margin-left: var(--column-bullet-width);
+}
