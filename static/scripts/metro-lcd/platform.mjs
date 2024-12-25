@@ -2,27 +2,29 @@ import { Clock, getTextSize } from '../pid-utils.mjs'
 import PID from '../pid.mjs'
 import StoppingPattern from './stopping-pattern.mjs'
 
-class MetroLCDPlatformPID extends PID {
+export class MetroLCDPlatformPID extends PID {
 
   #clock
 
   constructor(type = 'platform') {
     super()
-    this.#clock = new Clock($('.clock'), 'h:mm:ss a')
+    if ($('.clock')) this.#clock = new Clock($('.clock'), 'h:mm:ss a')
     if (type !== 'platform') {
       $('div.pid').classList.remove('platform')
       $('div.pid').classList.add(type)
     }
   }
 
-  #PID_CONFIG = {
-    MAX_COLUMNS: 4,
-    CONNECTION_LOSS: 2,
-    MIN_COLUMN_SIZE: 6,
-    MAX_COLUMN_SIZE: 9
+  getPIDConfig() {
+    return {
+      MAX_COLUMNS: 4,
+      CONNECTION_LOSS: 2,
+      MIN_COLUMN_SIZE: 6,
+      MAX_COLUMN_SIZE: 9
+    }
   }
 
-  #SUB_SVC_COUNT = 2
+  getSubsequentServiceCount() { return 2 }
 
   #updateSubsequentServices(services) {
     services.forEach((service, i) => {
@@ -65,7 +67,7 @@ class MetroLCDPlatformPID extends PID {
   }
 
   #updateNextServicePattern(service) {
-    let stoppingPattern = new StoppingPattern(service.stops, false, this.#PID_CONFIG)
+    let stoppingPattern = new StoppingPattern(service.stops, false, this.getPIDConfig())
     $('.next-service-pattern').innerHTML = stoppingPattern.toHTML()
     $('.next-service-pattern').className = `next-service-pattern ${service.line}`
   }
@@ -90,9 +92,10 @@ class MetroLCDPlatformPID extends PID {
     this.hideFixedMessage()
     this.#updateNextService(services[0])
 
-    let subsequentServices = services.slice(1, 1 + this.#SUB_SVC_COUNT)
-      .concat(Array(this.#SUB_SVC_COUNT).fill(null))
-      .slice(0, this.#SUB_SVC_COUNT)
+    let subSvcCount = this.getSubsequentServiceCount()
+    let subsequentServices = services.slice(1, 1 + subSvcCount)
+      .concat(Array(subSvcCount).fill(null))
+      .slice(0, subSvcCount)
     this.#updateSubsequentServices(subsequentServices)
   }
 

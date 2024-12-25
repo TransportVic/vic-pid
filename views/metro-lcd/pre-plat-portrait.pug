@@ -1,0 +1,47 @@
+extends ../core/pid
+
+block head
+  link(rel='stylesheet' href=`${staticContent}/css/colours.css`)
+  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/base.css`)
+  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/pre-plat-portrait.css`)
+  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/stopping-pattern.css`)
+
+block scripts
+  script(src=`${staticContent}/scripts/metro-lcd/pre-plat-portrait.mjs` type='module')
+
+block pid
+  div.pid.pid-16-9.pre-plat.portrait.showing-departure.light
+    div.line-marker.no-line
+    div.next-service-info
+      div.next-service-header
+        div.left
+          span.next-service-sch-time
+          span.next-service-destination
+        div.right
+          span.next-service-platform
+          span.next-service-est-time
+      div.next-service-pattern-info
+        span.next-service-summary
+    div.next-service-detail
+      div.next-service-pattern
+      div.service-message
+    //- div.fixed-message
+    //- div.pid-footer
+    //-   table.subsequent-service-info
+    //-     mixin serviceRow()
+    //-       tr.subsequent-service.no-line
+    //-         td.service-sch-time
+    //-           div.service-colour
+    //-           span --
+    //-         td.service-destination
+    //-           span --
+    //-         td.service-summary
+    //-           span
+    //-         td.service-platform
+    //-           span
+    //-         td.service-est-time
+    //-           span -- min
+    //-     +serviceRow()
+    //-     +serviceRow()
+    //-   div.next-service-message
+    //-   div.clock
