@@ -17,7 +17,7 @@ export default class StoppingPattern {
   getColumns() { return this.#columns }
 
   toHTML() {
-    return `<div class="stopping-pattern stopping-pattern-${this.getColumns().length}">
+    return `<div class="stopping-pattern col-${this.getColumns().length}">
       ${this.getColumns().map(column => column.toHTML()).join('')}
     </div>`
   }
