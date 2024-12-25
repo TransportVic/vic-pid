@@ -88,8 +88,6 @@ class MetroLCDPlatformPID extends PID {
 
   showFixedMessage(text) {
     let pid = $('div.pid')
-    pid.classList.remove('service-message-active')
-    pid.classList.remove('showing-departure')
     pid.classList.add('fixed-message-active')
 
     $('div.fixed-message').textContent = text
@@ -98,15 +96,11 @@ class MetroLCDPlatformPID extends PID {
 
   hideFixedMessage() {
     let pid = $('div.pid')
-    pid.classList.remove('service-message-active')
     pid.classList.remove('fixed-message-active')
-    pid.classList.add('showing-departure')
   }
 
   #setMainServiceMessageClasses() {
     let pid = $('div.pid')
-    pid.classList.remove('fixed-message-active')
-    pid.classList.remove('showing-departure')
     pid.classList.add('service-message-active')
   }
 
@@ -118,7 +112,9 @@ class MetroLCDPlatformPID extends PID {
   }
 
   hideMainServiceMessage() {
-    this.hideFixedMessage()
+    let pid = $('div.pid')
+    pid.classList.remove('service-message-active')
+
     $('div.service-message').className = `service-message`
   }
 

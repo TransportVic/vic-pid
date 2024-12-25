@@ -272,7 +272,7 @@ div.pid.service-message-active div.service-message.alternating {
 }
 
 
-div.pid.showing-departure div.fixed-message {
+div.pid:not(.fixed-message-active) div.fixed-message {
   display: none;
 }
 
