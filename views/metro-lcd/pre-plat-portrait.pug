@@ -8,6 +8,13 @@ block head
 
 block scripts
   script(src=`${staticContent}/scripts/metro-lcd/pre-plat-portrait.mjs` type='module')
+  script(src=`${staticContent}/scripts/test-data.js`)
+  script.
+    window.onload = () => {
+      let pid = new PrePlatformPortraitPID()
+      window.pid = pid
+      pid.updateServices(window.services)
+    }
 
 block pid
   div.pid.pid-16-9.pre-plat.portrait.showing-departure.light
