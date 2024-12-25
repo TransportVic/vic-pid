@@ -50,6 +50,8 @@ class MetroLCDPlatformPID extends PID {
   #updateNextService(service) {
     this.#updateNextServiceInfo(service)
     this.#updateNextServicePattern(service)
+    if (service.isArrival) this.#setArrival()
+    else this.hideMainServiceMessage()
   }
 
   #updateNextServicePattern(service) {
@@ -101,11 +103,15 @@ class MetroLCDPlatformPID extends PID {
     pid.classList.add('showing-departure')
   }
 
-  showMainServiceMessage(text) {
+  #setMainServiceMessageClasses() {
     let pid = $('div.pid')
     pid.classList.remove('fixed-message-active')
     pid.classList.remove('showing-departure')
     pid.classList.add('service-message-active')
+  }
+
+  showMainServiceMessage(text) {
+    this.#setMainServiceMessageClasses()
 
     $('div.service-message').textContent = text
     $('div.service-message').className = `service-message alternating ${getTextSize(1, text.length)}`
@@ -114,6 +120,12 @@ class MetroLCDPlatformPID extends PID {
   hideMainServiceMessage() {
     this.hideFixedMessage()
     $('div.service-message').className = `service-message`
+  }
+
+  #setArrival() {
+    this.#setMainServiceMessageClasses()
+    $('div.service-message').innerHTML = `This train is not taking passengers.<br>Don't board this train.`
+    $('div.service-message').className = `service-message arrival`
   }
 }
 

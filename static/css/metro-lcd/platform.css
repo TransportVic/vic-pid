@@ -222,6 +222,23 @@ div.service-message {
   opacity: 0;
 }
 
+div.service-message.arrival {
+  text-align: left;
+  font-size: calc(var(--height) * 0.08);
+  font-weight: 400;
+}
+
+div.service-message.arrival::before {
+  content: "";
+  background-image: url(../../img/do-not-board.svg);
+  background-size: cover;
+
+  width: calc(var(--width) * 0.18);
+  height: calc(var(--width) * 0.18);
+
+  margin-right: calc(var(--width) * 0.04);
+}
+
 div.pid.service-message-active div.service-message:not(.alternating) {
   opacity: 1;
 }
