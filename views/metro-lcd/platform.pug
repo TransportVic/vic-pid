@@ -10,7 +10,7 @@ block scripts
   script(src=`${staticContent}/scripts/metro-lcd/platform.mjs` type='module')
 
 block pid
-  div.pid.pid-16-9.pre-plat.landscape.light
+  div.pid.pid-16-9.platform.landscape.light
     div.line-marker.no-line
     div.next-service-info
       div.next-service-header
@@ -31,6 +31,8 @@ block pid
             td.service-destination
               span --
             td.service-summary
+              span
+            td.service-platform
               span
             td.service-est-time
               span -- min

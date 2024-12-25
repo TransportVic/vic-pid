@@ -30,7 +30,7 @@ div.pid.pre-plat.landscape span.next-service-platform {
   text-align: center;
 
   background-color: var(--line-colour);
-  color: var(-text-colour);
+  color: var(--text-colour);
   margin-left: auto;
 }
 
@@ -123,8 +123,34 @@ tr.subsequent-service td.service-summary {
   font-size: calc(var(--height) * 0.034);
 }
 
+div.pid.platform tr.subsequent-service td.service-platform {
+  display: none;
+}
+
+div.pid.pre-plat.landscape tr.subsequent-service td.service-platform {
+  width: calc(var(--width) * 0.045);
+  text-align: center;
+  font-size: calc(var(--height) * 0.038);
+}
+
+div.pid.pre-plat.landscape tr.subsequent-service td.service-platform span {
+  display: inline-block;
+  --padding: calc(var(--height) * 0.005);
+
+  padding-block: var(--padding);
+  width: calc(var(--width) * 0.045);
+  line-height: calc(var(--est-time-box-height) - var(--padding) * 2);
+
+  background-color: var(--line-colour);
+  color: var(--text-colour);
+}
+
+div.pid.pre-plat.landscape tr.subsequent-service td.service-platform:has(span:empty) {
+  vertical-align: middle;
+}
+
 tr.subsequent-service td.service-est-time {
-  width: calc(var(--width) * 0.13);
+  width: calc(var(--width) * 0.1105);
   text-align: center;
   font-size: calc(var(--height) * 0.038);
 }
@@ -134,6 +160,7 @@ tr.subsequent-service td.service-est-time span {
   height: var(--est-time-box-height);
   line-height: var(--est-time-box-height);
   width: calc(var(--width) * 0.11);
+  margin-left: calc(var(--width) * 0.005);
 
   background-color: #000;
   color: #fff;
