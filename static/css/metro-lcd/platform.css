@@ -35,7 +35,7 @@ span.next-service-est-time {
   margin-left: auto;
 }
 
-div.next-service-pattern {
+div.next-service-pattern-info {
   margin-bottom: calc(var(--height) * 0.02);
 }
 

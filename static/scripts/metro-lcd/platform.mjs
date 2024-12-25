@@ -1,8 +1,25 @@
 import PID from '../pid.mjs'
+import StoppingPattern from './stopping-pattern.mjs'
 
 class MetroLCDPlatformPID extends PID {
 
+  #PID_CONFIG = {
+    MAX_COLUMNS: 4,
+    CONNECTION_LOSS: 2,
+    MIN_COLUMN_SIZE: 6,
+    MAX_COLUMN_SIZE: 9
+  }
+
   #updateNextService(service) {
+    this.#updateNextServiceInfo(service)
+    this.#updateNextServicePattern(service)
+  }
+
+  #updateNextServicePattern(service) {
+    let stoppingPattern = new StoppingPattern(service.stops, false, this.#PID_CONFIG)
+  }
+
+  #updateNextServiceInfo(service) {
     $('span.next-service-sch-time').textContent = service.schTime
 
     if (service.estTime < 1) {
