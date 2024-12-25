@@ -10,12 +10,13 @@ block scripts
   script(src=`${staticContent}/scripts/metro-lcd/platform.mjs` type='module')
 
 block pid
-  div.pid.pid-16-9.landscape.light
+  div.pid.pid-16-9.pre-plat.landscape.light
     div.line-marker.no-line
     div.next-service-info
       div.next-service-header
         span.next-service-sch-time
         span.next-service-destination
+        span.next-service-platform
         span.next-service-est-time
       div.next-service-pattern-info
         span.next-service-summary
@@ -23,16 +24,16 @@ block pid
     div.pid-footer
       table.subsequent-service-info
         mixin serviceRow()
-          tr.subsequent-service.pakenham
+          tr.subsequent-service.no-line
             td.service-sch-time
               div.service-colour
-              span 12:34am
+              span --
             td.service-destination
-              span Pakenham
+              span --
             td.service-summary
-              span Stops All
+              span
             td.service-est-time
-              span 9 min
+              span -- min
         +serviceRow()
         +serviceRow()
       div.clock

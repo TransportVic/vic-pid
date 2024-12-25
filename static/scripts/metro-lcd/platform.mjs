@@ -30,6 +30,8 @@ class MetroLCDPlatformPID extends PID {
   }
 
   #updateNextServiceInfo(service) {
+    $('div.next-service-info').className = `next-service-info ${service.line}`
+
     $('span.next-service-sch-time').textContent = service.schTime
 
     if (service.estTime < 1) {
@@ -37,6 +39,8 @@ class MetroLCDPlatformPID extends PID {
     } else {
       $('span.next-service-est-time').textContent = service.estTime + ' min'
     }
+
+    $('span.next-service-platform').textContent = service.platform
 
     $('span.next-service-destination').textContent = service.destination
     $('span.next-service-summary').textContent = service.summary
@@ -122,5 +126,6 @@ pid.updateServices([{
   destination: 'Westall',
   summary: 'Express, Change at Dandenong for Cranbourne',
   line: 'pakenham',
+  platform: '6',
   stops: westall
 }])

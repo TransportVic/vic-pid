@@ -21,6 +21,23 @@ span.next-service-destination {
   font-weight: 700;
 }
 
+div.pid.pre-plat.landscape span.next-service-platform {
+  width: calc(var(--width) * 0.075);
+  font-size: calc(var(--height) * 0.075);
+  font-weight: 400;
+  display: inline-block;
+  padding-block: calc(var(--height) * 0.01);
+  text-align: center;
+
+  background-color: var(--line-colour);
+  color: var(-text-colour);
+  margin-left: auto;
+}
+
+div.pid.platform span.next-service-platform {
+  display: none;
+}
+
 span.next-service-est-time {
   width: calc(var(--width) * 0.2);
   font-size: calc(var(--height) * 0.075);
@@ -31,7 +48,14 @@ span.next-service-est-time {
 
   background-color: #000;
   color: #fff;
+}
+
+div.pid.platform span.next-service-est-time {
   margin-left: auto;
+}
+
+div.pid.pre-plat.landscape span.next-service-est-time {
+  margin-left: calc(var(--width) * 0.005);
 }
 
 div.next-service-pattern-info {
