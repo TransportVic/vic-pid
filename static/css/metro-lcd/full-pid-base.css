@@ -166,8 +166,8 @@ tr.subsequent-service td.service-destination {
 }
 
 td.service-destination span[disrupted=true]::after {
-  width: calc(var(--width) * 0.02);
-  height: calc(var(--width) * 0.02);
+  width: calc(var(--subsequent-svc-font) * 0.75);
+  height: calc(var(--subsequent-svc-font) * 0.75);
 }
 
 div.pid.pre-plat.portrait tr.subsequent-service td.service-summary {
