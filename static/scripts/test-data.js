@@ -173,4 +173,14 @@ window.services = [{
   stops: frankston,
   disruptions: [],
   isArrival: false
+}, {
+  schTime: '7:45am',
+  estTime: 15,
+  destination: 'Traralgon',
+  summary: 'Express',
+  line: 'vline',
+  platform: '6',
+  stops: bairnsdale.slice(0, -4),
+  disruptions: [],
+  isArrival: false
 }]
