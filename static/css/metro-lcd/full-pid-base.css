@@ -152,6 +152,9 @@ tr.subsequent-service td.service-sch-time {
 tr.subsequent-service td.service-sch-time span {
   border-left: var(--subsequent-svc-line-colour-width) solid var(--line-colour);
   padding-left: calc(var(--width) * 0.01);
+  padding-block: var(--subsequent-svc-plat-padding);
+  display: inline-block;
+  line-height: calc(var(--est-time-box-height) - var(--subsequent-svc-plat-padding) * 2);
 }
 
 tr.subsequent-service td.service-destination {
