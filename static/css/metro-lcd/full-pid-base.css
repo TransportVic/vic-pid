@@ -48,7 +48,9 @@ span.next-service-destination {
   font-weight: 700;
 }
 
-span.next-service-destination[disrupted=true]::after, td.service-destination span[disrupted=true]::after {
+div.pid.landscape div.next-service-info.disrupted span.next-service-destination::after,
+div.pid.portrait div.next-service-info.disrupted span.next-service-sch-time::after,
+tr.subsequent-service.disrupted td.service-destination span::after {
   content: "";
   display: inline-block;
 
@@ -149,7 +151,7 @@ tr.subsequent-service td.service-destination {
   font-weight: 500;
 }
 
-td.service-destination span[disrupted=true]::after {
+tr.subsequent-service.disrupted td.service-destination span::after {
   width: calc(var(--subsequent-svc-font) * 0.75);
   height: calc(var(--subsequent-svc-font) * 0.75);
 }

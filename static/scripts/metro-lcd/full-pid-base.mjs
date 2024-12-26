@@ -27,21 +27,19 @@ export class FullLCDPIDBase extends PID {
     let replacementHTML = services.map((service, i) => {
       if (service) {
         return this.#subsequentServiceTemplate
-          .replace('no-line', service.line)
+          .replace('no-line', `${service.line} ${service.disruptions.length > 0 ? 'disrupted' : ''}`)
           .replace('{0}', service.schTime)
-          .replace('{1}', service.disruptions.length > 0)
-          .replace('{2}', service.destination)
-          .replace('{3}', service.summary)
-          .replace('{4}', service.platform)
-          .replace('{5}', this.formatEstimatedTime(service.estTime))
+          .replace('{1}', service.destination)
+          .replace('{2}', service.summary)
+          .replace('{3}', service.platform)
+          .replace('{4}', this.formatEstimatedTime(service.estTime))
       } else { 
         return this.#subsequentServiceTemplate
           .replace('{0}', '--')
-          .replace('{1}', 'false')
-          .replace('{2}', '--')
+          .replace('{1}', '--')
+          .replace('{2}', '')
           .replace('{3}', '')
-          .replace('{4}', '')
-          .replace('{5}', '-- min')
+          .replace('{4}', '-- min')
       }
     }).join('')
 
@@ -57,15 +55,13 @@ export class FullLCDPIDBase extends PID {
     services.forEach((service, i) => {
       let correspondingRow = $(`.subsequent-service:nth-child(${i + 1})`)
       if (service) {
-        correspondingRow.className = `subsequent-service ${service.line}`
+        correspondingRow.className = `subsequent-service ${service.line} ${service.disruptions.length > 0 ? 'disrupted' : ''}`
 
         $('.service-sch-time span', correspondingRow).textContent = service.schTime
-
-        let destination = $('.service-destination span', correspondingRow)
-        destination.textContent = service.destination
-        destination.setAttribute('disrupted', service.disruptions.length > 0)
+        $('.service-destination span', correspondingRow).textContent = service.destination
 
         $('.service-summary span', correspondingRow).textContent = service.summary
+
         $('.service-platform span', correspondingRow).textContent = service.platform
         $('.service-est-time span', correspondingRow).textContent = this.formatEstimatedTime(service.estTime)
       } else {
@@ -100,16 +96,14 @@ export class FullLCDPIDBase extends PID {
   }
 
   #updateNextServiceInfo(service) {
-    $('div.next-service-info').className = `next-service-info ${service.line}`
+    $('div.next-service-info').className = `next-service-info ${service.line} ${service.disruptions.length > 0 ? 'disrupted' : ''}`
 
     $('span.next-service-sch-time').textContent = service.schTime
     $('span.next-service-est-time').textContent = this.formatEstimatedTime(service.estTime)
 
     $('span.next-service-platform').textContent = service.platform
     
-    let destination = $('span.next-service-destination')
-    destination.setAttribute('disrupted', service.disruptions.length > 0)
-    destination.textContent = service.destination
+    $('span.next-service-destination').textContent = service.destination
     $('span.next-service-summary').textContent = service.summary
 
     $('div.line-marker').className = `line-marker ${service.line}`
