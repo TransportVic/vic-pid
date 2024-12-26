@@ -32,23 +32,24 @@ block pid
     div.next-service-detail
       div.next-service-pattern
       div.service-message
-    //- div.fixed-message
-    //- div.pid-footer
-    //-   table.subsequent-service-info
-    //-     mixin serviceRow()
-    //-       tr.subsequent-service.no-line
-    //-         td.service-sch-time
-    //-           div.service-colour
-    //-           span --
-    //-         td.service-destination
-    //-           span --
-    //-         td.service-summary
-    //-           span
-    //-         td.service-platform
-    //-           span
-    //-         td.service-est-time
-    //-           span -- min
-    //-     +serviceRow()
-    //-     +serviceRow()
-    //-   div.next-service-message
-    //-   div.clock
+    div.fixed-message
+    div.pid-footer
+      table.subsequent-service-info
+        mixin serviceRow()
+          tr.subsequent-service.no-line
+            td.service-sch-time
+              div.service-colour
+              span --
+            td.service-destination
+              span --
+            td.service-summary
+              span
+            td.service-platform
+              span
+            td.service-est-time
+              span -- min
+        +serviceRow()
+        +serviceRow()
+        +serviceRow()
+        +serviceRow()
+      div.next-service-message

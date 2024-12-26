@@ -22,8 +22,9 @@ span.next-service-sch-time {
 }
 
 span.next-service-destination {
-  font-size: calc(var(--height) * 0.046);
+  font-size: calc(var(--height) * 0.048);
   font-weight: 700;
+  line-height: 0.9;
 }
 
 span.next-service-destination[disrupted=true]::after, td.service-destination span[disrupted=true]::after {
@@ -41,7 +42,7 @@ span.next-service-destination[disrupted=true]::after, td.service-destination spa
 
 span.next-service-platform {
   width: calc(var(--width) * 0.2);
-  font-size: calc(var(--height) * 0.06);
+  font-size: calc(var(--height) * 0.055);
   font-weight: 700;
   display: inline-block;
   padding-block: calc(var(--height) * 0.007);
@@ -83,7 +84,7 @@ div.next-service-detail {
 
 div.next-service-pattern {
   width: 100%;
-  font-size: calc(var(--height) * 0.023);
+  font-size: calc(var(--height) * 0.022);
   height: 100%;
   
 
@@ -97,11 +98,11 @@ div.next-service-pattern {
 div.pid-footer {
   margin-top: auto;
   width: 92%;
-  margin-bottom: calc(var(--height) * 0.03);
+  margin-bottom: calc(var(--height) * 0.01);
   display: flex;
 
-  --footer-height: calc(var(--height) * 0.16);
-  --subsequent-service-width: calc(var(--width) * 0.74);
+  --footer-height: calc(var(--height) * 0.2);
+  --subsequent-service-width: calc(var(--width) * 0.92);
 
   height: var(--footer-height);
 }
@@ -115,17 +116,18 @@ table.subsequent-service-info {
 
 tr.subsequent-service td {
   --service-border: calc(var(--height) * 0.002);
-  --est-time-box-height: calc(var(--height) * 0.06);
+  --est-time-box-height: calc(var(--height) * 0.04);
+  --subsequent-service-count: 4;
 
   border-top: var(--service-border) solid #000;
   padding: 0;
-  padding-block: calc((var(--footer-height) / 2 - var(--service-border) - var(--est-time-box-height)) / 1.5);
+  padding-block: calc((var(--footer-height) / var(--subsequent-service-count) - var(--service-border) - var(--est-time-box-height)) / 1.5);
   vertical-align: baseline;
 }
 
 tr.subsequent-service div.service-colour {
-  width: calc(var(--width) * 0.007);
-  height: calc(var(--height) * 0.05);
+  width: calc(var(--width) * 0.015);
+  height: calc(var(--height) * 0.035);
   background-color: var(--line-colour);
   display: inline-block;
   vertical-align: text-bottom;
@@ -133,12 +135,12 @@ tr.subsequent-service div.service-colour {
 }
 
 tr.subsequent-service td.service-sch-time {
-  width: calc(var(--width) * 0.13);
-  font-size: calc(var(--height) * 0.04);
+  width: calc(var(--width) * 0.2);
+  font-size: calc(var(--height) * 0.023);
 }
 
 tr.subsequent-service td.service-destination {
-  font-size: calc(var(--height) * 0.045);
+  font-size: calc(var(--height) * 0.023);
   font-weight: 500;
 }
 
@@ -147,49 +149,47 @@ td.service-destination span[disrupted=true]::after {
   height: calc(var(--width) * 0.02);
 }
 
-tr.subsequent-service td.service-summary {
-  min-width: calc(var(--width) * 0.15);
-  font-size: calc(var(--height) * 0.034);
-}
-
-div.pid.platform tr.subsequent-service td.service-platform {
+div.pid.pre-plat.portrait tr.subsequent-service td.service-summary {
   display: none;
 }
 
-div.pid.pre-plat.landscape tr.subsequent-service td.service-platform {
-  width: calc(var(--width) * 0.045);
+div.pid.pre-plat.portrait tr.subsequent-service td.service-platform {
+  width: calc(var(--width) * 0.08);
   text-align: center;
-  font-size: calc(var(--height) * 0.038);
+  font-size: calc(var(--height) * 0.023);
 }
 
-div.pid.pre-plat.landscape tr.subsequent-service td.service-platform span {
+div.pid.pre-plat.portrait tr.subsequent-service td.service-platform span {
   display: inline-block;
-  --padding: calc(var(--height) * 0.005);
+  --padding: calc(var(--height) * 0.003);
 
   padding-block: var(--padding);
-  width: calc(var(--width) * 0.045);
+  width: calc(var(--width) * 0.08);
   line-height: calc(var(--est-time-box-height) - var(--padding) * 2);
 
   background-color: var(--line-colour);
   color: var(--text-colour);
 }
 
-div.pid.pre-plat.landscape tr.subsequent-service td.service-platform:has(span:empty) {
+div.pid.pre-plat.portrait tr.subsequent-service td.service-platform:has(span:empty) {
   vertical-align: middle;
 }
 
 tr.subsequent-service td.service-est-time {
-  width: calc(var(--width) * 0.1105);
+  --est-time-width: calc(var(--width) * 0.15);
+  --est-time-margin: calc(var(--width) * 0.01);
+
+  width: var(--est-time-width);
   text-align: center;
-  font-size: calc(var(--height) * 0.038);
+  font-size: calc(var(--height) * 0.023);
 }
 
 tr.subsequent-service td.service-est-time span {
   display: inline-block;
   height: var(--est-time-box-height);
   line-height: var(--est-time-box-height);
-  width: calc(var(--width) * 0.11);
-  margin-left: calc(var(--width) * 0.005);
+  width: calc(var(--est-time-width) - var(--est-time-margin));
+  margin-left: var(--est-time-margin);
 
   background-color: #000;
   color: #fff;
