@@ -40,12 +40,19 @@ div.pre-plat.portrait {
   --subsequent-svc-est-time-width: calc(var(--width) * 0.15);
   --subsequent-svc-est-time-margin: calc(var(--width) * 0.01);
 
-  --arrival-font: calc(var(--height) * 0.08);
-  --arrival-img-size: calc(var(--width) * 0.18);
-  --arrival-img-margin: calc(var(--width) * 0.04);
+  --arrival-font: calc(var(--height) * 0.05);
+  --arrival-img-size: calc(var(--width) * 0.3);
+  --arrival-img-m-right: 0;
+  --arrival-img-m-bottom: calc(var(--width) * 0.04);
+
+  --service-message-padding: calc(var(--width) * 0.05);
 
   --disruption-hatch-size: 1.5%;
   --disruption-hatch-padding: calc(var(--width) * 0.024);
+}
+
+div.pid.pre-plat.portrait div.service-message.arrival {
+  flex-direction: column;
 }
 
 .msg-size-1 {

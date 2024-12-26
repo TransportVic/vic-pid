@@ -42,7 +42,10 @@ div.platform.landscape, div.pre-plat.landscape {
 
   --arrival-font: calc(var(--height) * 0.08);
   --arrival-img-size: calc(var(--width) * 0.18);
-  --arrival-img-margin: calc(var(--width) * 0.04);
+  --arrival-img-m-right: calc(var(--width) * 0.04);
+  --arrival-img-m-bottom: 0;
+
+  --service-message-padding: calc(var(--width) * 0.03);
 
   --disruption-hatch-size: 1%;
   --disruption-hatch-padding: calc(var(--width) * 0.015);

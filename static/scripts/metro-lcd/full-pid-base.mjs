@@ -175,7 +175,7 @@ export class FullLCDPIDBase extends PID {
 
   #setArrival() {
     this.#setMainServiceMessageClasses()
-    $('div.service-message').innerHTML = `This train is not taking passengers.<br>Don't board this train.`
+    $('div.service-message').innerHTML = `<i class="arrival-icon"></i><span>This train is not taking passengers.<br>Don't board this train.</span>`
     $('div.service-message').className = `service-message arrival`
   }
 }
