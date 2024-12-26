@@ -1,5 +1,52 @@
+div.pre-plat.portrait {
+  --pid-body-width: calc(var(--width) * 0.92);
+  --next-svc-sch-time-font: calc(var(--height) * 0.038);
+  --next-svc-dest-font: calc(var(--height) * 0.048);
+
+  --next-svc-disruption-margin: calc(var(--width) * 0.015);
+  --next-svc-disruption-size: calc(var(--width) * 0.05);
+
+  --next-svc-plat-width: calc(var(--width) * 0.2);
+  --next-svc-plat-font: calc(var(--height) * 0.055);
+  --next-svc-plat-padding: calc(var(--height) * 0.007);
+
+  --next-svc-est-time-font: calc(var(--height) * 0.026);
+  --next-svc-est-time-padding: calc(var(--height) * 0.005);
+
+  --next-svc-pattern-info-m-top: calc(var(--height) * 0.007);
+  --next-svc-pattern-info-m-bottom: calc(var(--height) * 0.013);
+
+  --next-svc-summary-font: calc(var(--height) * 0.03);
+
+  --next-svc-pattern-font: calc(var(--height) * 0.022);
+  --arrow-length: calc(var(--height) * 0.014);
+  --arrow-thickness: calc(var(--stop-column-width) * 0.8);
+  --stop-continuation-marker-height: calc(var(--height) * 0.012);
+  --stop-column-width: calc(var(--width) * 0.015);
+  --column-bullet-width: calc(var(--width) * 0.01);
+
+  --footer-height: calc(var(--height) * 0.2);
+  --footer-m-bottom: calc(var(--height) * 0.01);
+  --subsequent-service-width: calc(var(--width) * 0.92);
+
+  --est-time-box-height: calc(var(--height) * 0.035);
+  --subsequent-service-count: 4;
+
+  --subsequent-svc-font: calc(var(--height) * 0.021);
+  --subsequent-svc-sch-width: calc(var(--width) * 0.2);
+  --subsequent-svc-line-colour-width: calc(var(--width) * 0.015);
+  --subsequent-svc-plat-width: calc(var(--width) * 0.08);
+  --subsequent-svc-plat-padding: calc(var(--height) * 0.003);
+  --subsequent-svc-est-time-width: calc(var(--width) * 0.15);
+  --subsequent-svc-est-time-margin: calc(var(--width) * 0.01);
+
+  --arrival-font: calc(var(--height) * 0.08);
+  --arrival-img-size: calc(var(--width) * 0.18);
+  --arrival-img-margin: calc(var(--width) * 0.04);
+}
+
 div.next-service-info {
-  width: 92%;
+  width: var(--pid-body-width);
   margin-top: calc(var(--height) * 0.02);
   border-bottom: calc(var(--height) * 0.004) solid #000;
 }
@@ -13,19 +60,25 @@ div.next-service-header {
 div.next-service-header div.left, div.next-service-header div.right {
   display: flex;
   align-items: baseline;
+}
+
+div.portrait div.next-service-header div.left, div.portrait div.next-service-header div.right {
   flex-direction: column;
 }
 
+div.landscape div.next-service-header div.left, div.landscape div.next-service-header div.right {
+  flex-direction: row;
+}
+
 span.next-service-sch-time {
-  font-size: calc(var(--height) * 0.038);
+  font-size: var(--next-svc-sch-time-font);
   font-weight: 400;
   margin-right: calc(var(--width) * 0.015);
 }
 
 span.next-service-destination {
-  font-size: calc(var(--height) * 0.048);
+  font-size: var(--next-svc-dest-font);
   font-weight: 700;
-  line-height: 0.9;
 }
 
 span.next-service-destination[disrupted=true]::after, td.service-destination span[disrupted=true]::after {
@@ -35,18 +88,17 @@ span.next-service-destination[disrupted=true]::after, td.service-destination spa
   background-image: url(../../img/alert.svg);
   background-size: cover;
 
-  margin-left: calc(var(--width) * 0.015);
+  margin-left: var(--next-svc-disruption-margin);
 
-  width: calc(var(--width) * 0.05);
-  height: calc(var(--width) * 0.05);
+  width: var(--next-svc-disruption-size);
+  height: var(--next-svc-disruption-size);
 }
 
 span.next-service-platform {
-  width: calc(var(--width) * 0.2);
-  font-size: calc(var(--height) * 0.055);
-  font-weight: 700;
+  width: var(--next-svc-plat-width);
+  font-size: var(--next-svc-plat-font);
   display: inline-block;
-  padding-block: calc(var(--height) * 0.007);
+  padding-block: var(--next-svc-plat-padding);
   text-align: center;
 
   background-color: var(--line-colour);
@@ -54,56 +106,52 @@ span.next-service-platform {
   margin-left: auto;
 }
 
+div.pre-plat.portrait span.next-service-platform {
+  font-weight: 700;
+}
 
 span.next-service-est-time {
   width: calc(var(--width) * 0.2);
-  font-size: calc(var(--height) * 0.026);
+  font-size: var(--next-svc-est-time-font);
   font-weight: 400;
   display: inline-block;
-  padding-block: calc(var(--height) * 0.005);
-  margin-top: calc(var(--height) * 0.003);
+  padding-block: var(--next-svc-est-time-padding);
   text-align: center;
 
   background-color: #000;
   color: #fff;
 }
 
+div.pre-plat.portrait span.next-service-est-time {
+  margin-top: calc(var(--height) * 0.003);
+}
+
 div.next-service-pattern-info {
-  margin-top: calc(var(--height) * 0.007);
-  margin-bottom: calc(var(--height) * 0.013);
+  margin-top: var(--next-svc-pattern-info-m-top);
+  margin-bottom: var(--next-svc-pattern-info-m-bottom);
 }
 
 span.next-service-summary {
-  font-size: calc(var(--height) * 0.03);
+  font-size: var(--next-svc-summary-font);
   font-weight: 400;
 }
 
 div.next-service-detail {
-  width: 92%;
+  width: var(--pid-body-width);
   height: calc(var(--height) * 0.55);
 }
 
 div.next-service-pattern {
   width: 100%;
-  font-size: calc(var(--height) * 0.022);
+  font-size: var(--next-svc-pattern-font);
   height: 100%;
-  
-
-  --arrow-length: calc(var(--height) * 0.014);
-  --arrow-thickness: calc(var(--stop-column-width) * 0.8);
-  --stop-continuation-marker-height: calc(var(--height) * 0.012);
-  --stop-column-width: calc(var(--width) * 0.015);
-  --column-bullet-width: calc(var(--width) * 0.01);
 }
 
 div.pid-footer {
   margin-top: auto;
-  width: 92%;
-  margin-bottom: calc(var(--height) * 0.01);
+  width: var(--pid-body-width);
+  margin-bottom: var(--footer-m-bottom);
   display: flex;
-
-  --footer-height: calc(var(--height) * 0.2);
-  --subsequent-service-width: calc(var(--width) * 0.92);
 
   height: var(--footer-height);
 }
@@ -117,27 +165,24 @@ table.subsequent-service-info {
 
 tr.subsequent-service td {
   --service-border: calc(var(--height) * 0.002);
-  --est-time-box-height: calc(var(--height) * 0.035);
-  --subsequent-service-count: 4;
 
   border-top: var(--service-border) solid #000;
   padding: 0;
   padding-block: calc((var(--footer-height) / var(--subsequent-service-count) - var(--service-border) - var(--est-time-box-height)) / 2);
   vertical-align: baseline;
+  font-size: var(--subsequent-svc-font);
 }
 
 tr.subsequent-service td.service-sch-time {
   width: calc(var(--width) * 0.2);
-  font-size: calc(var(--height) * 0.021);
 }
 
 tr.subsequent-service td.service-sch-time span {
-  border-left: calc(var(--width) * 0.015) solid var(--line-colour);
+  border-left: var(--subsequent-svc-line-colour-width) solid var(--line-colour);
   padding-left: calc(var(--width) * 0.01);
 }
 
 tr.subsequent-service td.service-destination {
-  font-size: calc(var(--height) * 0.021);
   font-weight: 500;
 }
 
@@ -151,18 +196,16 @@ div.pid.pre-plat.portrait tr.subsequent-service td.service-summary {
 }
 
 div.pid.pre-plat.portrait tr.subsequent-service td.service-platform {
-  width: calc(var(--width) * 0.08);
+  width: var(--subsequent-svc-plat-width);
   text-align: center;
-  font-size: calc(var(--height) * 0.021);
 }
 
 div.pid.pre-plat.portrait tr.subsequent-service td.service-platform span {
   display: inline-block;
-  --padding: calc(var(--height) * 0.003);
 
-  padding-block: var(--padding);
-  width: calc(var(--width) * 0.08);
-  line-height: calc(var(--est-time-box-height) - var(--padding) * 2);
+  padding-block: var(--subsequent-svc-plat-padding);
+  width: var(--subsequent-svc-plat-width);
+  line-height: calc(var(--est-time-box-height) - var(--subsequent-svc-plat-padding) * 2);
 
   background-color: var(--line-colour);
   color: var(--text-colour);
@@ -173,20 +216,16 @@ div.pid.pre-plat.portrait tr.subsequent-service td.service-platform:has(span:emp
 }
 
 tr.subsequent-service td.service-est-time {
-  --est-time-width: calc(var(--width) * 0.15);
-  --est-time-margin: calc(var(--width) * 0.01);
-
-  width: var(--est-time-width);
+  width: var(--subsequent-svc-est-time-width);
   text-align: center;
-  font-size: calc(var(--height) * 0.021);
 }
 
 tr.subsequent-service td.service-est-time span {
   display: inline-block;
   height: var(--est-time-box-height);
   line-height: var(--est-time-box-height);
-  width: calc(var(--est-time-width) - var(--est-time-margin));
-  margin-left: var(--est-time-margin);
+  width: calc(var(--subsequent-svc-est-time-width) - var(--subsequent-svc-est-time-margin));
+  margin-left: var(--subsequent-svc-est-time-margin);
 
   background-color: #000;
   color: #fff;
@@ -213,7 +252,7 @@ div.service-message {
   width: var(--width);
   height: calc(var(--height) * 0.55);
   
-  margin-left: calc(var(--width) * -0.04);
+  margin-left: calc((var(--width) - var(--pid-body-width)) / 2 * -1);
   margin-top: calc(var(--height) * -0.55);
   
   text-align: center;
@@ -226,7 +265,7 @@ div.service-message {
 
 div.service-message.arrival {
   text-align: left;
-  font-size: calc(var(--height) * 0.08);
+  font-size: var(--arrival-font);
   font-weight: 400;
 }
 
@@ -235,10 +274,10 @@ div.service-message.arrival::before {
   background-image: url(../../img/do-not-board.svg);
   background-size: cover;
 
-  width: calc(var(--width) * 0.18);
-  height: calc(var(--width) * 0.18);
+  width: var(--arrival-img-size);
+  height: var(--arrival-img-size);
 
-  margin-right: calc(var(--width) * 0.04);
+  margin-right: var(--arrival-img-margin);
 }
 
 div.pid.service-message-active div.service-message:not(.alternating) {
