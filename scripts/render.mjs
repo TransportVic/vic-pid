@@ -44,7 +44,8 @@ for (let file of pugFiles) {
   }
 
   let compiled = pug.compileFile(file.path)({
-    staticContent: '/static'
+    staticContent: '/static',
+    testing: true
   })
 
   await fs.writeFile(path.join(outputDir, file.file).replace('.pug', '.html'), compiled) 
@@ -57,6 +58,23 @@ let pids = pugFiles.filter(file => file.dir !== 'core').map(file => {
     href: name + '.html'
   }
 })
+
+let fullPIDBaseIndex = pids.findIndex(pid => pid.name === 'metro-lcd/full-pid-base')
+let fullPIDBase = pids[fullPIDBaseIndex]
+pids.splice(fullPIDBaseIndex, 1)
+
+pids.push({
+  name: 'metro-lcd/platform',
+  href: fullPIDBase.href + '#platform'
+}, {
+  name: 'metro-lcd/pre-plat-landscape',
+  href: fullPIDBase.href + '#pre-plat-landscape'
+}, {
+  name: 'metro-lcd/pre-plat-portrait',
+  href: fullPIDBase.href + '#pre-plat-portrait'
+})
+
+pids.sort((a, b) => a.name.localeCompare(b.name))
 
 await fs.writeFile(path.join(renderedDir, 'index.html'), pug.compileFile(path.join(__dirname, 'index.pug'))({
   staticContent: '/static',
