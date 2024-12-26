@@ -1,5 +1,52 @@
+div.platform.landscape, div.pre-plat.landscape {
+  --pid-body-width: calc(var(--width) * 0.96);
+  --next-svc-sch-time-font: calc(var(--height) * 0.073);
+  --next-svc-dest-font: calc(var(--height) * 0.087);
+
+  --next-svc-disruption-margin: calc(var(--width) * 0.007);
+  --next-svc-disruption-size: calc(var(--width) * 0.026);
+
+  --next-svc-plat-width: calc(var(--width) * 0.075);
+  --next-svc-plat-font: calc(var(--height) * 0.075);
+  --next-svc-plat-padding: calc(var(--height) * 0.01);
+
+  --next-svc-est-time-font: calc(var(--height) * 0.075);
+  --next-svc-est-time-padding: calc(var(--height) * 0.01);
+
+  --next-svc-pattern-info-m-top:  calc(var(--height) * 0.005);
+  --next-svc-pattern-info-m-bottom: calc(var(--height) * 0.015);
+
+  --next-svc-summary-font: calc(var(--height) * 0.047);
+
+  --next-svc-pattern-font: calc(var(--height) * 0.047);
+  --arrow-length: calc(var(--height) * 0.002);
+  --arrow-thickness: calc(var(--stop-column-width) * 0.6);
+  --stop-continuation-marker-height: calc(var(--height) * 0.025);
+  --stop-column-width: calc(var(--width) * 0.007);
+  --column-bullet-width: calc(var(--width) * 0.005);
+
+  --footer-height: calc(var(--height) * 0.16);
+  --footer-m-bottom: calc(var(--height) * 0.03);
+  --subsequent-service-width: calc(var(--width) * 0.74);
+
+  --est-time-box-height: calc(var(--height) * 0.06);
+  --subsequent-service-count: 2;
+
+  --subsequent-svc-font: calc(var(--height) * 0.04);
+  --subsequent-svc-sch-width: calc(var(--width) * 0.13);
+  --subsequent-svc-line-colour-width: calc(var(--width) * 0.007);
+  --subsequent-svc-plat-width: calc(var(--width) * 0.045);
+  --subsequent-svc-plat-padding: calc(var(--height) * 0.005);
+  --subsequent-svc-est-time-width: calc(var(--width) * 0.115);
+  --subsequent-svc-est-time-margin: calc(var(--width) * 0.005);
+
+  --arrival-font: calc(var(--height) * 0.08);
+  --arrival-img-size: calc(var(--width) * 0.18);
+  --arrival-img-margin: calc(var(--width) * 0.04);
+}
+
 div.next-service-info {
-  width: 96%;
+  width: var(--pid-body-width);
   margin-top: calc(var(--height) * 0.02);
   border-bottom: calc(var(--height) * 0.004) solid #000;
 }
@@ -12,18 +59,25 @@ div.next-service-header {
 
 div.next-service-header div.left, div.next-service-header div.right {
   display: flex;
-  flex-direction: row;
   align-items: baseline;
 }
 
+div.portrait div.next-service-header div.left, div.portrait div.next-service-header div.right {
+  flex-direction: column;
+}
+
+div.landscape div.next-service-header div.left, div.landscape div.next-service-header div.right {
+  flex-direction: row;
+}
+
 span.next-service-sch-time {
-  font-size: calc(var(--height) * 0.073);
+  font-size: var(--next-svc-sch-time-font);
   font-weight: 400;
   margin-right: calc(var(--width) * 0.015);
 }
 
 span.next-service-destination {
-  font-size: calc(var(--height) * 0.087);
+  font-size: var(--next-svc-dest-font);
   font-weight: 700;
 }
 
@@ -34,23 +88,26 @@ span.next-service-destination[disrupted=true]::after, td.service-destination spa
   background-image: url(../../img/alert.svg);
   background-size: cover;
 
-  margin-left: calc(var(--width) * 0.007);
+  margin-left: var(--next-svc-disruption-margin);
 
-  width: calc(var(--width) * 0.026);
-  height: calc(var(--width) * 0.026);
+  width: var(--next-svc-disruption-size);
+  height: var(--next-svc-disruption-size);
 }
 
-div.pid.pre-plat.landscape span.next-service-platform {
-  width: calc(var(--width) * 0.075);
-  font-size: calc(var(--height) * 0.075);
-  font-weight: 400;
+span.next-service-platform {
+  width: var(--next-svc-plat-width);
+  font-size: var(--next-svc-plat-font);
   display: inline-block;
-  padding-block: calc(var(--height) * 0.01);
+  padding-block: var(--next-svc-plat-padding);
   text-align: center;
 
   background-color: var(--line-colour);
   color: var(--text-colour);
   margin-left: auto;
+}
+
+div.pre-plat.portrait span.next-service-platform {
+  font-weight: 700;
 }
 
 div.pid.platform span.next-service-platform {
@@ -59,58 +116,50 @@ div.pid.platform span.next-service-platform {
 
 span.next-service-est-time {
   width: calc(var(--width) * 0.2);
-  font-size: calc(var(--height) * 0.075);
+  font-size: var(--next-svc-est-time-font);
   font-weight: 400;
   display: inline-block;
-  padding-block: calc(var(--height) * 0.01);
+  padding-block: var(--next-svc-est-time-padding);
   text-align: center;
 
   background-color: #000;
   color: #fff;
 }
 
-div.pid.platform span.next-service-est-time {
-  margin-left: auto;
-}
-
 div.pid.pre-plat.landscape span.next-service-est-time {
   margin-left: calc(var(--width) * 0.005);
 }
 
+div.pre-plat.portrait span.next-service-est-time {
+  margin-top: calc(var(--height) * 0.003);
+}
+
 div.next-service-pattern-info {
-  margin-bottom: calc(var(--height) * 0.015);
+  margin-top: var(--next-svc-pattern-info-m-top);
+  margin-bottom: var(--next-svc-pattern-info-m-bottom);
 }
 
 span.next-service-summary {
-  font-size: calc(var(--height) * 0.047);
+  font-size: var(--next-svc-summary-font);
   font-weight: 400;
 }
 
 div.next-service-detail {
-  width: 96%;
+  width: var(--pid-body-width);
   height: calc(var(--height) * 0.55);
 }
 
 div.next-service-pattern {
   width: 100%;
-  font-size: calc(var(--height) * 0.037);
+  font-size: var(--next-svc-pattern-font);
   height: 100%;
-
-  --arrow-length: calc(var(--height) * 0.02);
-  --arrow-thickness: calc(var(--stop-column-width) * 0.6);
-  --stop-continuation-marker-height: calc(var(--height) * 0.025);
-  --stop-column-width: calc(var(--width) * 0.007);
-  --column-bullet-width: calc(var(--width) * 0.005);
 }
 
 div.pid-footer {
   margin-top: auto;
-  width: 96%;
-  margin-bottom: calc(var(--height) * 0.03);
+  width: var(--pid-body-width);
+  margin-bottom: var(--footer-m-bottom);
   display: flex;
-
-  --footer-height: calc(var(--height) * 0.16);
-  --subsequent-service-width: calc(var(--width) * 0.74);
 
   height: var(--footer-height);
 }
@@ -124,26 +173,24 @@ table.subsequent-service-info {
 
 tr.subsequent-service td {
   --service-border: calc(var(--height) * 0.002);
-  --est-time-box-height: calc(var(--height) * 0.06);
 
   border-top: var(--service-border) solid #000;
   padding: 0;
-  padding-block: calc((var(--footer-height) / 2 - var(--service-border) - var(--est-time-box-height)) / 2);
+  padding-block: calc((var(--footer-height) / var(--subsequent-service-count) - var(--service-border) - var(--est-time-box-height)) / 2);
   vertical-align: baseline;
+  font-size: var(--subsequent-svc-font);
 }
 
 tr.subsequent-service td.service-sch-time {
-  width: calc(var(--width) * 0.13);
-  font-size: calc(var(--height) * 0.04);
+  width: var(--subsequent-svc-sch-width);
 }
 
 tr.subsequent-service td.service-sch-time span {
-  border-left: calc(var(--width) * 0.007) solid var(--line-colour);
+  border-left: var(--subsequent-svc-line-colour-width) solid var(--line-colour);
   padding-left: calc(var(--width) * 0.01);
 }
 
 tr.subsequent-service td.service-destination {
-  font-size: calc(var(--height) * 0.045);
   font-weight: 500;
 }
 
@@ -152,49 +199,50 @@ td.service-destination span[disrupted=true]::after {
   height: calc(var(--width) * 0.02);
 }
 
+div.pid.pre-plat.portrait tr.subsequent-service td.service-summary {
+  display: none;
+}
+
 tr.subsequent-service td.service-summary {
   min-width: calc(var(--width) * 0.15);
   font-size: calc(var(--height) * 0.034);
+}
+
+tr.subsequent-service td.service-platform {
+  width: var(--subsequent-svc-plat-width);
+  text-align: center;
 }
 
 div.pid.platform tr.subsequent-service td.service-platform {
   display: none;
 }
 
-div.pid.pre-plat.landscape tr.subsequent-service td.service-platform {
-  width: calc(var(--width) * 0.045);
-  text-align: center;
-  font-size: calc(var(--height) * 0.038);
-}
-
-div.pid.pre-plat.landscape tr.subsequent-service td.service-platform span {
+tr.subsequent-service td.service-platform span {
   display: inline-block;
-  --padding: calc(var(--height) * 0.005);
 
-  padding-block: var(--padding);
-  width: calc(var(--width) * 0.045);
-  line-height: calc(var(--est-time-box-height) - var(--padding) * 2);
+  padding-block: var(--subsequent-svc-plat-padding);
+  width: var(--subsequent-svc-plat-width);
+  line-height: calc(var(--est-time-box-height) - var(--subsequent-svc-plat-padding) * 2);
 
   background-color: var(--line-colour);
   color: var(--text-colour);
 }
 
-div.pid.pre-plat.landscape tr.subsequent-service td.service-platform:has(span:empty) {
+tr.subsequent-service td.service-platform:has(span:empty) {
   vertical-align: middle;
 }
 
 tr.subsequent-service td.service-est-time {
-  width: calc(var(--width) * 0.1105);
+  width: var(--subsequent-svc-est-time-width);
   text-align: center;
-  font-size: calc(var(--height) * 0.038);
 }
 
 tr.subsequent-service td.service-est-time span {
   display: inline-block;
   height: var(--est-time-box-height);
   line-height: var(--est-time-box-height);
-  width: calc(var(--width) * 0.11);
-  margin-left: calc(var(--width) * 0.005);
+  width: calc(var(--subsequent-svc-est-time-width) - var(--subsequent-svc-est-time-margin));
+  margin-left: var(--subsequent-svc-est-time-margin);
 
   background-color: #000;
   color: #fff;
@@ -221,7 +269,7 @@ div.service-message {
   width: var(--width);
   height: calc(var(--height) * 0.55);
   
-  margin-left: calc(var(--width) * -0.02);
+  margin-left: calc((var(--width) - var(--pid-body-width)) / 2 * -1);
   margin-top: calc(var(--height) * -0.55);
   
   text-align: center;
@@ -234,7 +282,7 @@ div.service-message {
 
 div.service-message.arrival {
   text-align: left;
-  font-size: calc(var(--height) * 0.08);
+  font-size: var(--arrival-font);
   font-weight: 400;
 }
 
@@ -243,10 +291,10 @@ div.service-message.arrival::before {
   background-image: url(../../img/do-not-board.svg);
   background-size: cover;
 
-  width: calc(var(--width) * 0.18);
-  height: calc(var(--width) * 0.18);
+  width: var(--arrival-img-size);
+  height: var(--arrival-img-size);
 
-  margin-right: calc(var(--width) * 0.04);
+  margin-right: var(--arrival-img-margin);
 }
 
 div.pid.service-message-active div.service-message:not(.alternating) {
@@ -355,4 +403,8 @@ div.next-service-message.msg-size-4 {
 
 div.next-service-message.msg-size-5 {
   font-size: calc(var(--height) * 0.1);
+}
+
+div.pre-plat.portrait div.clock {
+  display: none;
 }

@@ -110,6 +110,10 @@ div.pre-plat.portrait span.next-service-platform {
   font-weight: 700;
 }
 
+div.pid.platform span.next-service-platform {
+  display: none;
+}
+
 span.next-service-est-time {
   width: calc(var(--width) * 0.2);
   font-size: var(--next-svc-est-time-font);
@@ -120,6 +124,10 @@ span.next-service-est-time {
 
   background-color: #000;
   color: #fff;
+}
+
+div.pid.pre-plat.landscape span.next-service-est-time {
+  margin-left: calc(var(--width) * 0.005);
 }
 
 div.pre-plat.portrait span.next-service-est-time {
@@ -174,7 +182,7 @@ tr.subsequent-service td {
 }
 
 tr.subsequent-service td.service-sch-time {
-  width: calc(var(--width) * 0.2);
+  width: var(--subsequent-svc-sch-width);
 }
 
 tr.subsequent-service td.service-sch-time span {
@@ -195,12 +203,21 @@ div.pid.pre-plat.portrait tr.subsequent-service td.service-summary {
   display: none;
 }
 
-div.pid.pre-plat.portrait tr.subsequent-service td.service-platform {
+tr.subsequent-service td.service-summary {
+  min-width: calc(var(--width) * 0.15);
+  font-size: calc(var(--height) * 0.034);
+}
+
+tr.subsequent-service td.service-platform {
   width: var(--subsequent-svc-plat-width);
   text-align: center;
 }
 
-div.pid.pre-plat.portrait tr.subsequent-service td.service-platform span {
+div.pid.platform tr.subsequent-service td.service-platform {
+  display: none;
+}
+
+tr.subsequent-service td.service-platform span {
   display: inline-block;
 
   padding-block: var(--subsequent-svc-plat-padding);
@@ -211,7 +228,7 @@ div.pid.pre-plat.portrait tr.subsequent-service td.service-platform span {
   color: var(--text-colour);
 }
 
-div.pid.pre-plat.portrait tr.subsequent-service td.service-platform:has(span:empty) {
+tr.subsequent-service td.service-platform:has(span:empty) {
   vertical-align: middle;
 }
 
