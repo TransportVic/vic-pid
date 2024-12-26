@@ -20,7 +20,8 @@ export class MetroLCDPlatformPID extends PID {
       MAX_COLUMNS: 4,
       CONNECTION_LOSS: 2,
       MIN_COLUMN_SIZE: 6,
-      MAX_COLUMN_SIZE: 9
+      MAX_COLUMN_SIZE: 9,
+      PERFECT_SPLIT: true
     }
   }
 

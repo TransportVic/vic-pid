@@ -5,7 +5,15 @@ let FSS_PLATFORM = {
   MAX_COLUMNS: 4,
   CONNECTION_LOSS: 2,
   MIN_COLUMN_SIZE: 6,
-  MAX_COLUMN_SIZE: 9
+  MAX_COLUMN_SIZE: 9,
+  PERFECT_SPLIT: true
+}
+
+let FSS_ESCALATOR = {
+  MAX_COLUMNS: 2,
+  CONNECTION_LOSS: 2,
+  MIN_COLUMN_SIZE: 5,
+  MAX_COLUMN_SIZE: 18
 }
 
 describe('The stop splitting function - FSS Platform', () => {
@@ -997,6 +1005,60 @@ describe('The stop splitting function - FSS Platform', () => {
         'Altona',
         'Westona',
         'Laverton'
+      ]
+    ])
+  })
+})
+
+
+describe('The stop splitting function - FSS Escalator', () => {
+  it('Flinders Street - Glen Waverley', () => {
+    let stops = [
+      'Flinders Street',
+      'Southern Cross',
+      'Flagstaff',
+      'Melbourne Central',
+      'Parliament',
+      'Richmond',
+      'East Richmond',
+      'Burnley',
+      'Heyington',
+      'Kooyong',
+      'Tooronga',
+      'Gardiner',
+      'Glen Iris',
+      'Darling',
+      'East Malvern',
+      'Holmesglen',
+      'Jordanville',
+      'Mount Waverley',
+      'Syndal',
+      'Glen Waverley'
+    ]
+
+    expect(splitStops(stops, false, FSS_ESCALATOR).columns).to.deep.equals([
+      [
+        'Flinders Street',
+        'Southern Cross',
+        'Flagstaff',
+        'Melbourne Central',
+        'Parliament',
+        'Richmond',
+        'East Richmond',
+        'Burnley',
+        'Heyington',
+        'Kooyong',
+        'Tooronga',
+        'Gardiner',
+        'Glen Iris',
+        'Darling'
+      ], [
+        'East Malvern',
+        'Holmesglen',
+        'Jordanville',
+        'Mount Waverley',
+        'Syndal',
+        'Glen Waverley'
       ]
     ])
   })
