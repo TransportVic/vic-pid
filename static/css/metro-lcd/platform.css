@@ -128,7 +128,7 @@ tr.subsequent-service td {
 
   border-top: var(--service-border) solid #000;
   padding: 0;
-  padding-block: calc((var(--footer-height) / 2 - var(--service-border) - var(--est-time-box-height)) / 1.5);
+  padding-block: calc((var(--footer-height) / 2 - var(--service-border) - var(--est-time-box-height)) / 2);
   vertical-align: baseline;
 }
 
