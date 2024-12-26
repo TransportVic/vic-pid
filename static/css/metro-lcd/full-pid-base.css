@@ -73,14 +73,6 @@ span.next-service-platform {
   margin-left: auto;
 }
 
-div.pre-plat.portrait span.next-service-platform {
-  font-weight: 700;
-}
-
-div.pid.platform span.next-service-platform {
-  display: none;
-}
-
 span.next-service-est-time {
   width: calc(var(--width) * 0.2);
   font-size: var(--next-svc-est-time-font);
@@ -91,14 +83,6 @@ span.next-service-est-time {
 
   background-color: #000;
   color: #fff;
-}
-
-div.pid.pre-plat.landscape span.next-service-est-time {
-  margin-left: calc(var(--width) * 0.005);
-}
-
-div.pre-plat.portrait span.next-service-est-time {
-  margin-top: calc(var(--height) * 0.003);
 }
 
 div.next-service-pattern-info {
@@ -170,10 +154,6 @@ td.service-destination span[disrupted=true]::after {
   height: calc(var(--subsequent-svc-font) * 0.75);
 }
 
-div.pid.pre-plat.portrait tr.subsequent-service td.service-summary {
-  display: none;
-}
-
 tr.subsequent-service td.service-summary {
   min-width: calc(var(--width) * 0.15);
   font-size: calc(var(--height) * 0.034);
@@ -182,10 +162,6 @@ tr.subsequent-service td.service-summary {
 tr.subsequent-service td.service-platform {
   width: var(--subsequent-svc-plat-width);
   text-align: center;
-}
-
-div.pid.platform tr.subsequent-service td.service-platform {
-  display: none;
 }
 
 tr.subsequent-service td.service-platform span {
@@ -358,8 +334,4 @@ div.next-service-message.disruption {
   font-weight: 400;
 
   animation: opacity 15s ease-in-out infinite;
-}
-
-div.pre-plat.portrait div.clock {
-  display: none;
 }

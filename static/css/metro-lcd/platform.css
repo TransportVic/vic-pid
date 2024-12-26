@@ -51,6 +51,18 @@ div.platform.landscape, div.pre-plat.landscape {
   --disruption-hatch-padding: calc(var(--width) * 0.015);
 }
 
+div.pid.platform span.next-service-platform {
+  display: none;
+}
+
+div.pid.pre-plat.landscape span.next-service-est-time {
+  margin-left: calc(var(--width) * 0.005);
+}
+
+div.pid.platform tr.subsequent-service td.service-platform {
+  display: none;
+}
+
 .msg-size-1 {
   font-size: calc(var(--height) * 0.08);
 }
