@@ -63,44 +63,44 @@ div.pid.platform tr.subsequent-service td.service-platform {
   display: none;
 }
 
-.msg-size-1 {
+div.pid.landscape .msg-size-1 {
   font-size: calc(var(--height) * 0.08);
 }
 
-.msg-size-2 {
+div.pid.landscape .msg-size-2 {
   font-size: calc(var(--height) * 0.10);
 }
 
-.msg-size-3 {
+div.pid.landscape .msg-size-3 {
   font-size: calc(var(--height) * 0.135);
 }
 
-.msg-size-4 {
+div.pid.landscape .msg-size-4 {
   font-size: calc(var(--height) * 0.15);
 }
 
-.msg-size-5 {
+div.pid.landscape .msg-size-5 {
   font-size: calc(var(--height) * 0.17);
 }
 
-div.next-service-message.msg-size-1 {
+div.pid.landscape div.next-service-message.msg-size-1 {
   font-size: calc(var(--height) * 0.04);
 }
 
-div.next-service-message.msg-size-2 {
+div.pid.landscape div.next-service-message.msg-size-2 {
   font-size: calc(var(--height) * 0.047);
   line-height: 1;
 }
 
-div.next-service-message.msg-size-3 {
+div.pid.landscape div.next-service-message.msg-size-3 {
   font-size: calc(var(--height) * 0.05);
 }
 
-div.next-service-message.msg-size-4 {
+div.pid.landscape div.next-service-message.msg-size-4 {
   font-size: calc(var(--height) * 0.07);
   line-height: 1;
 }
 
-div.next-service-message.msg-size-5 {
+div.pid.landscape div.next-service-message.msg-size-5 {
   font-size: calc(var(--height) * 0.1);
 }

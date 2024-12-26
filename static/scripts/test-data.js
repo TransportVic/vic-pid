@@ -103,10 +103,10 @@ window.services = [{
   summary: 'Not Taking Suburban Passengers',
   line: 'vline',
   platform: '6',
-  stops: glenWaverley,
+  stops: bairnsdale,
   disruptions: [{
     origin: 'Bairnsdale',
-    text: 'Due to the forecast temperature on Thursday, 26 December, we are runing a Full Extreme Heat timetable on the Traralgon and Bairnsdale Lines.'
+    text: 'Due to the forecast temperature on Thursday 26 December, we are running a Full Extreme Heat timetable on the Traralgon and Bairnsdale Lines.'
   }],
   isArrival: false
 }, {
@@ -132,4 +132,4 @@ window.services = [{
     text: 'Train services are disrupted between Cheltenham and Frankston. Alternative transport has been arranged Metro Trains apologises for any inconvenience.'
   }],
   isArrival: false
-}]
+}].slice(1)
