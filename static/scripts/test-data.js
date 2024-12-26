@@ -132,4 +132,4 @@ window.services = [{
     text: 'Train services are disrupted between Cheltenham and Frankston. Alternative transport has been arranged Metro Trains apologises for any inconvenience.'
   }],
   isArrival: false
-}].slice(1)
+}]

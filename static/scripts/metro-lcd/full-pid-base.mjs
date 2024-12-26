@@ -6,6 +6,7 @@ export class FullLCDPIDBase extends PID {
 
   #subsequentServiceTemplate
   #currentSubsequentServiceCount = 0
+  #currentPattern
 
   constructor() {
     super()
@@ -93,7 +94,10 @@ export class FullLCDPIDBase extends PID {
     let stoppingPattern = new StoppingPattern(service.stops, false, this.getPIDConfig())
     $('.next-service-pattern').innerHTML = stoppingPattern.toHTML()
     $('.next-service-pattern').className = `next-service-pattern ${service.line}`
+    this.#currentPattern = stoppingPattern
   }
+
+  getCurrentPattern() { return this.#currentPattern }
 
   #updateNextServiceInfo(service) {
     $('div.next-service-info').className = `next-service-info ${service.line} ${service.disruptions.length > 0 ? 'disrupted' : ''}`

@@ -104,9 +104,13 @@ div.next-service-detail {
 
 div.next-service-pattern {
   width: 100%;
-  font-size: var(--next-svc-pattern-font);
   height: 100%;
 }
+
+div.next-service-pattern div.stopping-pattern {
+  font-size: var(--next-svc-pattern-font);
+}
+
 
 div.pid-footer {
   margin-top: auto;
@@ -122,6 +126,9 @@ table.subsequent-service-info {
   display: inline-table;
   border-collapse: collapse;
   box-sizing: border-box;
+
+  height: fit-content;
+  margin-top: auto;
 }
 
 tr.subsequent-service.template {

@@ -3,21 +3,24 @@ import { splitStops } from '../pid-utils.mjs'
 export default class StoppingPattern {
 
   #columns
+  #size
 
   constructor(stops, cutoff, options) {
-    let { columns } = splitStops(
+    let { columns, size } = splitStops(
       stops.map(stop => stop.stops ? new Stop(stop.name) : new ExpressStop(stop.name)),
       false, options
     )
 
     this.#columns = columns.map(column => new StopsColumn(column))
     this.#columns[this.#columns.length - 1].markTerminating()
+    this.#size = Math.floor(size / 5) * 5
   }
 
   getColumns() { return this.#columns }
+  getSize() { return this.#size }
 
   toHTML() {
-    return `<div class="stopping-pattern col-${this.getColumns().length}">
+    return `<div class="stopping-pattern col-${this.getColumns().length} row-${this.#size}">
       ${this.getColumns().map(column => column.toHTML()).join('')}
     </div>`
   }

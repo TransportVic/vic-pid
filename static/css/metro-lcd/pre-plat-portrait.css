@@ -71,6 +71,12 @@ div.pre-plat.portrait div.clock {
   display: none;
 }
 
+div.pre-plat.portrait div.stopping-pattern.row-20 {
+  --arrow-length: calc(var(--height) * 0.01);
+  --arrow-thickness: calc(var(--stop-column-width) * 0.6);
+  --next-svc-pattern-font: calc(var(--height) * 0.0175);
+}
+
 div.pid.portrait .msg-size-1 {
   font-size: calc(var(--height) * 0.04);
 }

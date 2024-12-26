@@ -19,7 +19,10 @@ export class PrePlatformPortraitPID extends FullLCDPIDBase {
     }
   }
 
-  getSubsequentServiceCount() { return 4 }
+  getSubsequentServiceCount() {
+    if (this.getCurrentPattern().getSize() > 18) return 1
+    return 4
+  }
 }
 
 window.PrePlatformPortraitPID = PrePlatformPortraitPID
