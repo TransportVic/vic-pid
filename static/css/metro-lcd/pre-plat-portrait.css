@@ -12,6 +12,7 @@ div.next-service-header {
 
 div.next-service-header div.left, div.next-service-header div.right {
   display: flex;
+  align-items: baseline;
   flex-direction: column;
 }
 
@@ -125,18 +126,14 @@ tr.subsequent-service td {
   vertical-align: baseline;
 }
 
-tr.subsequent-service div.service-colour {
-  width: calc(var(--width) * 0.015);
-  height: calc(var(--height) * 0.035);
-  background-color: var(--line-colour);
-  display: inline-block;
-  vertical-align: text-bottom;
-  margin-right: calc(var(--width) * 0.01);
-}
-
 tr.subsequent-service td.service-sch-time {
   width: calc(var(--width) * 0.2);
   font-size: calc(var(--height) * 0.023);
+}
+
+tr.subsequent-service td.service-sch-time span {
+  border-left: calc(var(--width) * 0.015) solid var(--line-colour);
+  padding-left: calc(var(--width) * 0.01);
 }
 
 tr.subsequent-service td.service-destination {

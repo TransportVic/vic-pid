@@ -21,10 +21,12 @@ block pid
     div.line-marker.no-line
     div.next-service-info
       div.next-service-header
-        span.next-service-sch-time
-        span.next-service-destination
-        span.next-service-platform
-        span.next-service-est-time
+        div.left
+          span.next-service-sch-time
+          span.next-service-destination
+        div.right
+          span.next-service-platform
+          span.next-service-est-time
       div.next-service-pattern-info
         span.next-service-summary
     div.next-service-detail
@@ -36,7 +38,6 @@ block pid
         mixin serviceRow()
           tr.subsequent-service.no-line
             td.service-sch-time
-              div.service-colour
               span --
             td.service-destination
               span --
