@@ -43,4 +43,50 @@ div.pre-plat.portrait {
   --arrival-font: calc(var(--height) * 0.08);
   --arrival-img-size: calc(var(--width) * 0.18);
   --arrival-img-margin: calc(var(--width) * 0.04);
+
+  --disruption-hatch-size: 1.5%;
+  --disruption-hatch-padding: calc(var(--width) * 0.024);
+}
+
+.msg-size-1 {
+  font-size: calc(var(--height) * 0.04);
+}
+
+.msg-size-2 {
+  font-size: calc(var(--height) * 0.058);
+}
+
+.msg-size-3 {
+  font-size: calc(var(--height) * 0.068);
+}
+
+.msg-size-4 {
+  font-size: calc(var(--height) * 0.97);
+}
+
+.msg-size-5 {
+  font-size: calc(var(--height) * 0.12);
+}
+
+
+div.next-service-message.msg-size-1 {
+  font-size: calc(var(--height) * 0.025);
+}
+
+div.next-service-message.msg-size-2 {
+  font-size: calc(var(--height) * 0.028);
+  line-height: 1;
+}
+
+div.next-service-message.msg-size-3 {
+  font-size: calc(var(--height) * 0.03);
+}
+
+div.next-service-message.msg-size-4 {
+  font-size: calc(var(--height) * 0.035);
+  line-height: 1;
+}
+
+div.next-service-message.msg-size-5 {
+  font-size: calc(var(--height) * 0.04);
 }

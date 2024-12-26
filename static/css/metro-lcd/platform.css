@@ -19,7 +19,7 @@ div.platform.landscape, div.pre-plat.landscape {
   --next-svc-summary-font: calc(var(--height) * 0.047);
 
   --next-svc-pattern-font: calc(var(--height) * 0.047);
-  --arrow-length: calc(var(--height) * 0.002);
+  --arrow-length: calc(var(--height) * 0.02);
   --arrow-thickness: calc(var(--stop-column-width) * 0.6);
   --stop-continuation-marker-height: calc(var(--height) * 0.025);
   --stop-column-width: calc(var(--width) * 0.007);
@@ -43,4 +43,49 @@ div.platform.landscape, div.pre-plat.landscape {
   --arrival-font: calc(var(--height) * 0.08);
   --arrival-img-size: calc(var(--width) * 0.18);
   --arrival-img-margin: calc(var(--width) * 0.04);
+
+  --disruption-hatch-size: 1%;
+  --disruption-hatch-padding: calc(var(--width) * 0.015);
+}
+
+.msg-size-1 {
+  font-size: calc(var(--height) * 0.08);
+}
+
+.msg-size-2 {
+  font-size: calc(var(--height) * 0.10);
+}
+
+.msg-size-3 {
+  font-size: calc(var(--height) * 0.135);
+}
+
+.msg-size-4 {
+  font-size: calc(var(--height) * 0.15);
+}
+
+.msg-size-5 {
+  font-size: calc(var(--height) * 0.17);
+}
+
+div.next-service-message.msg-size-1 {
+  font-size: calc(var(--height) * 0.04);
+}
+
+div.next-service-message.msg-size-2 {
+  font-size: calc(var(--height) * 0.047);
+  line-height: 1;
+}
+
+div.next-service-message.msg-size-3 {
+  font-size: calc(var(--height) * 0.05);
+}
+
+div.next-service-message.msg-size-4 {
+  font-size: calc(var(--height) * 0.07);
+  line-height: 1;
+}
+
+div.next-service-message.msg-size-5 {
+  font-size: calc(var(--height) * 0.1);
 }
