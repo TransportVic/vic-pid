@@ -10,6 +10,11 @@ export class FullLCDPIDBase extends PID {
   constructor() {
     super()
     this.#subsequentServiceTemplate = $('.subsequent-service.template').outerHTML.replace(' template', '')
+    this.getPIDClasses().forEach(className => $('div.pid').classList.add(className))
+  }
+
+  getPIDClasses() {
+    return []
   }
 
   getPIDConfig() {

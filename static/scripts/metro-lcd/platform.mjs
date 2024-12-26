@@ -8,8 +8,10 @@ export class MetroLCDPlatformPID extends FullLCDPIDBase {
   constructor() {
     super()
     this.#clock = new Clock($('.clock'), 'h:mm:ss a')
-    $('div.pid').classList.add('platform')
-    $('div.pid').classList.add('landscape')
+  }
+
+  getPIDClasses() {
+    return ['platform', 'landscape']
   }
 
   getPIDConfig() {
