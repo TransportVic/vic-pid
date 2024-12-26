@@ -6,15 +6,68 @@ let FSS_PLATFORM = {
   CONNECTION_LOSS: 2,
   MIN_COLUMN_SIZE: 6,
   MAX_COLUMN_SIZE: 9,
-  PERFECT_SPLIT: true
+  PERFECT_SPLIT: true,
+
+  ALWAYS_SPLIT: false,
+  ALWAYS_SPLIT_THRESHOLD: 1
 }
 
 let FSS_ESCALATOR = {
   MAX_COLUMNS: 2,
   CONNECTION_LOSS: 2,
   MIN_COLUMN_SIZE: 5,
-  MAX_COLUMN_SIZE: 18
+  MAX_COLUMN_SIZE: 18,
+  PERFECT_SPLIT: false,
+
+  ALWAYS_SPLIT: true,
+  ALWAYS_SPLIT_THRESHOLD: 20
 }
+
+let fssBairnsdale = [
+  'Flinders Street',
+  'Richmond',
+  'South Yarra',
+  'Hawksburn',
+  'Toorak',
+  'Armadale',
+  'Malvern',
+  'Caulfield',
+  'Carnegie',
+  'Murrumbeena',
+  'Hughesdale',
+  'Oakleigh',
+  'Huntingdale',
+  'Clayton',
+  'Westall',
+  'Springvale',
+  'Sandown Park',
+  'Noble Park',
+  'Yarraman',
+  'Dandenong',
+  'Hallam',
+  'Narre Warren',
+  'Berwick',
+  'Beaconsfield',
+  'Officer',
+  'Cardinia Road',
+  'Pakenham',
+  'Nar Nar Goon',
+  'Tynong',
+  'Garfield',
+  'Bunyip',
+  'Longwarry',
+  'Drouin',
+  'Warragul',
+  'Yarragon',
+  'Trafalgar',
+  'Moe',
+  'Morwell',
+  'Traralgon',
+  'Rosedale',
+  'Sale',
+  'Stratford',
+  'Bairnsdale'
+]
 
 describe('The stop splitting function - FSS Platform', () => {
   it('Richmond - Westall', () => {
@@ -191,51 +244,7 @@ describe('The stop splitting function - FSS Platform', () => {
   })
 
   it('Flinders Street - Bairnsdale', () => {
-    let stops = [
-      'Flinders Street',
-      'Richmond',
-      'South Yarra',
-      'Hawksburn',
-      'Toorak',
-      'Armadale',
-      'Malvern',
-      'Caulfield',
-      'Carnegie',
-      'Murrumbeena',
-      'Hughesdale',
-      'Oakleigh',
-      'Huntingdale',
-      'Clayton',
-      'Westall',
-      'Springvale',
-      'Sandown Park',
-      'Noble Park',
-      'Yarraman',
-      'Dandenong',
-      'Hallam',
-      'Narre Warren',
-      'Berwick',
-      'Beaconsfield',
-      'Officer',
-      'Cardinia Road',
-      'Pakenham',
-      'Nar Nar Goon',
-      'Tynong',
-      'Garfield',
-      'Bunyip',
-      'Longwarry',
-      'Drouin',
-      'Warragul',
-      'Yarragon',
-      'Trafalgar',
-      'Moe',
-      'Morwell',
-      'Traralgon',
-      'Rosedale',
-      'Sale',
-      'Stratford',
-      'Bairnsdale'
-    ]
+    let stops = fssBairnsdale
 
     expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
       [
@@ -1059,6 +1068,229 @@ describe('The stop splitting function - FSS Escalator', () => {
         'Mount Waverley',
         'Syndal',
         'Glen Waverley'
+      ]
+    ])
+  })
+
+  it('Flinders Street - East Pakenham', () => {
+    let stops = [
+      'Flinders Street',
+      'Richmond',
+      'South Yarra',
+      'Hawksburn',
+      'Toorak',
+      'Armadale',
+      'Malvern',
+      'Caulfield',
+      'Carnegie',
+      'Murrumbeena',
+      'Hughesdale',
+      'Oakleigh',
+      'Huntingdale',
+      'Clayton',
+      'Westall',
+      'Springvale',
+      'Sandown Park',
+      'Noble Park',
+      'Yarraman',
+      'Dandenong',
+      'Hallam',
+      'Narre Warren',
+      'Berwick',
+      'Beaconsfield',
+      'Officer',
+      'Cardinia Road',
+      'Pakenham',
+      'East Pakenham'
+    ]
+
+    expect(splitStops(stops, false, FSS_ESCALATOR).columns).to.deep.equals([
+      [
+        'Flinders Street',
+        'Richmond',
+        'South Yarra',
+        'Hawksburn',
+        'Toorak',
+        'Armadale',
+        'Malvern',
+        'Caulfield',
+        'Carnegie',
+        'Murrumbeena',
+        'Hughesdale',
+        'Oakleigh',
+        'Huntingdale',
+        'Clayton'
+      ], [
+        'Westall',
+        'Springvale',
+        'Sandown Park',
+        'Noble Park',
+        'Yarraman',
+        'Dandenong',
+        'Hallam',
+        'Narre Warren',
+        'Berwick',
+        'Beaconsfield',
+        'Officer',
+        'Cardinia Road',
+        'Pakenham',
+        'East Pakenham'
+      ]
+    ])
+  })
+
+  it('North Melbourne - Watergardens', () => {
+    let stops = [
+      'North Melbourne',
+      'South Kensington',
+      'Footscray',
+      'Middle Footscray',
+      'West Footscray',
+      'Tottenham',
+      'Sunshine',
+      'Albion',
+      'Ginifer',
+      'St. Albans',
+      'Keilor Plains',
+      'Watergardens'
+    ]
+
+    expect(splitStops(stops, false, FSS_ESCALATOR).columns).to.deep.equals([
+      [
+        'North Melbourne',
+        'South Kensington',
+        'Footscray',
+        'Middle Footscray',
+        'West Footscray',
+        'Tottenham',
+        'Sunshine',
+        'Albion',
+        'Ginifer',
+        'St. Albans',
+        'Keilor Plains',
+        'Watergardens'
+      ]
+    ])
+  })
+
+  it('Flinders Street - Bairnsdale', () => {
+    let stops = fssBairnsdale
+
+    expect(splitStops(stops, false, FSS_ESCALATOR).columns).to.deep.equals([
+      [
+        'Flinders Street',
+        'Richmond',
+        'South Yarra',
+        'Hawksburn',
+        'Toorak',
+        'Armadale',
+        'Malvern',
+        'Caulfield',
+        'Carnegie',
+        'Murrumbeena',
+        'Hughesdale',
+        'Oakleigh',
+        'Huntingdale',
+        'Clayton',
+        'Westall',
+        'Springvale',
+        'Sandown Park',
+        'Noble Park',
+        'Yarraman',
+        'Dandenong',
+        'Hallam',
+        'Narre Warren'
+      ], [
+        'Berwick',
+        'Beaconsfield',
+        'Officer',
+        'Cardinia Road',
+        'Pakenham',
+        'Nar Nar Goon',
+        'Tynong',
+        'Garfield',
+        'Bunyip',
+        'Longwarry',
+        'Drouin',
+        'Warragul',
+        'Yarragon',
+        'Trafalgar',
+        'Moe',
+        'Morwell',
+        'Traralgon',
+        'Rosedale',
+        'Sale',
+        'Stratford',
+        'Bairnsdale'
+      ]
+    ])
+  })
+
+  it('North Melbourne - Pakenham', () => {
+    let stops = [
+      'North Melbourne',
+      'Southern Cross',
+      'Flinders Street',
+      'Richmond',
+      'South Yarra',
+      'Hawksburn',
+      'Toorak',
+      'Armadale',
+      'Malvern',
+      'Caulfield',
+      'Carnegie',
+      'Murrumbeena',
+      'Hughesdale',
+      'Oakleigh',
+      'Huntingdale',
+      'Clayton',
+      'Westall',
+      'Springvale',
+      'Sandown Park',
+      'Noble Park',
+      'Yarraman',
+      'Dandenong',
+      'Hallam',
+      'Narre Warren',
+      'Berwick',
+      'Beaconsfield',
+      'Officer',
+      'Cardinia Road',
+      'Pakenham'
+    ]
+
+    expect(splitStops(stops, false, FSS_ESCALATOR).columns).to.deep.equals([
+      [
+        'North Melbourne',
+        'Southern Cross',
+        'Flinders Street',
+        'Richmond',
+        'South Yarra',
+        'Hawksburn',
+        'Toorak',
+        'Armadale',
+        'Malvern',
+        'Caulfield',
+        'Carnegie',
+        'Murrumbeena',
+        'Hughesdale',
+        'Oakleigh',
+        'Huntingdale'
+      ], [
+        'Clayton',
+        'Westall',
+        'Springvale',
+        'Sandown Park',
+        'Noble Park',
+        'Yarraman',
+        'Dandenong',
+        'Hallam',
+        'Narre Warren',
+        'Berwick',
+        'Beaconsfield',
+        'Officer',
+        'Cardinia Road',
+        'Pakenham'
       ]
     ])
   })

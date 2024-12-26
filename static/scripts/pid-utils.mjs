@@ -12,6 +12,10 @@ export function calculateLineNumber(stationsCount, hasConnections, options) {
     if (!hasConnections && (perfectSplit % 1 === 0) && MIN_COLUMN_SIZE < perfectSplit && perfectSplit < MAX_COLUMN_SIZE) return perfectSplit
   }
 
+  if (options.ALWAYS_SPLIT && stationsCount > options.ALWAYS_SPLIT_THRESHOLD) {
+    return Math.ceil(stationsCount / 2)
+  }
+
   for (let columnSize = MIN_COLUMN_SIZE; columnSize <= MAX_COLUMN_SIZE; columnSize++) {
     if (MAX_COLUMNS * columnSize >= totalStations) {
       return Math.floor((columnSize + MAX_COLUMN_SIZE) / 2)
