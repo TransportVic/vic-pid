@@ -86,6 +86,37 @@ window.glenWaverley = [
   {name: 'Glen Waverley', stops: true }
 ]
 
+window.frankston = [
+  {name: 'Flinders Street', stops: true },
+  {name: 'Richmond', stops: true },
+  {name: 'South Yarra', stops: true },
+  {name: 'Hawksburn', stops: true },
+  {name: 'Toorak', stops: true },
+  {name: 'Armadale', stops: true },
+  {name: 'Malvern', stops: true },
+  {name: 'Caulfield', stops: true },
+  {name: 'Glen Huntly', stops: true },
+  {name: 'Ormond', stops: true },
+  {name: 'McKinnon', stops: true },
+  {name: 'Bentleigh', stops: true },
+  {name: 'Patterson', stops: true },
+  {name: 'Moorabbin', stops: true },
+  {name: 'Highett', stops: true },
+  {name: 'Southland', stops: true },
+  {name: 'Cheltenham', stops: true },
+  {name: 'Mentone', stops: true },
+  {name: 'Parkdale', stops: true },
+  {name: 'Mordialloc', stops: true },
+  {name: 'Aspendale', stops: true },
+  {name: 'Edithvale', stops: true },
+  {name: 'Chelsea', stops: true },
+  {name: 'Bonbeach', stops: true },
+  {name: 'Carrum', stops: true },
+  {name: 'Seaford', stops: true },
+  {name: 'Kananook', stops: true },
+  {name: 'Frankston', stops: true }
+]
+
 window.services = [{
   schTime: '7:29am',
   estTime: 0,
@@ -126,10 +157,20 @@ window.services = [{
   summary: 'Express',
   line: 'frankston',
   platform: '6',
-  stops: westall,
+  stops: frankston.slice(0, 17),
   disruptions: [{
     origin: 'Cheltenham',
     text: 'Train services are disrupted between Cheltenham and Frankston. Alternative transport has been arranged Metro Trains apologises for any inconvenience.'
   }],
+  isArrival: false
+}, {
+  schTime: '7:40am',
+  estTime: 10,
+  destination: 'Frankston',
+  summary: 'Stops All',
+  line: 'frankston',
+  platform: '6',
+  stops: frankston,
+  disruptions: [],
   isArrival: false
 }]

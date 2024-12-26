@@ -2,6 +2,8 @@ import { FullLCDPIDBase } from './full-pid-base.mjs'
 
 export class PrePlatformPortraitPID extends FullLCDPIDBase {
 
+  #BASE_SVC_COUNT = 4
+
   getPIDClasses() {
     return ['pre-plat', 'portrait']
   }
@@ -21,7 +23,17 @@ export class PrePlatformPortraitPID extends FullLCDPIDBase {
 
   getSubsequentServiceCount() {
     if (this.getCurrentPattern().getSize() > 18) return 1
-    return 4
+    return this.#BASE_SVC_COUNT
+  }
+
+  showNextServiceMessage(text) {
+    if (this.getSubsequentServiceCount() !== this.#BASE_SVC_COUNT) return
+    super.showNextServiceMessage(text)
+  }
+
+  showDisruption(origin, text) {
+    if (this.getSubsequentServiceCount() !== this.#BASE_SVC_COUNT) return
+    super.showDisruption(origin, text)
   }
 }
 

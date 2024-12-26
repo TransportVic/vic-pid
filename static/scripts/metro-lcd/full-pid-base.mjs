@@ -86,7 +86,7 @@ export class FullLCDPIDBase extends PID {
 
     if (service.disruptions.length > 0) {
       let disruption = service.disruptions[0]
-      this.#showDisruption(disruption.origin, disruption.text)
+      this.showDisruption(disruption.origin, disruption.text)
     } else this.hideNextServiceMessage()
   }
 
@@ -166,7 +166,7 @@ export class FullLCDPIDBase extends PID {
     $('div.next-service-message').className = `next-service-message`
   }
 
-  #showDisruption(origin, text) {
+  showDisruption(origin, text) {
     $('div.next-service-message').innerHTML = `<span><strong>${origin}</strong> - ${text}</span>`
     $('div.next-service-message').className = `next-service-message disruption ${getTextSize(1, text.length)}`
   }
