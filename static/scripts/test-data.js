@@ -117,6 +117,37 @@ window.frankston = [
   {name: 'Frankston', stops: true }
 ]
 
+window.shepparton = [
+  { name: 'North Melbourne', stops: true },
+  { name: 'Kensington', stops: true },
+  { name: 'Newmarket', stops: true },
+  { name: 'Ascot Vale', stops: true },
+  { name: 'Moonee Ponds', stops: true },
+  { name: 'Essendon', stops: true },
+  { name: 'Glenbervie', stops: true },
+  { name: 'Strathmore', stops: true },
+  { name: 'Pascoe Vale', stops: true },
+  { name: 'Oak Park', stops: true },
+  { name: 'Glenroy', stops: true },
+  { name: 'Jacana', stops: true },
+  { name: 'Broadmeadows', stops: true },
+  { name: 'Coolaroo', stops: true },
+  { name: 'Roxburgh Park', stops: true },
+  { name: 'Craigieburn', stops: true },
+  { name: 'Donnybrook', stops: true },
+  { name: 'Wallan', stops: true },
+  { name: 'Heathcote Junction', stops: true },
+  { name: 'Wandong', stops: true },
+  { name: 'Kilmore East', stops: true },
+  { name: 'Broadford', stops: true },
+  { name: 'Tallarook', stops: true },
+  { name: 'Seymour', stops: true },
+  { name: 'Nagambie', stops: true },
+  { name: 'Murchison East', stops: true },
+  { name: 'Mooroopna', stops: true },
+  { name: 'Shepparton', stops: true }
+]
+
 window.services = [{
   schTime: '7:29am',
   estTime: 0,
@@ -137,7 +168,7 @@ window.services = [{
   stops: bairnsdale,
   disruptions: [{
     origin: 'Bairnsdale',
-    text: 'Due to the forecast temperature on Thursday 26 December, we are running a Full Extreme Heat timetable on the Traralgon and Bairnsdale Lines.'
+    text: 'Due to this afternoon\'s extreme heat forecast, we are expecting to run to a Full Extreme Heat timetable on the Traralgon and Bairnsdale Lines. '
   }],
   isArrival: false
 }, {
@@ -181,6 +212,16 @@ window.services = [{
   line: 'vline',
   platform: '6',
   stops: bairnsdale.slice(0, -4),
+  disruptions: [],
+  isArrival: false
+}, {
+  schTime: '12:41 pm',
+  estTime: 15,
+  destination: 'Shepparton',
+  summary: 'Express',
+  line: 'vline',
+  platform: '6',
+  stops: shepparton,
   disruptions: [],
   isArrival: false
 }]
