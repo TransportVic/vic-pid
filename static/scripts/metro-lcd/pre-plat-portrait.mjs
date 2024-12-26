@@ -1,10 +1,13 @@
-import { MetroLCDPlatformPID } from './platform.mjs'
+import { FullLCDPIDBase } from './full-pid-base.mjs'
 
-export class PrePlatformPortraitPID extends MetroLCDPlatformPID {
+export class PrePlatformPortraitPID extends FullLCDPIDBase {
 
   constructor() {
     super()
+    $('div.pid').classList.add('pre-plat')
+    $('div.pid').classList.add('portrait')
   }
+
 
   getPIDConfig() {
     return {

@@ -138,6 +138,10 @@ table.subsequent-service-info {
   box-sizing: border-box;
 }
 
+tr.subsequent-service.template {
+  display: none;
+}
+
 tr.subsequent-service td {
   --service-border: calc(var(--height) * 0.002);
 

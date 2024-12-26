@@ -36,20 +36,17 @@ block pid
     div.pid-footer
       table.subsequent-service-info
         mixin serviceRow()
-          tr.subsequent-service.no-line
+          tr.subsequent-service.no-line.template
             td.service-sch-time
-              span --
+              span {0}
             td.service-destination
-              span --
+              span(disrupted="{1}") {2}
             td.service-summary
-              span
+              span {3}
             td.service-platform
-              span
+              span {4}
             td.service-est-time
-              span -- min
-        +serviceRow()
-        +serviceRow()
-        +serviceRow()
+              span {5}
         +serviceRow()
       div.next-service-message
       div.clock
