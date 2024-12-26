@@ -65,13 +65,14 @@ div.pid.platform tr.subsequent-service td.service-platform {
 
 div.pid.landscape div.clock {
   width: calc(var(--width) * 0.2);
-  height: calc(100% - var(--subsequent-service-padding));
+  --clock-height: calc(var(--footer-height) - var(--subsequent-service-padding));
+  height: var(--clock-height);
   border: calc(var(--height) * 0.002) solid #000;
   box-sizing: border-box;
 
   margin-left: auto;
   
-  line-height: var(--footer-height);
+  line-height: var(--clock-height);
   text-align: center;
 
   font-size: calc(var(--height) * 0.05);
