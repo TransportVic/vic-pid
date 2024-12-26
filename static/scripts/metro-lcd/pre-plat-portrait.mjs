@@ -11,7 +11,11 @@ export class PrePlatformPortraitPID extends MetroLCDPlatformPID {
       MAX_COLUMNS: 2,
       CONNECTION_LOSS: 2,
       MIN_COLUMN_SIZE: 5,
-      MAX_COLUMN_SIZE: 18
+      MAX_COLUMN_SIZE: 18,
+      PERFECT_SPLIT: false,
+    
+      ALWAYS_SPLIT: true,
+      ALWAYS_SPLIT_THRESHOLD: 20
     }
   }
 
