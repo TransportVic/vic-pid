@@ -83,8 +83,15 @@ div.next-service-detail {
 
 div.next-service-pattern {
   width: 100%;
-  font-size: calc(var(--height) * 0.037);
+  font-size: calc(var(--height) * 0.023);
   height: 100%;
+  
+
+  --arrow-length: calc(var(--height) * 0.014);
+  --arrow-thickness: calc(var(--stop-column-width) * 0.8);
+  --stop-continuation-marker-height: calc(var(--height) * 0.012);
+  --stop-column-width: calc(var(--width) * 0.015);
+  --column-bullet-width: calc(var(--width) * 0.01);
 }
 
 div.pid-footer {
@@ -206,10 +213,10 @@ div.service-message {
   display: flex;
   position: absolute;
 
-  width: 100%;
+  width: var(--width);
   height: calc(var(--height) * 0.55);
-
-  left: 0;
+  
+  margin-left: calc(var(--width) * -0.04);
   margin-top: calc(var(--height) * -0.55);
   
   text-align: center;

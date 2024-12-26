@@ -63,14 +63,47 @@ window.westall = [
   { name: 'Westall', stops: true }
 ]
 
+window.glenWaverley = [
+  {name: 'Flinders Street', stops: true },
+  {name: 'Southern Cross', stops: true },
+  {name: 'Flagstaff', stops: true },
+  {name: 'Melbourne Central', stops: true },
+  {name: 'Parliament', stops: true },
+  {name: 'Richmond', stops: true },
+  {name: 'East Richmond', stops: true },
+  {name: 'Burnley', stops: true },
+  {name: 'Heyington', stops: true },
+  {name: 'Kooyong', stops: true },
+  {name: 'Tooronga', stops: true },
+  {name: 'Gardiner', stops: true },
+  {name: 'Glen Iris', stops: true },
+  {name: 'Darling', stops: true },
+  {name: 'East Malvern', stops: true },
+  {name: 'Holmesglen', stops: true },
+  {name: 'Jordanville', stops: true },
+  {name: 'Mount Waverley', stops: true },
+  {name: 'Syndal', stops: true },
+  {name: 'Glen Waverley', stops: true }
+]
+
 window.services = [{
-  schTime: '7:30am',
+  schTime: '7:29am',
   estTime: 0,
+  destination: 'Glen Waverley',
+  summary: 'Stops All',
+  line: 'glen-waverley',
+  platform: '4',
+  stops: glenWaverley,
+  disruptions: [],
+  isArrival: false
+}, {
+  schTime: '7:30am',
+  estTime: 1,
   destination: 'Bairnsdale',
   summary: 'Not Taking Suburban Passengers',
   line: 'vline',
   platform: '6',
-  stops: bairnsdale,
+  stops: glenWaverley,
   disruptions: [{
     origin: 'Bairnsdale',
     text: 'Due to the forecast temperature on Thursday, 26 December, we are runing a Full Extreme Heat timetable on the Traralgon and Bairnsdale Lines.'
