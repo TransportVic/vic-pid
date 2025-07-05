@@ -153,6 +153,7 @@ div.next-service-pattern div.stopping-pattern {
 div.pid-footer {
   --subsequent-service-border: calc(var(--height) * 0.002);
   --subsequent-service-padding: calc((var(--footer-height) / var(--subsequent-service-count) - var(--subsequent-service-border) - var(--est-time-box-height)) / 2);
+  --footer-content-height: calc(var(--footer-height) - var(--subsequent-service-padding));
 
   margin-top: auto;
   width: var(--pid-body-width);
@@ -337,7 +338,7 @@ div.pid.fixed-message-active div.fixed-message {
 
 div.next-service-message {
   width: var(--subsequent-service-width);
-  height: var(--footer-height);
+  height: var(--footer-content-height);
   position: absolute;
 }
 

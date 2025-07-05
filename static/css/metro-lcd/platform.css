@@ -21,7 +21,7 @@ div.platform.landscape, div.pre-plat.landscape {
   --next-svc-summary-font: calc(var(--height) * 0.047);
 
   --next-svc-pattern-font: calc(var(--height) * 0.04);
-  --next-svc-pattern-letter-spacing: calc(var(--width) * 0.0007);
+  --next-svc-pattern-letter-spacing: calc(var(--width) * 0.0004);
   --next-svc-pattern-line-height: 1.12;
 
   --next-svc-pattern-height: calc(var(--height) * 0.5);
@@ -35,7 +35,7 @@ div.platform.landscape, div.pre-plat.landscape {
   --column-bullet-width: calc(var(--width) * 0.005);
 
   --footer-height: calc(var(--height) * 0.18);
-  --footer-m-bottom: calc(var(--height) * 0.03);
+  --footer-m-bottom: calc(var(--height) * 0.02);
   --subsequent-service-width: calc(var(--width) * 0.73);
 
   --est-time-box-height: calc(var(--height) * 0.06);
@@ -77,14 +77,13 @@ div.pid.platform tr.subsequent-service td.service-platform {
 
 div.pid.landscape div.clock {
   width: calc(var(--width) * 0.21);
-  --clock-height: calc(var(--footer-height) - var(--subsequent-service-padding));
-  height: var(--clock-height);
+  height: var(--footer-content-height);
   border: calc(var(--height) * 0.002) solid #000;
   box-sizing: border-box;
 
   margin-left: auto;
   
-  line-height: var(--clock-height);
+  line-height: var(--footer-content-height);
   text-align: center;
 
   font-size: calc(var(--height) * 0.05);
