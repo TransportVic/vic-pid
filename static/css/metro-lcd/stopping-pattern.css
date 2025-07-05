@@ -42,7 +42,7 @@
 .column-bullet-container {
   display: flex;
   align-items: center;
-  margin-right: calc(var(--width) * 0.003);
+  margin-right: var(--stop-column-margin-right);
 }
 
 .station-row.stopping .column-bullet {
