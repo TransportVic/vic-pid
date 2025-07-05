@@ -29,11 +29,15 @@ block scripts
             break
         }
         window.pid = pid
-        pid.updateServices(window.services)
+        //- pid.updateServices(window.services)
       }
 
 block pid
   div.pid.pid-16-9.showing-departure.light
+    div#announcements
+      img(src=`${staticContent}/img/announcements.svg`)
+      p Please Listen For Announcements
+
     div.line-marker.no-line
     div.next-service-info
       div.next-service-header

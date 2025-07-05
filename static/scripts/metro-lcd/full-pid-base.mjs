@@ -12,8 +12,9 @@ export class FullLCDPIDBase extends PID {
     super()
     this.#subsequentServiceTemplate = $('.subsequent-service.template').outerHTML.replace(' template', '')
     this.getPIDClasses().forEach(className => $('div.pid').classList.add(className))
+    this.updateServices([])
   }
-
+  
   getPIDClasses() {
     return []
   }
@@ -115,13 +116,32 @@ export class FullLCDPIDBase extends PID {
 
   updateServices(services) {
     this.hideFixedMessage()
-    this.#updateNextService(services[0])
+    if (services[0]) {
+      this.hideNoTrains()
+      this.#updateNextService(services[0])
+    } else {
+      this.showNoTrains()
+    }
 
     let subSvcCount = this.getSubsequentServiceCount()
     let subsequentServices = services.slice(1, 1 + subSvcCount)
       .concat(Array(subSvcCount).fill(null))
       .slice(0, subSvcCount)
     this.#updateSubsequentServices(subsequentServices)
+  }
+
+  showNoTrains() {
+    let pid = $('div.pid')
+    pid.classList.add('fixed-message-active')
+
+    $('div.line-marker').className = `line-marker no-line`
+    $('div.fixed-message').innerHTML = '<i class="no-trains-icon"></i><span>No trains are departing from this platform'
+    $('div.fixed-message').className = `fixed-message ${getTextSize(1, 150)}`
+  }
+
+  hideNoTrains() {
+    let pid = $('div.pid')
+    pid.classList.remove('fixed-message-active')
   }
 
   showFixedMessage(text) {
@@ -161,7 +181,7 @@ export class FullLCDPIDBase extends PID {
     $('div.next-service-message').className = `next-service-message text ${getTextSize(1, text.length)}`
   }
 
-  hideNextServiceMessage(text) {
+  hideNextServiceMessage() {
     $('div.next-service-message').textContent = ''
     $('div.next-service-message').className = `next-service-message`
   }
@@ -169,6 +189,14 @@ export class FullLCDPIDBase extends PID {
   showDisruption(origin, text) {
     $('div.next-service-message').innerHTML = `<span><strong>${origin}</strong> - ${text}</span>`
     $('div.next-service-message').className = `next-service-message disruption ${getTextSize(1, text.length)}`
+  }
+
+  showAnnouncementsMessage() {
+    $('div.pid').classList.add('announcements-active')
+  }
+
+  hideAnnouncementsMessage() {
+    $('div.pid').classList.remove('announcements-active')
   }
 
   #setArrival() {

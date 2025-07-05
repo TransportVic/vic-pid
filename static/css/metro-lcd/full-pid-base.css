@@ -1,3 +1,29 @@
+div.pid.announcements-active #announcements {
+  display: flex;
+}
+
+#announcements {
+  background: #000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: var(--width);
+  height: var(--height);
+  gap: calc(var(--width) * 0.02);
+
+  z-index: 1000;
+}
+
+#announcements img {
+  height: calc(var(--height) * 0.125);
+}
+
+#announcements p {
+  font-size: calc(var(--height) * 0.08);
+  color: #fff;
+}
+
 div.pid.landscape div.line-marker {
   width: 100%;
   height: calc(var(--height) * 0.04);
@@ -247,18 +273,6 @@ div.service-message.arrival {
   font-weight: 400;
 }
 
-div.service-message.arrival i.arrival-icon {
-  display: inline-block;
-  background-image: url(../../img/do-not-board.svg);
-  background-size: cover;
-
-  width: var(--arrival-img-size);
-  height: var(--arrival-img-size);
-
-  margin-right: var(--arrival-img-m-right);
-  margin-bottom: var(--arrival-img-m-bottom);
-}
-
 div.pid.service-message-active div.service-message:not(.alternating) {
   opacity: 1;
 }
@@ -306,6 +320,7 @@ div.pid.fixed-message-active div.fixed-message {
   text-align: center;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 div.next-service-message {
@@ -343,4 +358,25 @@ div.next-service-message.disruption {
   font-weight: 400;
 
   animation: opacity 15s ease-in-out infinite;
+}
+
+i.arrival-icon {
+  display: inline-block;
+  background-image: url(../../img/do-not-board.svg);
+  background-size: cover;
+
+  width: var(--arrival-img-size);
+  height: var(--arrival-img-size);
+
+  margin-right: var(--arrival-img-m-right);
+  margin-bottom: var(--arrival-img-m-bottom);
+}
+
+i.no-trains-icon {
+  display: inline-block;
+  background-image: url(../../img/no-trains.svg);
+  background-size: cover;
+
+  width: var(--arrival-img-size);
+  height: var(--arrival-img-size);
 }

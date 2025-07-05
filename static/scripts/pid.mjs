@@ -57,6 +57,7 @@ export default class PID {
   updateServices(services) {}
 
   formatEstimatedTime(estTime) {
+    if (isNaN(estTime)) return '--'
     if (estTime < 1) return 'NOW'
     return estTime + ' min'
   }
