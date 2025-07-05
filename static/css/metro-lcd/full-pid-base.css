@@ -101,7 +101,7 @@ span.next-service-summary {
 
 div.next-service-detail {
   width: var(--pid-body-width);
-  height: calc(var(--height) * 0.55);
+  height: var(--next-svc-pattern-height);
 }
 
 div.next-service-pattern {
@@ -223,12 +223,12 @@ div.service-message {
   position: absolute;
 
   width: var(--width);
-  height: calc(var(--height) * 0.55);
+  height: var(--next-svc-pattern-height);
   
   --padding: calc((var(--width) - var(--pid-body-width)) / 2);
 
   margin-left: calc(var(--padding) * -1);
-  margin-top: calc(var(--height) * -0.55);
+  margin-top: calc(var(--next-svc-pattern-height) * -1);
   
   text-align: center;
   justify-content: center;
