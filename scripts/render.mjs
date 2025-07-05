@@ -59,6 +59,9 @@ let pids = pugFiles.filter(file => file.dir !== 'core').map(file => {
   }
 })
 
+let pidAlignment = pids.findIndex(pid => pid.name === 'pid-alignment/test')
+pids.splice(pidAlignment, 1)
+
 let fullPIDBaseIndex = pids.findIndex(pid => pid.name === 'metro-lcd/full-pid-base')
 let fullPIDBase = pids[fullPIDBaseIndex]
 pids.splice(fullPIDBaseIndex, 1)
