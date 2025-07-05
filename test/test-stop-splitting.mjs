@@ -923,6 +923,44 @@ describe('The stop splitting function - FSS Platform', () => {
     ])
   })
 
+  it('Flinders Street - Sandringham', () => {
+    let stops = [
+      'Flinders Street',
+      'Richmond',
+      'South Yarra',
+      'Prahran',
+      'Windsor',
+      'Balaclava',
+      'Ripponlea',
+      'Elsternwick',
+      'Gardenvale',
+      'North Brighton',
+      'Middle Brighton',
+      'Brighton Beach',
+      'Hampton',
+      'Sandringham'
+    ]
+    expect(splitStops(stops, false, FSS_PLATFORM).columns).to.deep.equals([
+      [
+        'Flinders Street',
+        'Richmond',
+        'South Yarra',
+        'Prahran',
+        'Windsor',
+        'Balaclava',
+        'Ripponlea',
+        'Elsternwick'
+      ], [
+        'Gardenvale',
+        'North Brighton',
+        'Middle Brighton',
+        'Brighton Beach',
+        'Hampton',
+        'Sandringham'
+      ]
+    ])
+  })
+
   it('Frankston - Laverton: Note that an actual PID should cut off at Newport', () => {
     let stops = [
       'Frankston',
