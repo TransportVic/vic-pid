@@ -23,8 +23,9 @@ div.pre-plat.portrait {
   --next-svc-pattern-font: calc(var(--height) * 0.022);
   --next-svc-pattern-letter-spacing: calc(var(--width) * 0.0007);
   --next-svc-pattern-line-height: 1.12;
-  --arrow-length: calc(var(--height) * 0.014);
-  --arrow-thickness: calc(var(--stop-column-width) * 0.8);
+  --arrow-length: calc(var(--height) * 0.01);
+  --arrow-thickness: calc(var(--stop-column-width) * 0.6);
+  --arrow-margin-top: calc(var(--stop-column-width) * 0.5);
   --stop-continuation-marker-height: calc(var(--height) * 0.012);
   --stop-column-width: calc(var(--width) * 0.015);
   --column-bullet-width: calc(var(--width) * 0.01);
