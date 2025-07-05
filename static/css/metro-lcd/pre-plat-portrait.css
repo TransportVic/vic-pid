@@ -1,7 +1,9 @@
 div.pre-plat.portrait {
   --pid-body-width: calc(var(--width) * 0.92);
   --next-svc-sch-time-font: calc(var(--height) * 0.038);
+  --next-svc-sch-time-letter-spacing: calc(var(--width) * 0.0025);
   --next-svc-dest-font: calc(var(--height) * 0.048);
+  --next-svc-dest-letter-spacing: calc(var(--width) * 0.0015);
 
   --next-svc-disruption-margin: calc(var(--width) * 0.015);
   --next-svc-disruption-size: calc(var(--width) * 0.05);
@@ -19,6 +21,8 @@ div.pre-plat.portrait {
   --next-svc-summary-font: calc(var(--height) * 0.03);
 
   --next-svc-pattern-font: calc(var(--height) * 0.022);
+  --next-svc-pattern-letter-spacing: calc(var(--width) * 0.0007);
+  --next-svc-pattern-line-height: 1.12;
   --arrow-length: calc(var(--height) * 0.014);
   --arrow-thickness: calc(var(--stop-column-width) * 0.8);
   --stop-continuation-marker-height: calc(var(--height) * 0.012);
@@ -32,7 +36,10 @@ div.pre-plat.portrait {
   --est-time-box-height: calc(var(--height) * 0.035);
   --subsequent-service-count: 4;
 
-  --subsequent-svc-font: calc(var(--height) * 0.021);
+  --subsequent-svc-sch-font: calc(var(--height) * 0.021);
+  --subsequent-svc-dest-font: calc(var(--height) * 0.021);
+  --subsequent-svc-sum-font: calc(var(--height) * 0.015);
+  --subsequent-svc-time-plat-font: calc(var(--height) * 0.021);
   --subsequent-svc-sch-width: calc(var(--width) * 0.2);
   --subsequent-svc-line-colour-width: calc(var(--width) * 0.015);
   --subsequent-svc-plat-width: calc(var(--width) * 0.08);
