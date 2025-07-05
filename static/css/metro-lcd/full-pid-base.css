@@ -103,6 +103,10 @@ span.next-service-platform {
   margin-left: auto;
 }
 
+span.next-service-est-time::before {
+  content: "\200b";
+}
+
 span.next-service-est-time {
   width: calc(var(--width) * 0.2);
   font-size: var(--next-svc-est-time-font);
@@ -118,6 +122,10 @@ span.next-service-est-time {
 div.next-service-pattern-info {
   margin-top: var(--next-svc-pattern-info-m-top);
   margin-bottom: var(--next-svc-pattern-info-m-bottom);
+}
+
+span.next-service-summary::before {
+  content: "\200b";
 }
 
 span.next-service-summary {
@@ -231,6 +239,10 @@ tr.subsequent-service td.service-est-time {
   width: var(--subsequent-svc-est-time-width);
   text-align: center;
   font-size: var(--subsequent-svc-time-plat-font);
+}
+
+tr.subsequent-service td.service-est-time span::before {
+  content: "\200b";
 }
 
 tr.subsequent-service td.service-est-time span {

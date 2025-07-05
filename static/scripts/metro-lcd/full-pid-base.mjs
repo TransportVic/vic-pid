@@ -92,10 +92,14 @@ export class FullLCDPIDBase extends PID {
   }
 
   #updateNextServicePattern(service) {
-    let stoppingPattern = new StoppingPattern(service.stops, false, this.getPIDConfig())
-    $('.next-service-pattern').innerHTML = stoppingPattern.toHTML()
-    $('.next-service-pattern').className = `next-service-pattern ${service.line}`
-    this.#currentPattern = stoppingPattern
+    if (service.stops.length) {
+      let stoppingPattern = new StoppingPattern(service.stops, false, this.getPIDConfig())
+      $('.next-service-pattern').innerHTML = stoppingPattern.toHTML()
+      $('.next-service-pattern').className = `next-service-pattern ${service.line}`
+      this.#currentPattern = stoppingPattern
+    } else {
+      $('.next-service-pattern').innerHTML = ''
+    }
   }
 
   getCurrentPattern() { return this.#currentPattern }
@@ -144,11 +148,12 @@ export class FullLCDPIDBase extends PID {
     pid.classList.remove('fixed-message-active')
   }
 
-  showFixedMessage(text) {
+  showFixedMessage(text, raw) {
     let pid = $('div.pid')
     pid.classList.add('fixed-message-active')
 
-    $('div.fixed-message').textContent = text
+    if (raw) $('div.fixed-message').innerHTML = text
+    else $('div.fixed-message').textContent = text
     $('div.fixed-message').className = `fixed-message ${getTextSize(1, text.length)}`
   }
 
@@ -200,6 +205,9 @@ export class FullLCDPIDBase extends PID {
   }
 
   #setArrival() {
+    $('span.next-service-destination').textContent = 'Do not board'
+    $('span.next-service-summary').textContent = ''
+
     this.#setMainServiceMessageClasses()
     $('div.service-message').innerHTML = `<i class="arrival-icon"></i><span>This train is not taking passengers.<br>Don't board this train.</span>`
     $('div.service-message').className = `service-message arrival`

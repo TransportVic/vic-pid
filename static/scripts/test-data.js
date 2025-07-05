@@ -220,7 +220,10 @@ window.services = [{
   line: 'lilydale',
   platform: '1',
   stops: lilydale.slice(2),
-  disruptions: [],
+  disruptions: [{
+    origin: 'Lilydale',
+    text: 'Due to this afternoon\'s extreme heat forecast, we are expecting to run to a Full Extreme Heat timetable on the Belgrave and Lilydale lines. '
+  }],
   isArrival: false
 }, {
   schTime: '4:55pm',

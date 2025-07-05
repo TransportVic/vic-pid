@@ -1,7 +1,7 @@
 div.pre-plat.portrait {
   --pid-body-width: calc(var(--width) * 0.92);
   --next-svc-sch-time-font: calc(var(--height) * 0.038);
-  --next-svc-sch-time-letter-spacing: calc(var(--width) * 0.0025);
+  --next-svc-sch-time-letter-spacing: calc(var(--width) * 0.0005);
   --next-svc-dest-font: calc(var(--height) * 0.048);
   --next-svc-dest-letter-spacing: calc(var(--width) * 0.0015);
 
