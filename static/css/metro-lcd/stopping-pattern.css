@@ -42,7 +42,7 @@
 .column-bullet-container {
   display: flex;
   align-items: center;
-  margin-right: calc(var(--width) * 0.004);
+  margin-right: calc(var(--width) * 0.003);
 }
 
 .station-row.stopping .column-bullet {
@@ -81,7 +81,7 @@
 }
 
 .station-row-name {
-  padding: calc(var(--height) * 0.004) calc(var(--width) * 0.007);
+  padding: calc(var(--height) * 0.004) calc(var(--width) * 0.003);
 }
 
 .station-row.express .station-row-name {

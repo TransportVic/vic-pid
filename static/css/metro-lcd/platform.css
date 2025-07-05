@@ -1,7 +1,9 @@
 div.platform.landscape, div.pre-plat.landscape {
   --pid-body-width: calc(var(--width) * 0.96);
-  --next-svc-sch-time-font: calc(var(--height) * 0.073);
-  --next-svc-dest-font: calc(var(--height) * 0.087);
+  --next-svc-sch-time-font: calc(var(--height) * 0.077);
+  --next-svc-sch-time-letter-spacing: calc(var(--width) * 0.0025);
+  --next-svc-dest-font: calc(var(--height) * 0.098);
+  --next-svc-dest-letter-spacing: calc(var(--width) * 0.0015);
 
   --next-svc-disruption-margin: calc(var(--width) * 0.007);
   --next-svc-disruption-size: calc(var(--width) * 0.026);
@@ -13,27 +15,32 @@ div.platform.landscape, div.pre-plat.landscape {
   --next-svc-est-time-font: calc(var(--height) * 0.075);
   --next-svc-est-time-padding: calc(var(--height) * 0.01);
 
-  --next-svc-pattern-info-m-top:  calc(var(--height) * 0.005);
+  --next-svc-pattern-info-m-top:  calc(var(--height) * 0.015);
   --next-svc-pattern-info-m-bottom: calc(var(--height) * 0.015);
 
   --next-svc-summary-font: calc(var(--height) * 0.047);
 
-  --next-svc-pattern-font: calc(var(--height) * 0.037);
+  --next-svc-pattern-font: calc(var(--height) * 0.04);
+  --next-svc-pattern-letter-spacing: calc(var(--width) * 0.0007);
+  --next-svc-pattern-line-height: 1.12;
   --arrow-length: calc(var(--height) * 0.02);
   --arrow-thickness: calc(var(--stop-column-width) * 0.6);
   --stop-continuation-marker-height: calc(var(--height) * 0.025);
   --stop-column-width: calc(var(--width) * 0.007);
   --column-bullet-width: calc(var(--width) * 0.005);
 
-  --footer-height: calc(var(--height) * 0.16);
-  --footer-m-bottom: calc(var(--height) * 0.015);
-  --subsequent-service-width: calc(var(--width) * 0.74);
+  --footer-height: calc(var(--height) * 0.18);
+  --footer-m-bottom: calc(var(--height) * 0.03);
+  --subsequent-service-width: calc(var(--width) * 0.73);
 
   --est-time-box-height: calc(var(--height) * 0.06);
   --subsequent-service-count: 2;
 
-  --subsequent-svc-font: calc(var(--height) * 0.04);
-  --subsequent-svc-sch-width: calc(var(--width) * 0.13);
+  --subsequent-svc-sch-font: calc(var(--height) * 0.045);
+  --subsequent-svc-dest-font: calc(var(--height) * 0.042);
+  --subsequent-svc-sum-font: calc(var(--height) * 0.0335);
+  --subsequent-svc-time-plat-font: calc(var(--height) * 0.045);
+  --subsequent-svc-sch-width: calc(var(--width) * 0.12);
   --subsequent-svc-line-colour-width: calc(var(--width) * 0.007);
   --subsequent-svc-plat-width: calc(var(--width) * 0.045);
   --subsequent-svc-plat-padding: calc(var(--height) * 0.005);
@@ -64,7 +71,7 @@ div.pid.platform tr.subsequent-service td.service-platform {
 }
 
 div.pid.landscape div.clock {
-  width: calc(var(--width) * 0.2);
+  width: calc(var(--width) * 0.21);
   --clock-height: calc(var(--footer-height) - var(--subsequent-service-padding));
   height: var(--clock-height);
   border: calc(var(--height) * 0.002) solid #000;
