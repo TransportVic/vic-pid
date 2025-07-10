@@ -151,8 +151,8 @@ div.next-service-pattern div.stopping-pattern {
 
 
 div.pid-footer {
-  --subsequent-service-border: calc(var(--height) * 0.002);
-  --subsequent-service-padding: calc((var(--footer-height) / var(--subsequent-service-count) - var(--subsequent-service-border) - var(--est-time-box-height)) / 2);
+  --footer-border: calc(var(--height) * 0.002);
+  --subsequent-service-padding: calc((var(--footer-height) / var(--subsequent-service-count) - var(--footer-border) - var(--est-time-box-height)) / 2);
   --footer-content-height: calc(var(--footer-height) - var(--subsequent-service-padding));
 
   margin-top: auto;
@@ -170,7 +170,6 @@ table.subsequent-service-info {
   box-sizing: border-box;
 
   height: fit-content;
-  margin-top: auto;
 }
 
 tr.subsequent-service.template {
@@ -178,10 +177,18 @@ tr.subsequent-service.template {
 }
 
 tr.subsequent-service td {
-  border-top: var(--subsequent-service-border) solid #000;
+  border-top: var(--footer-border) solid #000;
   padding: 0;
   padding-block: var(--subsequent-service-padding);
   vertical-align: baseline;
+}
+
+tr.subsequent-service td span {
+  vertical-align: baseline;
+}
+
+tr.subsequent-service:last-child td {
+  padding-block-end: 0;
 }
 
 tr.subsequent-service td.service-sch-time {
@@ -216,9 +223,10 @@ tr.subsequent-service td.service-summary {
 }
 
 tr.subsequent-service td.service-platform {
+  font-weight: 400;
   width: var(--subsequent-svc-plat-width);
   text-align: center;
-  font-size: var(--subsequent-svc-time-plat-font);
+  font-size: var(--subsequent-svc-sch-font);
 }
 
 tr.subsequent-service td.service-platform span {
@@ -237,9 +245,10 @@ tr.subsequent-service td.service-platform:has(span:empty) {
 }
 
 tr.subsequent-service td.service-est-time {
+  font-weight: 400;
   width: var(--subsequent-svc-est-time-width);
   text-align: center;
-  font-size: var(--subsequent-svc-time-plat-font);
+  font-size: var(--subsequent-svc-sch-font);
 }
 
 tr.subsequent-service td.service-est-time span::before {

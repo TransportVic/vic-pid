@@ -44,7 +44,6 @@ div.pre-plat.portrait {
   --subsequent-svc-sch-font: calc(var(--height) * 0.021);
   --subsequent-svc-dest-font: calc(var(--height) * 0.021);
   --subsequent-svc-sum-font: calc(var(--height) * 0.015);
-  --subsequent-svc-time-plat-font: calc(var(--height) * 0.021);
   --subsequent-svc-sch-width: calc(var(--width) * 0.2);
   --subsequent-svc-line-colour-width: calc(var(--width) * 0.015);
   --subsequent-svc-plat-width: calc(var(--width) * 0.08);
