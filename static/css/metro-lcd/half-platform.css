@@ -30,12 +30,13 @@ div.pid {
 }
 
 div#service-info {
-  display: flex;
   --header-height: calc(var(--height) * 0.33);
+  --next-service-width: calc(var(--width) * 0.696);
+
+  display: flex;
 }
 
 div.next-service-info {
-  --next-service-width: calc(var(--width) * 0.696);
   width: var(--next-service-width);
   height: var(--height);
   border-right: var(--border-thickness) solid #000;
@@ -212,4 +213,51 @@ div.clock {
 
   font-size: calc(var(--height) * 0.13);
   line-height: calc(var(--height) * 0.17);
+}
+
+div.pid:not(.fixed-message-active) div.fixed-message {
+  display: none;
+}
+
+div.pid.fixed-message-active div.next-service-info {
+  display: none;
+}
+
+div.pid.fixed-message-active div.fixed-message {
+  --padding: calc(var(--width) * 0.01);
+  display: flex;
+  flex-grow: 1;
+
+  padding-inline: var(--padding);
+  width: calc(var(--next-service-width) - var(--padding) * 2);
+  height: var(--height);
+  border-right: var(--border-thickness) solid #000;
+
+  background-color: #000;
+  color: #fff;
+
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+div.pid .msg-size-1 {
+  font-size: calc(var(--height) * 0.12);
+}
+
+div.pid .msg-size-2 {
+  font-size: calc(var(--height) * 0.13);
+}
+
+div.pid .msg-size-3 {
+  font-size: calc(var(--height) * 0.16);
+}
+
+div.pid .msg-size-4 {
+  font-size: calc(var(--height) * 0.17);
+}
+
+div.pid .msg-size-5 {
+  font-size: calc(var(--height) * 0.18);
 }

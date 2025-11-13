@@ -1,4 +1,4 @@
-import { Clock } from '../pid-utils.mjs'
+import { Clock, getTextSize } from '../pid-utils.mjs'
 import PID from '../pid.mjs'
 import StoppingPattern from './stopping-pattern.mjs'
 
@@ -105,6 +105,20 @@ export class HalfPlatformPID extends PID {
     } else {
       $('.next-service-pattern').innerHTML = ''
     }
+  }
+
+  showFixedMessage(text, raw) {
+    let pid = $('div.pid')
+    pid.classList.add('fixed-message-active')
+
+    if (raw) $('div.fixed-message').innerHTML = text
+    else $('div.fixed-message').textContent = text
+    $('div.fixed-message').className = `fixed-message ${getTextSize(1, text.length)}`
+  }
+
+  hideFixedMessage() {
+    let pid = $('div.pid')
+    pid.classList.remove('fixed-message-active')
   }
 
 }
