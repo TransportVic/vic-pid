@@ -1,0 +1,23 @@
+extends ../../core/pid
+include ../../metro-lcd/templates/service-list
+
+block head
+  link(rel='stylesheet' href=`${staticContent}/css/colours.css`)
+  link(rel='stylesheet' href=`${staticContent}/css/test/service-list-test.css`)
+  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/templates/service-list.css`)
+
+block scripts
+  script(src=`${staticContent}/scripts/metro-lcd/service-list.mjs` type='module')
+ 
+block pid
+  //- +compactMultiServiceListTemplate()
+
+  div.pid.pid-16-9.landscape.light
+    div.header
+      span Trains from Richmond to:
+    div.sections
+      div.left
+        div#FSS
+          +compactMultiServiceListTemplate()
+      div.right
+        div#CLP
