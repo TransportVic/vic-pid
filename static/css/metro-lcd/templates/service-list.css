@@ -11,6 +11,20 @@ div.service-list div.service-row {
   --est-time-width: calc(var(--service-list-width) * 0.19);
 }
 
+div.service-list.mini div.service-row {
+  --block-height: calc(var(--service-list-width) * 0.059);
+  --font-size: calc(var(--service-list-width) * 0.037);
+
+  --line-marker-width: calc(var(--service-list-width) * 0.015);
+  --sch-time-margin: calc(var(--service-list-width) * 0.02);
+  --sch-time-width: calc(var(--service-list-width) * 0.17);
+  --dest-width: calc(var(--service-list-width) * 0.5);
+  --platform-width: calc(var(--service-list-width) * 0.065);
+  --est-time-margin: calc(var(--service-list-width) * 0.007);
+  --est-time-width: calc(var(--service-list-width) * 0.17);
+}
+
+
 div.service-list > div.content {
   --content-margin: calc(var(--service-list-width) * 0.04);
   --content-width: calc(var(--service-list-width) - var(--content-margin) * 2);
@@ -19,6 +33,10 @@ div.service-list > div.content {
   margin-inline: var(--content-margin);
 
   margin-bottom: calc(var(--service-list-width) * 0.03);
+}
+
+div.service-list.mini > div.content {
+  --content-margin: calc(var(--service-list-width) * 0.03);
 }
 
 div.service-list.template {
@@ -104,7 +122,7 @@ div.service-list.multi > div.content {
 }
 
 div.service-list.multi div.info {
-  width: calc(var(--content-width) * 0.5);
+  width: calc(var(--content-width) * 0.6);
 }
 
 div.service-list.multi div.info span.title, div.service-list.multi div.info span.description {
@@ -117,6 +135,15 @@ div.service-list.multi div.info span.title {
 
 div.service-list.multi div.info span.description {
   font-size: calc(var(--content-width) * 0.04);
+  font-weight: lighter;
+}
+
+div.service-list.multi.mini div.info span.title {
+  font-size: calc(var(--content-width) * 0.05);
+}
+
+div.service-list.multi.mini div.info span.description {
+  font-size: calc(var(--content-width) * 0.038);
   font-weight: lighter;
 }
 

@@ -140,5 +140,32 @@ export class CompactMultiServiceList extends PID {
 
 }
 
+export class MiniCompactMultiServiceList extends CompactMultiServiceList {
+
+  constructor(name, description, serviceCount) {
+    super(name, description, serviceCount)
+  }
+
+  toHTML() {
+    return super.toHTML().replace('service-list multi', 'service-list multi mini')
+  }
+
+}
+
+export class MiniCompactServiceList extends CompactServiceList {
+
+  constructor(name, lineClass, serviceCountt) {
+    super(name, lineClass, serviceCountt)
+  }
+
+  toHTML() {
+    return super.toHTML().replace('service-list compact', 'service-list compact mini')
+  }
+
+}
+
 window.CompactMultiServiceList = CompactMultiServiceList
+window.MiniCompactMultiServiceList = MiniCompactMultiServiceList
+
 window.CompactServiceList = CompactServiceList
+window.MiniCompactServiceList = MiniCompactServiceList

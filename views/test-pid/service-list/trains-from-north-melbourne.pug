@@ -1,0 +1,117 @@
+extends ../../core/pid
+include ../../metro-lcd/templates/service-list
+
+block head
+  link(rel='stylesheet' href=`${staticContent}/css/colours.css`)
+  link(rel='stylesheet' href=`${staticContent}/css/test/service-list-nme.css`)
+  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/templates/service-list.css`)
+
+block scripts
+  script(src=`${staticContent}/scripts/metro-lcd/service-list.mjs` type='module')
+  script(src=`${staticContent}/scripts/pid-utils.mjs` type='module')
+  script.
+    window.onload = () => {
+      const SSS = new MiniCompactMultiServiceList('Southern Cross', '', 2)
+      const FSS = new MiniCompactMultiServiceList('Flinders Street', '', 2)
+      const CLP = new MiniCompactMultiServiceList('City Loop', 'via Flagstaff, Melbourne Central and Parliament', 2)
+      const NOR = new MiniCompactServiceList('Craigieburn, Sunbury & Upfield Lines', 'craigieburn', 3)
+      const CCY = new MiniCompactServiceList('Frankston, Werribee, Williamstown & Altona Lines', 'frankston', 3)
+      const VLP = new MiniCompactServiceList('Regional Services', 'vline', 1)
+      const RCE = new MiniCompactServiceList('Flemington Racecourse Line', 'flemington-racecourse', 1)
+
+      SSS.mount('#SSS')
+      FSS.mount('#FSS')
+      CLP.mount('#CLP')
+      NOR.mount('#NOR')
+      CCY.mount('#CCY')
+      VLP.mount('#VLP')
+      RCE.mount('#RCE')
+
+      SSS.updateServices([{
+        platform: '5', estTime: 2, line: 'frankston'
+      }, {
+        platform: '3', estTime: 3, line: 'upfield'
+      }])
+      
+      FSS.updateServices([{
+        platform: '5', estTime: 2, line: 'frankston'
+      }, {
+        platform: '3', estTime: 3, line: 'upfield'
+      }])
+
+      CLP.updateServices([{
+        platform: '1', estTime: 1, line: 'flemington-racecourse'
+      }, {
+        platform: '1', estTime: 5, line: 'craigieburn'
+      }])
+
+      NOR.updateServices([{
+        schTime: '6:16pm',
+        estTime: 1,
+        destination: 'Craigieburn',
+        platform: '2',
+        disruptions: []
+      }, {
+        schTime: '6:19pm',
+        estTime: 4,
+        destination: 'Upfield',
+        platform: '2',
+        disruptions: []
+      }, {
+        schTime: '6:22pm',
+        estTime: 8,
+        destination: 'Sunbury',
+        platform: '4',
+        disruptions: []
+      }])
+
+      CCY.updateServices([{
+        schTime: '6:17pm',
+        estTime: 2,
+        destination: 'Frankston',
+        platform: '5',
+        disruptions: []
+      }, {
+        schTime: '6:20pm',
+        estTime: 9,
+        destination: 'Werribee',
+        platform: '6',
+        disruptions: []
+      }, {
+        schTime: '6:22pm',
+        estTime: 6,
+        destination: 'Frankston',
+        platform: '5',
+        disruptions: []
+      }])
+
+      VLP.updateServices([{
+        schTime: '6:33pm',
+        estTime: 17,
+        destination: 'Seymour',
+        platform: '2',
+        disruptions: []
+      }])
+
+      RCE.updateServices([{
+        schTime: '6:20pm',
+        estTime: 4,
+        destination: 'Flemington Races',
+        platform: '2',
+        disruptions: []
+      }])
+    }
+ 
+block pid
+  +compactServiceListTemplate()
+  +compactMultiServiceListTemplate()
+
+  div.pid.pid-16-9.portrait.light
+    div.sections
+      div#SSS
+      div#FSS
+      div#CLP
+      div#NOR
+      div#CCY
+      div#VLP
+      div#RCE
