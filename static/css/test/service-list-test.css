@@ -1,0 +1,9 @@
+body {
+  --width: 50vw;
+  --height: 100vh;
+  display: block;
+}
+
+div.service-list {
+  --service-list-width: var(--width);
+}
