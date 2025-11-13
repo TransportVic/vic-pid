@@ -9,15 +9,55 @@ block scripts
   script(src=`${staticContent}/scripts/metro-lcd/service-list.mjs` type='module')
   script.
     window.onload = () => {
-      const SUY_CGB = new CompactServiceList('Craigieburn, Sunbury & Upfield Lines', 'craigieburn', 3)
-      const FKN_WER_WIL = new CompactServiceList('Frankston, Werribee, Williamstown & Altona Lines', 'frankston', 3)
-      const VLINE = new CompactServiceList('Regional Services', 'vline', 1)
+      const NOR = new CompactServiceList('Craigieburn, Sunbury & Upfield Lines', 'craigieburn', 3)
+      const CCY = new CompactServiceList('Frankston, Werribee, Williamstown & Altona Lines', 'frankston', 3)
+      const VLP = new CompactServiceList('Regional Services', 'vline', 1)
       const RCE = new CompactServiceList('Flemington Racecourse Line', 'flemington-racecourse', 1)
 
-      $('.sections').innerHTML = SUY_CGB.toHTML()
-        + FKN_WER_WIL.toHTML()
-        + VLINE.toHTML()
-        + RCE.toHTML()
+      NOR.mount('#NOR')
+      CCY.mount('#CCY')
+      VLP.mount('#VLP')
+      RCE.mount('#RCE')
+
+      NOR.updateServices([{
+        schTime: '6:16pm',
+        estTime: 1,
+        destination: 'Craigieburn',
+        platform: '2',
+        disruptions: []
+      }, {
+        schTime: '6:19pm',
+        estTime: 4,
+        destination: 'Upfield',
+        platform: '2',
+        disruptions: []
+      }, {
+        schTime: '6:22pm',
+        estTime: 8,
+        destination: 'Sunbury',
+        platform: '4',
+        disruptions: []
+      }])
+
+      CCY.updateServices([{
+        schTime: '6:17pm',
+        estTime: 2,
+        destination: 'Frankston',
+        platform: '5',
+        disruptions: []
+      }, {
+        schTime: '6:20pm',
+        estTime: 9,
+        destination: 'Werribee',
+        platform: '6',
+        disruptions: []
+      }, {
+        schTime: '6:22pm',
+        estTime: 6,
+        destination: 'Frankston',
+        platform: '5',
+        disruptions: []
+      }])
     }
 
 block pid
@@ -25,3 +65,7 @@ block pid
   +compactServiceListTemplate()
 
   div.sections
+    div#NOR
+    div#CCY
+    div#VLP
+    div#RCE

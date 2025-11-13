@@ -29,7 +29,7 @@ div.service-list.compact p.title {
 
 div.service-list.compact div.service-row {
   --block-height: calc(var(--service-list-width) * 0.06);
-  --font-size: calc(var(--service-list-width) * 0.032);
+  --font-size: calc(var(--service-list-width) * 0.036);
 
   --line-marker-width: calc(var(--service-list-width) * 0.015);
   --sch-time-margin: calc(var(--service-list-width) * 0.02);
