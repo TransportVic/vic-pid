@@ -1,4 +1,5 @@
-extends ../core/pid
+extends ../../core/pid
+include ../../metro-lcd/templates/service-list
 
 block head
   link(rel='stylesheet' href=`${staticContent}/css/colours.css`)
@@ -117,7 +118,6 @@ block scripts
     }
 
 block pid
-  include ../metro-lcd/templates/service-list
   +compactServiceListTemplate()
 
   div.pid.pid-16-9.landscape.light
