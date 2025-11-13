@@ -26,13 +26,28 @@ block pid
       div.next-service-info
         div.next-service-header
           div.top
-            span.next-service-sch-time 8.40am
-            span.next-service-destination Flinders Street
-            span.next-service-est-time 4 min
+            span.next-service-sch-time
+            span.next-service-destination
+            span.next-service-est-time --
           div.bottom
-            span.next-service-summary Ltd Express
+            span.next-service-summary
         div.next-service-pattern
       div.subsequent-service-info
+        mixin serviceRow()
+          div.subsequent-service.no-line.template
+            div.line-marker
+            div.content
+              div.top
+                div.left
+                  span.service-sch-time {0}
+                  span.service-destination {1}
+                div.right
+                  span.service-est-time {2}
+              div.bottom
+                span.service-summary {3}
+        +serviceRow()
+        +serviceRow()
+        div.clock
 
     //- div#old
       div.line-marker.no-line

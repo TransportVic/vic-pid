@@ -31,6 +31,7 @@ div.pid {
 
 div#service-info {
   display: flex;
+  --header-height: calc(var(--height) * 0.33);
 }
 
 div.next-service-info {
@@ -43,15 +44,13 @@ div.next-service-info {
   align-items: center;
 }
 
-div.subsequent-service-info {
-  width: calc(var(--width) * 0.3);
-  height: var(--height);
-  display: flex;
-}
-
 div.next-service-header {
+  --sch-time-width: calc(var(--width) * 0.14);
+  --dest-width: calc(var(--width) * 0.37);
+  --est-time-width: calc(var(--width) * 0.16);
+
   width: calc(var(--next-service-width) - var(--body-margin) * 2);
-  height: calc(var(--height) * 0.33);
+  height: var(--header-height);
   margin-top: var(--body-margin);
   border-bottom: var(--border-thickness) solid #000;
 
@@ -60,13 +59,25 @@ div.next-service-header {
 }
 
 span.next-service-sch-time {
+  width: var(--sch-time-width);
   font-size: calc(var(--height) * 0.115);
-  margin-right: calc(var(--width) * 0.01);
+  display: inline-block;
 }
 
 span.next-service-destination {
-  font-size: calc(var(--height) * 0.15);
+  width: var(--dest-width);
+  font-size: calc(var(--height) * 0.16);
+  line-height: calc(var(--height) * 0.18);
   font-weight: bold;
+  display: inline-block;
+}
+
+span.next-service-destination.small {
+  font-size: calc(var(--height) * 0.145);
+}
+
+span.next-service-destination.smaller {
+  font-size: calc(var(--height) * 0.125);
 }
 
 span.next-service-est-time::before {
@@ -74,12 +85,14 @@ span.next-service-est-time::before {
 }
 
 span.next-service-est-time {
-  width: calc(var(--width) * 0.17);
+  width: var(--est-time-width);
   font-size: calc(var(--height) * 0.14);
   font-weight: 400;
   padding-block: calc(var(--height) * 0.02);
   text-align: center;
-  float: right;
+  display: inline-block;
+
+  margin-left: calc(var(--next-service-width) - var(--sch-time-width) - var(--dest-width) - var(--est-time-width) - var(--body-margin) * 2);
 
   background-color: #000;
   color: #fff;
@@ -104,4 +117,99 @@ div.next-service-pattern div.stopping-pattern {
   --stop-column-margin-right: calc(var(--width) * 0.003);
   --column-bullet-width: calc(var(--width) * 0.007);
   --column-bullet-height: calc(var(--height) * 0.013);
+}
+
+div.subsequent-service-info {
+  width: calc(var(--width) * 0.3);
+  height: var(--height);
+  display: flex;
+  flex-direction: column;
+}
+
+div.subsequent-service {
+  margin: var(--body-margin);
+  margin-bottom: 0;
+  height: var(--header-height);
+  border-bottom: var(--border-thickness) solid #000;
+  display: flex;
+}
+
+div.subsequent-service:nth-child(2) {
+  border-bottom: none;
+}
+
+div.subsequent-service div.line-marker {
+  --thickness: calc(var(--width) * 0.006);
+  width: var(--thickness);
+  height: calc(var(--header-height) * 0.79);
+  margin-right: var(--thickness);
+  display: block;
+
+  background-color: var(--line-colour);
+}
+
+div.subsequent-service div.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+div.subsequent-service div.content div.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div.subsequent-service div.content div.top div.left {
+  display: flex;
+  flex-direction: column;
+}
+
+
+div.subsequent-service div.content span.service-est-time {
+  width: calc(var(--width) * 0.08);
+  padding-block: calc(var(--width) * 0.004);
+  padding-inline: calc(var(--width) * 0.004);
+
+  font-size: calc(var(--height) * 0.08);
+  text-align: center;
+
+  display: block;
+
+  background-color: #000;
+  color: #fff;
+}
+
+
+
+div.subsequent-service div.content span.service-sch-time {
+  font-size: calc(var(--height) * 0.06);
+}
+
+div.subsequent-service div.content span.service-destination {
+  font-size: calc(var(--height) * 0.07);
+  font-weight: bold;
+}
+
+div.subsequent-service div.content span.service-summary {
+  margin-top: calc(var(--height) * 0.01);
+  font-size: calc(var(--height) * 0.06);
+  display: block;
+  width: 100%
+}
+
+
+div.clock {
+  width: calc(var(--width) * 0.3 - var(--body-margin) * 2);
+  height: calc(var(--height) * 0.2);
+  border: calc(var(--height) * 0.01) solid #000;
+  box-sizing: border-box;
+
+  margin-top: auto;
+  margin-bottom: var(--body-margin);
+  margin-left: var(--body-margin);
+  text-align: center;
+
+  font-size: calc(var(--height) * 0.13);
+  line-height: calc(var(--height) * 0.17);
 }

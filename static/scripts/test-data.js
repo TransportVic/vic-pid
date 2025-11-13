@@ -225,7 +225,7 @@ window.sunshine = [
 ]
 
 window.services = [{
-  schTime: '8:40am',
+  schTime: '12:40am',
   estTime: 4,
   destination: 'Flinders Street',
   summary: 'Ltd Express',
