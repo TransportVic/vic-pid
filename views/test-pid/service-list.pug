@@ -5,9 +5,23 @@ block head
   link(rel='stylesheet' href=`${staticContent}/css/test/service-list-test.css`)
   link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/templates/service-list.css`)
 
+block scripts
+  script(src=`${staticContent}/scripts/metro-lcd/service-list.mjs` type='module')
+  script.
+    window.onload = () => {
+      const SUY_CGB = new CompactServiceList('Craigieburn, Sunbury & Upfield Lines', 'craigieburn', 3)
+      const FKN_WER_WIL = new CompactServiceList('Frankston, Werribee, Williamstown & Altona Lines', 'frankston', 3)
+      const VLINE = new CompactServiceList('Regional Services', 'vline', 1)
+      const RCE = new CompactServiceList('Flemington Racecourse Line', 'flemington-racecourse', 1)
+
+      $('.sections').innerHTML = SUY_CGB.toHTML()
+        + FKN_WER_WIL.toHTML()
+        + VLINE.toHTML()
+        + RCE.toHTML()
+    }
+
 block pid
   include ../metro-lcd/templates/service-list
-  +compactServiceList('Craigieburn, Sunbury & Upfield Lines', 'craigieburn', 3)
-  +compactServiceList('Frankston, Werribee, Williamstown & Altona', 'frankston', 3)
-  +compactServiceList('Regional Services', 'vline', 1)
-  +compactServiceList('Flemington Racecourse Line', 'flemington-racecourse', 1)
+  +compactServiceListTemplate()
+
+  div.sections

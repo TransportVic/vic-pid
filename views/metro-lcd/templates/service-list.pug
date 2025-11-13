@@ -1,14 +1,12 @@
-mixin compactServiceList(title, lineColour, serviceCount)
-  mixin serviceRow()
-    div.service-row
-      div.line-marker
-      span.service-sch-time 12:34pm
-      span.service-destination Flinders Street
-      span.service-platform 12
-      span.service-est-time 99 min
-  div(class=`service-list ${lineColour}`)
+mixin compactServiceListTemplate()
+  div(class='service-list compact template {0}')
     div.line-marker
     div.content
-      p.title #{title}
-      for _ in Array(serviceCount).fill(0)
-        +serviceRow()
+      p.title {1}
+      div.services
+        div.service-row.template
+          div.line-marker
+          span.service-sch-time
+          span.service-destination
+          span.service-platform --
+          span.service-est-time --

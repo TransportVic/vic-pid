@@ -1,13 +1,17 @@
-div.service-list {
+div.service-list.template {
+  display: none;
+}
+
+div.service-list.compact {
   width: var(--service-list-width);
 }
 
-div.service-list > div.line-marker {
+div.service-list.compact > div.line-marker {
   height: calc(var(--service-list-width) * 0.02);
   background-color: var(--line-colour);
 }
 
-div.service-list > div.content {
+div.service-list.compact > div.content {
   --content-margin: calc(var(--service-list-width) * 0.025);
   --content-width: calc(var(--service-list-width) - var(--content-margin) * 2);
 
@@ -17,13 +21,13 @@ div.service-list > div.content {
   margin-bottom: calc(var(--service-list-width) * 0.03);
 }
 
-div.service-list p.title {
+div.service-list.compact p.title {
   margin: 0;
   font-size: calc(var(--service-list-width) * 0.035);
   margin-block: calc(var(--service-list-width) * 0.018);
 }
 
-div.service-row {
+div.service-list.compact div.service-row {
   --block-height: calc(var(--service-list-width) * 0.06);
   --font-size: calc(var(--service-list-width) * 0.032);
 
@@ -39,30 +43,30 @@ div.service-row {
   border-top: calc(var(--service-list-width) * 0.0025) solid #000;
 }
 
-div.service-row > * {
+div.service-list.compact div.service-row > * {
   display: inline-block;
   font-size: var(--font-size);
   margin-block: calc(var(--service-list-width) * 0.007);
   vertical-align: middle;
 }
 
-div.service-row div.line-marker {
+div.service-list.compact div.service-row div.line-marker {
   width: var(--line-marker-width);
   height: var(--block-height);
   background-color: var(--line-colour);
 }
 
-div.service-row span.service-sch-time {
+div.service-list.compact div.service-row span.service-sch-time {
   margin-left: var(--sch-time-margin);
   width: var(--sch-time-width);
   font-weight: lighter;
 }
 
-div.service-row span.service-destination {
+div.service-list.compact div.service-row span.service-destination {
   width: var(--dest-width);
 }
 
-div.service-row span.service-platform {
+div.service-list.compact div.service-row span.service-platform {
   margin-left: calc(var(--content-width) - var(--line-marker-width) - var(--sch-time-margin) - var(--sch-time-width) - var(--dest-width) - var(--platform-width) - var(--est-time-margin) - var(--est-time-width));
 
   width: var(--platform-width);
@@ -74,7 +78,7 @@ div.service-row span.service-platform {
   text-align: center;
 }
 
-div.service-row span.service-est-time {
+div.service-list.compact div.service-row span.service-est-time {
   margin-left: var(--est-time-margin);
 
   width: var(--est-time-width);
