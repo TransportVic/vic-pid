@@ -29,21 +29,21 @@ div {
   --body-width: calc(var(--width) - var(--body-margin) * 2);
 }
 
-div.line-marker {
+div.pid > div.line-marker {
   width: 100%;
-  height: calc(var(--height) * 0.04);
+  height: calc(var(--height) * 0.05);
 
   background-color: var(--line-colour);
 }
 
 div.next-service-info {
   width: var(--body-width);
-  height: calc(var(--height) * 0.6);
+  height: calc(var(--height) * 0.56);
   margin-inline: var(--body-margin);
 }
 
 div.next-service-header {
-  --sch-time-width: calc(var(--width) * 0.19);
+  --svc-sch-time-width: calc(var(--width) * 0.19);
   --dest-width: calc(var(--width) * 0.6);
   --est-time-width: calc(var(--width) * 0.21);
 
@@ -53,7 +53,7 @@ div.next-service-header {
 }
 
 span.next-service-sch-time {
-  width: var(--sch-time-width);
+  width: var(--svc-sch-time-width);
   font-size: calc(var(--height) * 0.16);
   display: inline-block;
 }
@@ -84,7 +84,7 @@ span.next-service-est-time {
   text-align: center;
   display: inline-block;
 
-  margin-left: calc(var(--body-width) - var(--sch-time-width) - var(--dest-width) - var(--est-time-width));
+  margin-left: calc(var(--body-width) - var(--svc-sch-time-width) - var(--dest-width) - var(--est-time-width));
 
   background-color: #000;
   color: #fff;
@@ -92,17 +92,131 @@ span.next-service-est-time {
 
 div.next-service-info div.bottom {
   margin-top: calc(var(--height) * 0.02);
-  height: calc(var(--height) * 0.2);
+  height: calc(var(--height) * 0.18);
 }
 
 span.next-service-summary, span.next-service-pattern {
   height: 0;
-  font-size: calc(var(--height) * 0.15);
+  font-size: calc(var(--height) * 0.115);
   margin: 0;
+  margin-top: calc(var(--height) * -0.007);
+
   display: block;
 }
 
 span.next-service-pattern {
   white-space: nowrap;
   overflow-x: clip;
+}
+
+div.pid-footer {
+  --footer-height: calc(var(--height) * (1 - 0.57) - var(--body-margin));
+  --border-thickness: calc(var(--height) * 0.007);
+
+  width: var(--body-width);
+  height: var(--footer-height);
+  margin-inline: var(--body-margin);
+  margin-bottom: var(--body-margin);
+
+  display: flex;
+}
+
+div.subsequent-service-info {
+  border-top: var(--border-thickness) solid #000;
+}
+
+div.subsequent-service {
+  --subsequent-service-height: calc(var(--footer-height) - var(--body-margin) - var(--border-thickness));
+  --subsequent-service-width: calc(var(--width) * 0.65);
+  --line-marker-thickness: calc(var(--width) * 0.01);
+
+  width: var(--subsequent-service-width);
+  height: var(--subsequent-service-height);
+  margin-top: calc(var(--body-margin) - var(--border-thickness) * 2);
+  display: flex;
+}
+
+div.subsequent-service:nth-child(2) {
+  border-bottom: none;
+}
+
+div.subsequent-service div.line-marker {
+  width: var(--line-marker-thickness);
+  height: var(--subsequent-service-height);
+  margin-right: var(--line-marker-thickness);
+  display: block;
+
+  background-color: var(--line-colour);
+}
+
+div.subsequent-service div.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+div.subsequent-service div.content div.top {
+  --svc-sch-time-width: calc(var(--width) * 0.12);
+  --svc-est-time-width: calc(var(--width) * 0.11);
+  --svc-dest-width: calc(var(--width) * 0.3);
+
+  margin-top: calc(var(--height) * 0.01);
+}
+
+div.subsequent-service div.content div.top div.left, div.subsequent-service div.content div.top div.right {
+  display: inline-block;
+}
+
+div.subsequent-service div.content span.service-sch-time {
+  font-size: calc(var(--height) * 0.085);
+  width: var(--svc-sch-time-width);
+
+  display: inline-block;
+}
+
+div.subsequent-service div.content span.service-destination {
+  font-size: calc(var(--height) * 0.11);
+  font-weight: bold;
+  width: var(--svc-dest-width);
+
+  display: inline-block;
+}
+
+div.subsequent-service div.content span.service-est-time {
+  --padding-width: calc(var(--width) * 0.004);
+
+  width: var(--svc-est-time-width);
+  padding-block: calc(var(--width) * 0.006);
+  padding-inline: var(--padding-width);
+  margin-left: calc(var(--subsequent-service-width) - var(--svc-sch-time-width) - var(--svc-dest-width) - var(--svc-est-time-width) - var(--line-marker-thickness) * 2 - var(--padding-width) * 2);
+
+  font-size: calc(var(--height) * 0.085);
+  text-align: center;
+
+  display: block;
+
+  background-color: #000;
+  color: #fff;
+}
+
+div.subsequent-service div.content span.service-summary {
+  margin-top: calc(var(--height) * 0.01);
+  font-size: calc(var(--height) * 0.085);
+}
+
+div.clock {
+  --clock-height: calc(var(--footer-height) - var(--border-thickness) * 2);
+
+  width: calc(var(--width) * 0.3 - var(--border-thickness) * 2);
+  height: var(--clock-height);
+  border: calc(var(--height) * 0.007) solid #000;
+  box-sizing: border-box;
+
+  margin-top: auto;
+  margin-bottom: var(--body-margin);
+  margin-left: var(--body-margin);
+  text-align: center;
+
+  font-size: calc(var(--height) * 0.14);
+  line-height: calc(var(--clock-height) * 0.99);
 }

@@ -32,3 +32,20 @@ block pid
           span.next-service-summary Not Stopping S Kensington
           span.next-service-pattern(style='opacity: 0')
             span Service Pattern Service Pattern Service Pattern Service Pattern Service Pattern
+
+    div.pid-footer
+      div.subsequent-service-info
+        mixin serviceRow()
+          div.subsequent-service.no-line.template
+            div.line-marker
+            div.content
+              div.top
+                div.left
+                  span.service-sch-time {0}
+                  span.service-destination {1}
+                div.right
+                  span.service-est-time {2}
+              div.bottom
+                span.service-summary {3}
+        +serviceRow()
+      div.clock

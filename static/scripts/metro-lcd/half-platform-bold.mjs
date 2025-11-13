@@ -80,6 +80,7 @@ export class HalfPlatformBoldPID extends PID {
     }
 
     $('span.next-service-summary').textContent = service.summary
+    $('div.line-marker').className = `line-marker ${service.line}`
   }
 
   showMainServiceMessage(text) {
