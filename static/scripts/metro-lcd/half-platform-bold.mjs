@@ -55,8 +55,8 @@ export class HalfPlatformBoldPID extends PID {
   #updateNextService(service) {
     this.#updateNextServiceInfo(service)
 
-    // if (service.isArrival) this.#setArrival()
-    // else this.hideMainServiceMessage()
+    if (service.isArrival) this.#setArrival()
+    else this.#hideArrival()
 
     // if (service.disruptions.length > 0) {
     //   let disruption = service.disruptions[0]
@@ -82,10 +82,14 @@ export class HalfPlatformBoldPID extends PID {
     $('span.next-service-summary').textContent = service.summary
     $('div.line-marker').className = `line-marker ${service.line}`
   }
-
-  showMainServiceMessage(text) {
+  
+  #setMainServiceMessageClasses() {
     let pid = $('div.pid')
     pid.classList.add('service-message-active')
+  }
+
+  showMainServiceMessage(text) {
+    this.#setMainServiceMessageClasses()
 
     $('div.service-message').textContent = text
     $('div.service-message').className = `service-message alternating ${getTextSize(1, text.length)}`
@@ -113,6 +117,16 @@ export class HalfPlatformBoldPID extends PID {
     pid.classList.remove('fixed-message-active')
   }
 
+  #hideArrival() {
+    $('div.next-service-info').className = `next-service-info`
+  }
+
+  #setArrival() {
+    $('span.next-service-destination').textContent = 'Do not board'
+    $('span.next-service-summary').textContent = 'Not taking passengers, please don\'t board'
+
+    $('div.next-service-info').className = `next-service-info arrival`
+  }
 }
 
 window.HalfPlatformBoldPID = HalfPlatformBoldPID
