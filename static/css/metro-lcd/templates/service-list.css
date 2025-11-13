@@ -28,12 +28,12 @@ div.service-list.compact p.title {
 }
 
 div.service-list.compact div.service-row {
-  --block-height: calc(var(--service-list-width) * 0.06);
-  --font-size: calc(var(--service-list-width) * 0.036);
+  --block-height: calc(var(--service-list-width) * 0.073);
+  --font-size: calc(var(--service-list-width) * 0.042);
 
-  --line-marker-width: calc(var(--service-list-width) * 0.015);
+  --line-marker-width: calc(var(--service-list-width) * 0.017);
   --sch-time-margin: calc(var(--service-list-width) * 0.02);
-  --sch-time-width: calc(var(--service-list-width) * 0.15);
+  --sch-time-width: calc(var(--service-list-width) * 0.17);
   --dest-width: calc(var(--service-list-width) * 0.5);
   --platform-width: calc(var(--service-list-width) * 0.06);
   --est-time-margin: calc(var(--service-list-width) * 0.008);

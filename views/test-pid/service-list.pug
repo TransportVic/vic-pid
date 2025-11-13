@@ -9,53 +9,109 @@ block scripts
   script(src=`${staticContent}/scripts/metro-lcd/service-list.mjs` type='module')
   script.
     window.onload = () => {
-      const NOR = new CompactServiceList('Craigieburn, Sunbury & Upfield Lines', 'craigieburn', 3)
-      const CCY = new CompactServiceList('Frankston, Werribee, Williamstown & Altona Lines', 'frankston', 3)
+      const BLY = new CompactServiceList('Lilydale, Belgrave, Alamein & Glen Waverley Lines', 'lilydale', 4)
+      const CCY = new CompactServiceList('Frankston, Werribee, Williamstown & Altona Lines', 'frankston', 4)
+      const DNG = new CompactServiceList('Cranbourne & Pakenham Lines', 'cranbourne', 3)
+      const SHM = new CompactServiceList('Sandringham Line', 'sandringham', 2)
       const VLP = new CompactServiceList('Regional Services', 'vline', 1)
-      const RCE = new CompactServiceList('Flemington Racecourse Line', 'flemington-racecourse', 1)
 
-      NOR.mount('#NOR')
+      BLY.mount('#BLY')
       CCY.mount('#CCY')
+      DNG.mount('#DNG')
+      SHM.mount('#SHM')
       VLP.mount('#VLP')
-      RCE.mount('#RCE')
 
-      NOR.updateServices([{
-        schTime: '6:16pm',
-        estTime: 1,
-        destination: 'Craigieburn',
-        platform: '2',
+      BLY.updateServices([{
+        schTime: '9:19am',
+        estTime: 6,
+        destination: 'Lilydale',
+        platform: '9',
         disruptions: []
       }, {
-        schTime: '6:19pm',
-        estTime: 4,
-        destination: 'Upfield',
-        platform: '2',
+        schTime: '9:32am',
+        estTime: 18,
+        destination: 'Glen Waverley',
+        platform: '9',
         disruptions: []
       }, {
-        schTime: '6:22pm',
-        estTime: 8,
-        destination: 'Sunbury',
-        platform: '4',
+        schTime: '9:39am',
+        estTime: 25,
+        destination: 'Belgrave',
+        platform: '9',
+        disruptions: []
+      }, {
+        schTime: '9:52am',
+        estTime: 38,
+        destination: 'Glen Waverley',
+        platform: '9',
         disruptions: []
       }])
 
       CCY.updateServices([{
-        schTime: '6:17pm',
-        estTime: 2,
-        destination: 'Frankston',
-        platform: '5',
+        schTime: '9.20am',
+        estTime: 5,
+        destination: 'Werribee',
+        platform: '3',
         disruptions: []
       }, {
-        schTime: '6:20pm',
-        estTime: 9,
+        schTime: '9.26am',
+        estTime: 11,
+        destination: 'Cheltenham',
+        platform: '4',
+        disruptions: []
+      }, {
+        schTime: '6:33pm',
+        estTime: 18,
+        destination: 'Moorabbin',
+        platform: '4',
+        disruptions: []
+      }, {
+        schTime: '6:35pm',
+        estTime: 20,
         destination: 'Werribee',
+        platform: '3',
+        disruptions: []
+      }])
+
+      DNG.updateServices([{
+        schTime: '9.20am',
+        estTime: 5,
+        destination: 'East Pakenham',
         platform: '6',
         disruptions: []
       }, {
-        schTime: '6:22pm',
+        schTime: '9.30am',
+        estTime: 15,
+        destination: 'Cranbourne',
+        platform: '6',
+        disruptions: []
+      }, {
+        schTime: '9.40am',
+        estTime: 25,
+        destination: 'East Pakenham',
+        platform: '6',
+        disruptions: []
+      }])
+
+      SHM.updateServices([{
+        schTime: '9.21am',
         estTime: 6,
-        destination: 'Frankston',
-        platform: '5',
+        destination: 'Sandringham',
+        platform: '2',
+        disruptions: []
+      }, {
+        schTime: '9.41am',
+        estTime: 26,
+        destination: 'Sandringham',
+        platform: '2',
+        disruptions: []
+      }])
+
+      VLP.updateServices([{
+        schTime: '9.35am',
+        estTime: 16,
+        destination: 'Bairnsdale',
+        platform: '6',
         disruptions: []
       }])
     }
@@ -64,8 +120,14 @@ block pid
   include ../metro-lcd/templates/service-list
   +compactServiceListTemplate()
 
-  div.sections
-    div#NOR
-    div#CCY
-    div#VLP
-    div#RCE
+  div.pid.pid-16-9.landscape.light
+    div.header
+      span Trains from Richmond to:
+    div.sections
+      div.left
+        div#BLY
+        div#CCY
+      div.right
+        div#DNG
+        div#SHM
+        div#VLP
