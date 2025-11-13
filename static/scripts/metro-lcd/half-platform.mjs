@@ -107,6 +107,22 @@ export class HalfPlatformPID extends PID {
     }
   }
 
+  showMainServiceMessage(text) {
+      let pid = $('div.pid')
+      pid.classList.add('service-message-active')
+
+      $('div.service-message').textContent = text
+      $('div.service-message').className = `service-message alternating ${getTextSize(1, text.length)}`
+    }
+
+  hideMainServiceMessage() {
+    let pid = $('div.pid')
+    pid.classList.remove('service-message-active')
+
+    $('div.service-message').className = `service-message`
+  }
+
+
   showFixedMessage(text, raw) {
     let pid = $('div.pid')
     pid.classList.add('fixed-message-active')

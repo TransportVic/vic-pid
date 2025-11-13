@@ -103,8 +103,14 @@ span.next-service-summary {
   font-size: calc(var(--height) * 0.08);
 }
 
+div.next-service-detail {
+  --service-detail-height: calc(var(--height) - var(--header-height) - var(--body-margin) - var(--border-thickness));
+  height: var(--service-detail-height);
+}
+
 div.next-service-pattern {
   width: calc(var(--next-service-width) - var(--body-margin) * 2);
+  height: var(--service-detail-height);
 }
 
 div.next-service-pattern div.stopping-pattern {
@@ -213,6 +219,59 @@ div.clock {
 
   font-size: calc(var(--height) * 0.13);
   line-height: calc(var(--height) * 0.17);
+}
+
+div.service-message {
+  display: flex;
+  position: absolute;
+
+  width: calc(var(--next-service-width) - var(--body-margin) * 2);
+  height: var(--service-detail-height);
+  
+  margin-top: calc(var(--service-detail-height) * -1);
+  
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pid-background);
+
+  opacity: 0;
+}
+
+div.service-message.arrival {
+  text-align: left;
+  font-size: var(--arrival-font);
+  font-weight: 400;
+}
+
+div.pid.service-message-active div.service-message:not(.alternating) {
+  opacity: 1;
+}
+
+div.pid.service-message-active div.service-message.alternating {
+  animation: opacity 15s ease-in-out infinite;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  48% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  98% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 div.pid:not(.fixed-message-active) div.fixed-message {
