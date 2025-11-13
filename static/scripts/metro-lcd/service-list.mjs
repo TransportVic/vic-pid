@@ -118,11 +118,11 @@ export class CompactMultiServiceList extends PID {
     services.forEach((service, i) => {
       let correspondingRow = $(`.services .service-row:nth-child(${i + 1})`, this.#mount)
       if (service) {
-        $('.service-platform', correspondingRow).className = `service-platform ${service.line}`
+        correspondingRow.className = `service-row ${service.line}`
         $('.service-platform', correspondingRow).textContent = service.platform
         $('.service-est-time', correspondingRow).textContent = this.formatEstimatedTime(service.estTime)
       } else {
-        $('.service-platform', correspondingRow).className = 'service-platform no-line'
+        correspondingRow.className = `service-row ${i === 0 ? 'no-line' : 'hidden'}`
         $('.service-platform', correspondingRow).textContent = ''
         $('.service-est-time', correspondingRow).textContent = ''
       }

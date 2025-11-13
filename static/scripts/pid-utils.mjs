@@ -77,3 +77,5 @@ export class Clock {
     this.#element.textContent = dayjs().format(this.#format)
   }
 }
+
+window.Clock = Clock

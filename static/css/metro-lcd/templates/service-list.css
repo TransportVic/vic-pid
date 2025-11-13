@@ -1,14 +1,14 @@
 div.service-list div.service-row {
-  --block-height: calc(var(--service-list-width) * 0.073);
-  --font-size: calc(var(--service-list-width) * 0.042);
+  --block-height: calc(var(--service-list-width) * 0.075);
+  --font-size: calc(var(--service-list-width) * 0.045);
 
   --line-marker-width: calc(var(--service-list-width) * 0.017);
   --sch-time-margin: calc(var(--service-list-width) * 0.02);
   --sch-time-width: calc(var(--service-list-width) * 0.17);
   --dest-width: calc(var(--service-list-width) * 0.5);
-  --platform-width: calc(var(--service-list-width) * 0.06);
-  --est-time-margin: calc(var(--service-list-width) * 0.008);
-  --est-time-width: calc(var(--service-list-width) * 0.17);
+  --platform-width: calc(var(--service-list-width) * 0.08);
+  --est-time-margin: calc(var(--service-list-width) * 0.007);
+  --est-time-width: calc(var(--service-list-width) * 0.19);
 }
 
 div.service-list > div.content {
@@ -124,8 +124,18 @@ div.service-list.multi div.services {
   margin-left: auto;
 }
 
-div.service-list.multi div.service-row span {
+div.service-list.multi div.service-row:not(:first-child) {
+  border-top: calc(var(--service-list-width) * 0.0025) solid #000;
+}
+
+div.service-list.multi div.service-row.hidden {
+  display: none;
+}
+
+div.service-list.multi div.service-row > * {
   display: inline-block;
+  font-size: var(--font-size);
+  margin-block: calc(var(--service-list-width) * 0.007);
 }
 
 div.service-list.multi div.service-row span.service-platform {

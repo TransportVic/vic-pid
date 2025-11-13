@@ -8,10 +8,12 @@ block head
 
 block scripts
   script(src=`${staticContent}/scripts/metro-lcd/service-list.mjs` type='module')
+  script(src=`${staticContent}/scripts/pid-utils.mjs` type='module')
   script.
     window.onload = () => {
       const FSS = new CompactMultiServiceList('Flinders Street', '', 7)
       const CLP = new CompactMultiServiceList('City Loop', 'Parliament, Melbourne Central, Flagstaff', 1)
+      const clock = new Clock($('.clock'), 'h:mm:ss a')
 
       FSS.mount('#FSS')
       CLP.mount('#CLP')
@@ -24,7 +26,15 @@ block scripts
         platform: '1', estTime: 9, line: 'sandringham'
       }, {
         platform: '3', estTime: 15, line: 'frankston'
+      }, {
+        platform: '8', estTime: 19, line: 'lilydale'
+      }, {
+        platform: '7', estTime: 21, line: 'lilydale'
+      }, {
+        platform: '3', estTime: 26, line: 'frankston'
       }])
+
+      CLP.updateServices([])
     }
  
 block pid
@@ -38,3 +48,4 @@ block pid
         div#FSS
       div.right
         div#CLP
+        div.clock
