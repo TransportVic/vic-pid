@@ -948,9 +948,9 @@ describe('The stop splitting function - FSS Platform', () => {
         'Prahran',
         'Windsor',
         'Balaclava',
-        'Ripponlea',
-        'Elsternwick'
+        'Ripponlea'
       ], [
+        'Elsternwick',
         'Gardenvale',
         'North Brighton',
         'Middle Brighton',
