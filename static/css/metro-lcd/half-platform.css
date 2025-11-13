@@ -1,0 +1,107 @@
+div.pid.announcements-active #announcements {
+  display: flex;
+}
+
+#announcements {
+  background: #000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: var(--width);
+  height: var(--height);
+  gap: calc(var(--width) * 0.02);
+
+  z-index: 1000;
+}
+
+#announcements img {
+  height: calc(var(--height) * 0.3);
+}
+
+#announcements p {
+  font-size: calc(var(--height) * 0.12);
+  color: #fff;
+}
+
+div.pid {
+  --body-margin: calc(var(--width) * 0.01);
+  --border-thickness: calc(var(--width) * 0.004);
+}
+
+div#service-info {
+  display: flex;
+}
+
+div.next-service-info {
+  --next-service-width: calc(var(--width) * 0.696);
+  width: var(--next-service-width);
+  height: var(--height);
+  border-right: var(--border-thickness) solid #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.subsequent-service-info {
+  width: calc(var(--width) * 0.3);
+  height: var(--height);
+  display: flex;
+}
+
+div.next-service-header {
+  width: calc(var(--next-service-width) - var(--body-margin) * 2);
+  height: calc(var(--height) * 0.33);
+  margin-top: var(--body-margin);
+  border-bottom: var(--border-thickness) solid #000;
+
+  display: flex;
+  flex-direction: column;
+}
+
+span.next-service-sch-time {
+  font-size: calc(var(--height) * 0.115);
+  margin-right: calc(var(--width) * 0.01);
+}
+
+span.next-service-destination {
+  font-size: calc(var(--height) * 0.15);
+  font-weight: bold;
+}
+
+span.next-service-est-time::before {
+  content: "\200b";
+}
+
+span.next-service-est-time {
+  width: calc(var(--width) * 0.17);
+  font-size: calc(var(--height) * 0.14);
+  font-weight: 400;
+  padding-block: calc(var(--height) * 0.02);
+  text-align: center;
+  float: right;
+
+  background-color: #000;
+  color: #fff;
+}
+
+span.next-service-summary {
+  font-size: calc(var(--height) * 0.08);
+}
+
+div.next-service-pattern {
+  width: calc(var(--next-service-width) - var(--body-margin) * 2);
+}
+
+div.next-service-pattern div.stopping-pattern {
+  font-size: calc(var(--height) * 0.07);
+
+  --arrow-length: calc(var(--height) * 0.033);
+  --arrow-thickness: calc(var(--stop-column-width) * 0.7);
+  --arrow-margin-top: calc(var(--stop-column-width) * 0.8);
+  --stop-continuation-marker-height: calc(var(--height) * 0.04);
+  --stop-column-width: calc(var(--width) * 0.004);
+  --stop-column-margin-right: calc(var(--width) * 0.003);
+  --column-bullet-width: calc(var(--width) * 0.007);
+  --column-bullet-height: calc(var(--height) * 0.013);
+}

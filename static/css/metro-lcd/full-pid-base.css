@@ -147,6 +147,7 @@ div.next-service-pattern div.stopping-pattern {
   font-size: var(--next-svc-pattern-font);
   letter-spacing: var(--next-svc-pattern-letter-spacing);
   line-height: var(--next-svc-pattern-line-height);
+  --column-bullet-height: calc(var(--height) * 0.008);
 }
 
 

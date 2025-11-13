@@ -1,0 +1,69 @@
+extends ../core/pid
+
+block head
+  link(rel='stylesheet' href=`${staticContent}/css/colours.css`)
+  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/half-platform.css`)
+  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/stopping-pattern.css`)
+
+block scripts
+  script(src=`${staticContent}/scripts/metro-lcd/half-platform.mjs` type='module')
+  if testing
+    script(src=`${staticContent}/scripts/test-data.js`)
+    script.
+      window.onload = () => {
+        const pid = new HalfPlatformPID()
+        window.pid = pid
+        pid.updateServices(window.services)
+      }
+
+block pid
+  div.pid.pid-32-9.landscape.showing-departure.light
+    div#announcements
+      img(src=`${staticContent}/img/announcements.svg`)
+      p Please Listen For Announcements
+
+    div#service-info
+      div.next-service-info
+        div.next-service-header
+          div.top
+            span.next-service-sch-time 8.40am
+            span.next-service-destination Flinders Street
+            span.next-service-est-time 4 min
+          div.bottom
+            span.next-service-summary Ltd Express
+        div.next-service-pattern
+      div.subsequent-service-info
+
+    //- div#old
+      div.line-marker.no-line
+      div.next-service-info
+        div.next-service-header
+          div.left
+            span.next-service-sch-time
+            span.next-service-destination
+          div.right
+            span.next-service-platform
+            span.next-service-est-time
+        div.next-service-pattern-info
+          span.next-service-summary
+      div.next-service-detail
+        div.next-service-pattern
+        div.service-message
+      div.fixed-message
+      div.pid-footer
+        table.subsequent-service-info
+          mixin serviceRow()
+            tr.subsequent-service.no-line.template
+              td.service-sch-time
+                span {0}
+              td.service-destination
+                span {1}
+              td.service-summary
+                span {2}
+              td.service-platform
+                span {3}
+              td.service-est-time
+                span {4}
+          +serviceRow()
+        div.next-service-message
+        div.clock

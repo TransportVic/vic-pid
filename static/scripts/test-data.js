@@ -212,7 +212,29 @@ window.shepparton = [
   { name: 'Shepparton', stops: true }
 ]
 
+window.sunshine = [
+  { name: 'Sunshine', stops: true },
+  { name: 'Tottenham', stops: true },
+  { name: 'West Footscray', stops: true },
+  { name: 'Middle Footscray', stops: true },
+  { name: 'Footscray', stops: true },
+  { name: 'South Kensington', stops: false },
+  { name: 'North Melbourne', stops: true },
+  { name: 'Southern Cross', stops: true },
+  { name: 'Flinders Street', stops: true }
+]
+
 window.services = [{
+  schTime: '8:40am',
+  estTime: 4,
+  destination: 'Flinders Street',
+  summary: 'Ltd Express',
+  line: 'sunbury',
+  platform: '1',
+  stops: sunshine,
+  disruptions: [],
+  isArrival: false
+}, {
   schTime: '8:40pm',
   estTime: 2,
   destination: 'Lilydale',
