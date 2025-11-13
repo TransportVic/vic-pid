@@ -21,10 +21,10 @@ div.service-list > div.content {
   margin-bottom: calc(var(--service-list-width) * 0.03);
 }
 
-
-/* div.service-list.template {
+div.service-list.template {
   display: none;
-} */
+}
+
 
 div.service-list.compact {
   width: var(--service-list-width);
