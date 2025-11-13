@@ -51,37 +51,3 @@ block pid
         +serviceRow()
         +serviceRow()
         div.clock
-
-    //- div#old
-      div.line-marker.no-line
-      div.next-service-info
-        div.next-service-header
-          div.left
-            span.next-service-sch-time
-            span.next-service-destination
-          div.right
-            span.next-service-platform
-            span.next-service-est-time
-        div.next-service-pattern-info
-          span.next-service-summary
-      div.next-service-detail
-        div.next-service-pattern
-        div.service-message
-      div.fixed-message
-      div.pid-footer
-        table.subsequent-service-info
-          mixin serviceRow()
-            tr.subsequent-service.no-line.template
-              td.service-sch-time
-                span {0}
-              td.service-destination
-                span {1}
-              td.service-summary
-                span {2}
-              td.service-platform
-                span {3}
-              td.service-est-time
-                span {4}
-          +serviceRow()
-        div.next-service-message
-        div.clock

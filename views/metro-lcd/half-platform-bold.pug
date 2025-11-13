@@ -1,0 +1,34 @@
+extends ../core/pid
+
+block head
+  link(rel='stylesheet' href=`${staticContent}/css/colours.css`)
+  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/half-platform-bold.css`)
+
+block scripts
+  script(src=`${staticContent}/scripts/metro-lcd/half-platform-bold.mjs` type='module')
+  if testing
+    script(src=`${staticContent}/scripts/test-data.js`)
+    script.
+      window.onload = () => {
+        const pid = new HalfPlatformBoldPID()
+        window.pid = pid
+        pid.updateServices(window.services)
+      }
+
+block pid
+  div.pid.pid-32-9.landscape.showing-departure.light
+    div#announcements
+      img(src=`${staticContent}/img/announcements.svg`)
+      p Please Listen For Announcements
+
+    div.line-marker.no-line
+    div.next-service-info
+      div.next-service-header
+        div.top
+          span.next-service-sch-time 10:10pm
+          span.next-service-destination Flinders Street
+          span.next-service-est-time 29 min
+        div.bottom
+          span.next-service-summary Not Stopping S Kensington
+          span.next-service-pattern(style='opacity: 0')
+            span Service Pattern Service Pattern Service Pattern Service Pattern Service Pattern

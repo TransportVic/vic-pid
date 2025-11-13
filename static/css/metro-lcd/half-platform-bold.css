@@ -1,0 +1,108 @@
+div.pid.announcements-active #announcements {
+  display: flex;
+}
+
+#announcements {
+  background: #000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: var(--width);
+  height: var(--height);
+  gap: calc(var(--width) * 0.02);
+
+  z-index: 1000;
+}
+
+#announcements img {
+  height: calc(var(--height) * 0.3);
+}
+
+#announcements p {
+  font-size: calc(var(--height) * 0.12);
+  color: #fff;
+}
+
+div {
+  --body-margin: calc(var(--width) * 0.02);
+  --body-width: calc(var(--width) - var(--body-margin) * 2);
+}
+
+div.line-marker {
+  width: 100%;
+  height: calc(var(--height) * 0.04);
+
+  background-color: var(--line-colour);
+}
+
+div.next-service-info {
+  width: var(--body-width);
+  height: calc(var(--height) * 0.6);
+  margin-inline: var(--body-margin);
+}
+
+div.next-service-header {
+  --sch-time-width: calc(var(--width) * 0.19);
+  --dest-width: calc(var(--width) * 0.6);
+  --est-time-width: calc(var(--width) * 0.21);
+
+  display: flex;
+  flex-direction: column;
+  margin-top: calc(var(--height) * 0.04);
+}
+
+span.next-service-sch-time {
+  width: var(--sch-time-width);
+  font-size: calc(var(--height) * 0.16);
+  display: inline-block;
+}
+
+span.next-service-destination {
+  width: var(--dest-width);
+  font-size: calc(var(--height) * 0.21);
+  letter-spacing: calc(var(--width) * 0.001);
+  font-weight: bold;
+  display: inline-block;
+}
+
+span.next-service-destination.small {
+  font-size: calc(var(--height) * 0.185);
+  letter-spacing: calc(var(--width) * 0.0005);
+}
+
+span.next-service-est-time::before {
+  content: "\200b";
+}
+
+span.next-service-est-time {
+  width: var(--est-time-width);
+  font-size: calc(var(--height) * 0.18);
+  letter-spacing: calc(var(--width) * 0.001);
+  font-weight: 400;
+  padding-block: calc(var(--height) * 0.03);
+  text-align: center;
+  display: inline-block;
+
+  margin-left: calc(var(--body-width) - var(--sch-time-width) - var(--dest-width) - var(--est-time-width));
+
+  background-color: #000;
+  color: #fff;
+}
+
+div.next-service-info div.bottom {
+  margin-top: calc(var(--height) * 0.02);
+  height: calc(var(--height) * 0.2);
+}
+
+span.next-service-summary, span.next-service-pattern {
+  height: 0;
+  font-size: calc(var(--height) * 0.15);
+  margin: 0;
+  display: block;
+}
+
+span.next-service-pattern {
+  white-space: nowrap;
+  overflow-x: clip;
+}
