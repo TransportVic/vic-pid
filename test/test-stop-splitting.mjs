@@ -2,6 +2,7 @@ import { expect } from 'chai'
 import { PlatformStoppingPattern } from '../static/scripts/metro-lcd/platform.mjs'
 import { PrePlatPortraitStoppingPattern } from '../static/scripts/metro-lcd/pre-plat-portrait.mjs'
 import { HalfPlatformStoppingPattern } from '../static/scripts/metro-lcd/half-platform.mjs'
+import { Stop } from '../static/scripts/metro-lcd/stopping-pattern.mjs'
 
 let fssBairnsdale = [
   'Flinders Street',
@@ -49,6 +50,12 @@ let fssBairnsdale = [
   'Bairnsdale'
 ]
 
+function splitStops(classType, stops) {
+  return classType.splitStops(
+    stops.map(stop => new Stop(stop))
+  ).columns.map(col => col.map(stop => stop.getStopName()))
+}
+
 describe('The stop splitting function - FSS Platform', () => {
   it('Richmond - Westall', () => {
     let stops = [
@@ -68,7 +75,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Westall'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Richmond',
         'South Yarra',
@@ -110,7 +117,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'East Pakenham'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Oakleigh',
         'Huntingdale',
@@ -176,7 +183,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Bairnsdale'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Caulfield',
         'Carnegie',
@@ -226,7 +233,7 @@ describe('The stop splitting function - FSS Platform', () => {
   it('Flinders Street - Bairnsdale', () => {
     let stops = fssBairnsdale
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Flinders Street',
         'Richmond',
@@ -297,7 +304,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Blackburn'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Richmond',
         'East Richmond',
@@ -342,7 +349,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Frankston'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Glen Huntly',
         'Ormond',
@@ -390,7 +397,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Cheltenham'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Richmond',
         'South Yarra',
@@ -438,7 +445,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Laverton'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Glen Huntly',
         'Caulfield',
@@ -480,7 +487,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Flinders Street'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Glen Huntly',
         'Caulfield',
@@ -525,7 +532,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Flinders Street'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Croydon',
         'Ringwood East',
@@ -575,7 +582,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Flinders Street'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Caulfield',
         'Malvern',
@@ -609,7 +616,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Laverton'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'North Melbourne',
         'South Kensington',
@@ -655,7 +662,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Seymour'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'North Melbourne',
         'Kensington',
@@ -709,7 +716,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Alamein'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Melbourne Central',
         'Flagstaff',
@@ -756,7 +763,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Broadmeadows'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Flagstaff',
         'Melbourne Central',
@@ -802,7 +809,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Sunbury'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Flinders Street',
         'Southern Cross',
@@ -847,7 +854,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Westall'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Melbourne Central',
         'Flagstaff',
@@ -887,7 +894,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Batman',
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'North Melbourne',
         'Macaulay',
@@ -921,7 +928,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Hampton',
       'Sandringham'
     ]
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Flinders Street',
         'Richmond',
@@ -986,7 +993,7 @@ describe('The stop splitting function - FSS Platform', () => {
       'Laverton'
     ]
 
-    expect(PlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Frankston',
         'Kananook',
@@ -1063,7 +1070,7 @@ describe('The stop splitting function - Pre Platform Portrait', () => {
       'Glen Waverley'
     ]
 
-    expect(PrePlatPortraitStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PrePlatPortraitStoppingPattern, stops)).to.deep.equals([
       [
         'Flinders Street',
         'Southern Cross',
@@ -1122,7 +1129,7 @@ describe('The stop splitting function - Pre Platform Portrait', () => {
       'East Pakenham'
     ]
 
-    expect(PrePlatPortraitStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PrePlatPortraitStoppingPattern, stops)).to.deep.equals([
       [
         'Flinders Street',
         'Richmond',
@@ -1173,7 +1180,7 @@ describe('The stop splitting function - Pre Platform Portrait', () => {
       'Watergardens'
     ]
 
-    expect(PrePlatPortraitStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PrePlatPortraitStoppingPattern, stops)).to.deep.equals([
       [
         'North Melbourne',
         'South Kensington',
@@ -1194,7 +1201,7 @@ describe('The stop splitting function - Pre Platform Portrait', () => {
   it('Flinders Street - Bairnsdale', () => {
     let stops = fssBairnsdale
 
-    expect(PrePlatPortraitStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PrePlatPortraitStoppingPattern, stops)).to.deep.equals([
       [
         'Flinders Street',
         'Richmond',
@@ -1277,7 +1284,7 @@ describe('The stop splitting function - Pre Platform Portrait', () => {
       'Pakenham'
     ]
 
-    expect(PrePlatPortraitStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(PrePlatPortraitStoppingPattern, stops)).to.deep.equals([
       [
         'North Melbourne',
         'Southern Cross',
@@ -1341,7 +1348,7 @@ describe('The stop splitting function - Half Platform', () => {
       'Flinders Street'
     ]
 
-    expect(HalfPlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(HalfPlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Heatherdale',
         'Mitcham',
@@ -1386,7 +1393,7 @@ describe('The stop splitting function - Half Platform', () => {
       'Belgrave'
     ]
 
-    expect(HalfPlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+    expect(splitStops(HalfPlatformStoppingPattern, stops)).to.deep.equals([
       [
         'Heatherdale',
         'Ringwood',

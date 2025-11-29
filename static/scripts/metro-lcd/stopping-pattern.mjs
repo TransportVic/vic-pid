@@ -121,5 +121,11 @@ export class TerminatingStop extends Stop {
 }
 
 export class ContinuationText extends Stop {
+
+  constructor() {
+    super('Continues To')
+  }
   
+  getClassName() { return 'stopping' }
+
 }
