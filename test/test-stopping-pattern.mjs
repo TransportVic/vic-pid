@@ -1,7 +1,8 @@
 import { expect } from 'chai'
-import { ArrowExpressStop, ExpressStop, Stop, StopsColumn, TerminatingStop } from '../static/scripts/metro-lcd/stopping-pattern.mjs'
+import { ArrowExpressStop, ContinuationText, ExpressStop, Stop, StopsColumn, TerminatingStop } from '../static/scripts/metro-lcd/stopping-pattern.mjs'
 import { PlatformStoppingPattern } from '../static/scripts/metro-lcd/platform.mjs'
-let RMD_WTL = [
+
+const RMD_WTL = [
   { name: 'Richmond', stops: true },
   { name: 'South Yarra', stops: true },
   { name: 'Hawksburn', stops: false },
@@ -17,6 +18,30 @@ let RMD_WTL = [
   { name: 'Clayton', stops: true },
   { name: 'Westall', stops: true }
 ]
+
+const WER_FKN = [
+  'Werribee',         'Hoppers Crossing',
+  'Williams Landing', 'Aircraft',
+  'Laverton',         'Newport',
+  'Spotswood',        'Yarraville',
+  'Seddon',           'Footscray',
+  'South Kensington', 'North Melbourne',
+  'Southern Cross',
+  'Flinders Street', 'Richmond',
+  'South Yarra',     'Hawksburn',
+  'Toorak',          'Armadale',
+  'Malvern',         'Caulfield',
+  'Glen Huntly',     'Ormond',
+  'McKinnon',        'Bentleigh',
+  'Patterson',       'Moorabbin',
+  'Highett',         'Southland',
+  'Cheltenham',      'Mentone',
+  'Parkdale',        'Mordialloc',
+  'Aspendale',       'Edithvale',
+  'Chelsea',         'Bonbeach',
+  'Carrum',          'Seaford',
+  'Kananook',        'Frankston'
+].map(name => ({ name, stops: true }))
 
 describe('The Stop class', () => {
   it('Should accept a stop name, and return if it is express based on the stop type', () => {
@@ -71,5 +96,17 @@ describe('The StoppingPattern class', () => {
 
     expect(pattern.getColumns()[1].getStops()[6].getStopName()).to.equal('Westall')
     expect(pattern.getColumns()[1].getStops()[6]).to.be.instanceOf(TerminatingStop)
+  })
+})
+
+describe('The PlatformStoppingPattern class', () => {
+  it('Truncates stops past 36 stops', () => {
+    const pattern = new PlatformStoppingPattern(WER_FKN)
+    expect(pattern.getColumns().length).to.equal(4)
+    expect(pattern.getColumns()[3].getStops()[6].getStopName()).to.equal('Aspendale')
+    expect(pattern.getColumns()[3].getStops()[7]).to.be.instanceOf(ContinuationText)
+    expect(pattern.getColumns()[3].getStops()[7]).to.be.instanceOf(ContinuationText)
+    expect(pattern.getColumns()[3].getStops()[8]).to.be.instanceOf(TerminatingStop)
+    expect(pattern.getColumns()[3].getStops()[8].getStopName()).to.equal('Frankston')
   })
 })

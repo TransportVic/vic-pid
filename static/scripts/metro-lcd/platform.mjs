@@ -1,6 +1,6 @@
 import { Clock } from '../pid-utils.mjs'
 import { FullLCDPIDBase } from './full-pid-base.mjs'
-import { StoppingPattern } from './stopping-pattern.mjs'
+import { ContinuationText, StoppingPattern, TerminatingStop } from './stopping-pattern.mjs'
 
 export class MetroLCDPlatformPID extends FullLCDPIDBase {
 
@@ -30,6 +30,20 @@ export class PlatformStoppingPattern extends StoppingPattern {
     if (stops.length < 28) return 7
     if (stops.length < 32) return 8
     return 9
+  }
+
+  static splitStopsIntoColumns(stops, columnSize) {
+    const split = super.splitStopsIntoColumns(stops, columnSize)
+    const { columns, size } = split
+
+    if (columns.length <= 4) return split
+    
+    const destination = stops[stops.length - 1]
+    return { columns: columns.slice(0, 3).concat([[
+      ...columns[3].slice(0, -2),
+      new ContinuationText(),
+      new TerminatingStop(destination.getStopName())
+    ]]), size }
   }
 
 }

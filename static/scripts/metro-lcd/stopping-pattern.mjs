@@ -119,3 +119,7 @@ export class ArrowExpressStop extends ExpressStop {
 export class TerminatingStop extends Stop {
 
 }
+
+export class ContinuationText extends Stop {
+  
+}
