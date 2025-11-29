@@ -35,14 +35,6 @@ export class PlatformStoppingPattern extends StoppingPattern {
 }
 
 export class MetroPlatformStoppingPattern extends PlatformStoppingPattern {
-  
-  static getColumnSize(stops) {
-    if (stops.length === 16) return 8
-
-    if (stops.length < 28) return 7
-    if (stops.length < 32) return 8
-    return 9
-  }
 
   static splitStopsIntoColumns(stops, columnSize) {
     const split = super.splitStopsIntoColumns(stops, columnSize)

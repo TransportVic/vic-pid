@@ -77,6 +77,10 @@ div.pid.landscape div.clock {
   font-size: calc(var(--height) * 0.05);
 }
 
+div.pid.landscape div.stopping-pattern.col-4.row-8 {
+  --next-svc-pattern-font: calc(var(--height) * 0.035);
+}
+
 div.pid.landscape .msg-size-1 {
   font-size: calc(var(--height) * 0.08);
 }

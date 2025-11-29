@@ -122,3 +122,14 @@
 .stopping-pattern > .stop-column:last-child > .station-row:nth-last-child(2) .station-row-name {
   margin-left: var(--column-bullet-width);
 }
+
+.station-row.continuation .column-backing {
+  --dot-height: 12%;
+  background: repeating-linear-gradient(to bottom, var(--line-colour) 0, var(--line-colour) calc(var(--dot-height) * 1), transparent calc(var(--dot-height) * 1), transparent calc(var(--dot-height) * 2));
+}
+
+.station-row.continuation .station-row-name {
+  margin-left: var(--column-bullet-width);
+  font-style: italic;
+  font-weight: 100;
+}

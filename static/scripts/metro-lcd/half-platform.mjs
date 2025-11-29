@@ -1,5 +1,6 @@
 import { Clock, getTextSize } from '../pid-utils.mjs'
 import PID from '../pid.mjs'
+import { MetroPlatformStoppingPattern } from './platform.mjs'
 import { StoppingPattern } from './stopping-pattern.mjs'
 
 export class HalfPlatformPID extends PID {
@@ -143,6 +144,10 @@ export class HalfPlatformStoppingPattern extends StoppingPattern {
     if (stops.length < 9) return 4
     if (stops.length < 15) return 5
     return 6
+  }
+
+  static splitStopsIntoColumns(stops, columnSize) {
+    return MetroPlatformStoppingPattern.splitStopsIntoColumns(stops, columnSize)
   }
 
 }

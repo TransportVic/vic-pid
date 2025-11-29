@@ -9,7 +9,9 @@ export class StoppingPattern {
 
     this.#columns = columns.map(column => new StopsColumn(column))
     this.#columns[this.#columns.length - 1].markTerminating()
-    this.#size = Math.floor(size / 5) * 5
+
+    // Number of rows in a column, rounded down in groups of 4
+    this.#size = Math.floor(size / 4) * 4
   }
 
   getColumns() { return this.#columns }
@@ -126,6 +128,6 @@ export class ContinuationText extends Stop {
     super('Continues To')
   }
   
-  getClassName() { return 'stopping' }
+  getClassName() { return 'continuation' }
 
 }
