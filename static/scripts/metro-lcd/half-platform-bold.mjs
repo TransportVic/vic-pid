@@ -40,16 +40,26 @@ export class HalfPlatformBoldPID extends PID {
   updateServices(services) {
     this.hideFixedMessage()
     if (services[0]) {
-      // this.hideNoTrains()
+      this.hideNoTrains()
       this.#updateNextService(services[0])
     } else {
-      // this.showNoTrains()
+      this.showNoTrains()
     }
 
     let subsequentServices = services.slice(1, 1 + this.#subsequentServiceCount)
       .concat(Array(this.#subsequentServiceCount).fill(null))
       .slice(0, this.#subsequentServiceCount)
     this.#updateSubsequentServices(subsequentServices)
+  }
+
+  showNoTrains() {
+    let pid = $('div.pid')
+    pid.classList.add('no-trains')
+  }
+
+  hideNoTrains() {
+    let pid = $('div.pid')
+    pid.classList.remove('no-trains')
   }
 
   #updateNextService(service) {

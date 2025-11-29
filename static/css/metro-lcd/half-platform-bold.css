@@ -2,7 +2,11 @@ div.pid.announcements-active #announcements {
   display: flex;
 }
 
-#announcements {
+div.pid.no-trains #no-trains {
+  display: flex;
+}
+
+#announcements, #no-trains {
   background: #000;
   display: none;
   justify-content: center;
@@ -15,12 +19,23 @@ div.pid.announcements-active #announcements {
   z-index: 1000;
 }
 
+#no-trains {
+  flex-direction: column;
+  gap: 0;
+}
+
 #announcements img {
   height: calc(var(--height) * 0.3);
 }
 
 #announcements p {
   font-size: calc(var(--height) * 0.12);
+  color: #fff;
+}
+
+#no-trains p {
+  margin: 0;
+  font-size: calc(var(--height) * 0.25);
   color: #fff;
 }
 
