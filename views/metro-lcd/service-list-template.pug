@@ -7,7 +7,13 @@ block head
 
 block scripts
   script(src=`${pidStaticBase}/scripts/metro-lcd/service-list.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/service-list-area.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/header.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/clock.mjs` type='module')
   script(src=`${pidStaticBase}/scripts/pid-utils.mjs` type='module')
+
+  for script of extraScripts || []
+    script(src=script.src)
  
 block pid
   +compactServiceListTemplate()
