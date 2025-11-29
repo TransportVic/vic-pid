@@ -3,6 +3,7 @@ extends ../core/pid
 block head
   link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
   link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/half-platform-bold.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/next-service-header.css`)
 
 block scripts
   script(src=`${pidStaticBase}/scripts/metro-lcd/platform.mjs` type='module')
@@ -33,15 +34,11 @@ block pid
 
     div.line-marker.no-line
     div.next-service-info
-      div.next-service-header
-        div.top
-          span.next-service-sch-time --:--
-          span.next-service-destination 
-          span.next-service-est-time -- min
-        div.bottom
-          span.next-service-summary --
-          span.next-service-pattern(style='opacity: 0')
-            span --
+      include ./templates/next-service-header
+      div.next-service-footer
+        span.next-service-summary --
+        span.next-service-pattern(style='opacity: 0')
+          span --
 
     div.pid-footer
       div.subsequent-service-info

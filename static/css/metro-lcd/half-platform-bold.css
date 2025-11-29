@@ -106,8 +106,13 @@ div.next-service-info.arrival span.next-service-sch-time::before {
   display: inline-block;
 }
 
-div.next-service-info.arrival span.next-service-dest {
+div.next-service-info.arrival span.next-service-sch-time {
+  width: calc(var(--width) * 0.3);
+}
+
+div.next-service-info.arrival span.next-service-destination {
   font-size: calc(var(--height) * 0.185);
+  width: calc(var(--width) * 0.4);
 }
 
 div.next-service-info.arrival span.next-service-summary {
@@ -118,54 +123,21 @@ div.next-service-header div.top {
   line-height: calc(var(--height) * 0.22);
 }
 
+div.next-service-header {
+  --header-width: var(--width);
+}
+
 div.next-service-header div.top > span {
   vertical-align: super;
 }
 
-span.next-service-sch-time {
-  width: var(--svc-sch-time-width);
-  font-size: calc(var(--height) * 0.16);
-  font-weight: 400;
-  display: inline-block;
+div.next-service-header span.next-service-platform {
+  display: none;
 }
 
-span.next-service-destination {
-  width: var(--dest-width);
-  font-size: calc(var(--height) * 0.21);
-  letter-spacing: calc(var(--width) * 0.001);
-  font-weight: bold;
-  display: inline-block;
-}
-
-span.next-service-destination.small {
-  font-size: calc(var(--height) * 0.185);
-  letter-spacing: calc(var(--width) * 0.0005);
-}
-
-span.next-service-est-time::before {
-  content: "\200b";
-}
-
-span.next-service-est-time {
-  width: var(--est-time-width);
-  font-size: calc(var(--height) * 0.18);
-  letter-spacing: calc(var(--width) * 0.001);
-  font-weight: 400;
-  padding-block: calc(var(--height) * 0.03);
-  text-align: center;
-  display: inline-block;
-
-  margin-left: calc(var(--body-width) - var(--svc-sch-time-width) - var(--dest-width) - var(--est-time-width));
-
-  background-color: #000;
-  color: #fff;
-}
-
-div.next-service-info div.bottom {
-  margin-top: calc(var(--height) * 0.03);
+div.next-service-footer {
+  margin-top: calc(var(--height) * 0.06);
   height: calc(var(--height) * 0.18);
-
-  line-height: calc(var(--height) * 0.1);
 }
 
 span.next-service-summary, span.next-service-pattern {
