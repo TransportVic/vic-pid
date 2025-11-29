@@ -3,7 +3,7 @@ include ../../metro-lcd/templates/service-list
 
 block head
   link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
-  link(rel='stylesheet' href=`${pidStaticBase}/css/test/service-list-nme.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/test/service-list-test.css`)
   link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/service-list.css`)
 
 block scripts
@@ -130,8 +130,8 @@ block pid
   +compactServiceListTemplate()
   +compactMultiServiceListTemplate()
 
-  div.pid.pid-16-9.portrait.light
-    div.header
+  div.pid.pid-16-9.portrait.light.mce
+    div.header.bold
       span Trains from Melbourne Central
     div.sections
       div#CHL

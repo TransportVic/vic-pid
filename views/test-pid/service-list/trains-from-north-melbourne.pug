@@ -3,7 +3,7 @@ include ../../metro-lcd/templates/service-list
 
 block head
   link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
-  link(rel='stylesheet' href=`${pidStaticBase}/css/test/service-list-nme.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/test/service-list-test.css`)
   link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/service-list.css`)
 
 block scripts
@@ -106,7 +106,7 @@ block pid
   +compactServiceListTemplate()
   +compactMultiServiceListTemplate()
 
-  div.pid.pid-16-9.portrait.light
+  div.pid.pid-16-9.portrait.light.nme
     div.sections
       div#SSS
       div#FSS

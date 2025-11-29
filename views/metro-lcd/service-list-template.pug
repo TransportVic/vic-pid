@@ -1,0 +1,16 @@
+extends ../core/pid
+include ./templates/service-list
+
+block head
+  link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/service-list.css`)
+
+block scripts
+  script(src=`${pidStaticBase}/scripts/metro-lcd/service-list.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/pid-utils.mjs` type='module')
+ 
+block pid
+  +compactServiceListTemplate()
+  +compactMultiServiceListTemplate()
+
+  div.pid.pid-16-9.light

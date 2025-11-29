@@ -1,60 +1,14 @@
-div.pid {
+div.pid.mce {
+  --header-content-height: calc(var(--height) * 0.05);
+  --header-margin: calc(var(--height) * 0.01);
+}
+
+div.pid.nme {
+  --header-content-height: calc(var(--height) * 0.0);
+  --header-margin: calc(var(--height) * 0.0);
+}
+
+div.pid.rmd {
   --header-content-height: calc(var(--height) * 0.08);
   --header-margin: calc(var(--height) * 0.016);
-  --header-height: calc(var(--header-content-height) + var(--header-margin) * 2);
-}
-
-div.header {
-  font-size: calc(var(--height) * 0.06);
-  margin-block: var(--header-margin);
-  width: var(--width);
-  height: var(--header-content-height);
-}
-
-div.header span {
-  margin-left: calc(var(--width) * 0.02);
-  font-weight: 400;
-}
-
-div.sections {
-  display: flex;
-  height: calc(var(--height) - var(--header-height));
-}
-
-div.left, div.right {
-  --border-thickness: calc(var(--width) * 0.002);
-  --service-list-width: calc(var(--width) / 2 - var(--border-thickness));
-
-  width: var(--service-list-width);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-div.left {
-  border-right: var(--border-thickness) solid #000;
-}
-
-div.right {
-  border-left: var(--border-thickness) solid #000;
-}
-
-div.service-list {
-  border-top: calc(var(--height) * 0.008) solid #000;
-}
-
-div.clock {
-  width: calc(var(--width) * 0.45);
-  height: calc(var(--height) * 0.1);
-  border: calc(var(--height) * 0.003) solid #000;
-  box-sizing: border-box;
-
-  margin-inline: auto;
-  margin-bottom: calc(var(--height) * 0.09);
-  
-  line-height: var(--footer-content-height);
-  text-align: center;
-
-  font-size: calc(var(--height) * 0.06);
-  line-height: calc(var(--height) * 0.095);
 }
