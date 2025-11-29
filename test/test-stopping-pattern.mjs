@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import { ArrowExpressStop, ContinuationText, ExpressStop, Stop, StopsColumn, TerminatingStop } from '../static/scripts/metro-lcd/stopping-pattern.mjs'
-import { PlatformStoppingPattern } from '../static/scripts/metro-lcd/platform.mjs'
+import { MetroPlatformStoppingPattern } from '../static/scripts/metro-lcd/platform.mjs'
 
 const RMD_WTL = [
   { name: 'Richmond', stops: true },
@@ -81,7 +81,7 @@ describe('The StopsColumn class', () => {
 
 describe('The StoppingPattern class', () => {
   it('Should break a list of stops down into their columns', () => {
-    let pattern = new PlatformStoppingPattern(RMD_WTL)
+    const pattern = new MetroPlatformStoppingPattern(RMD_WTL)
 
     expect(pattern.getColumns().length).to.equal(2)
     expect(pattern.getColumns()[0]).to.be.instanceOf(StopsColumn)
@@ -92,16 +92,17 @@ describe('The StoppingPattern class', () => {
   })
 
   it('Should mark the last stop of the last column as a terminating stop', () => {
-    let pattern = new PlatformStoppingPattern(RMD_WTL)
+    const pattern = new MetroPlatformStoppingPattern(RMD_WTL)
 
     expect(pattern.getColumns()[1].getStops()[6].getStopName()).to.equal('Westall')
     expect(pattern.getColumns()[1].getStops()[6]).to.be.instanceOf(TerminatingStop)
   })
 })
 
-describe('The PlatformStoppingPattern class', () => {
+describe('The MetroPlatformStoppingPattern class', () => {
   it('Truncates stops past 36 stops', () => {
-    const pattern = new PlatformStoppingPattern(WER_FKN)
+    const pattern = new MetroPlatformStoppingPattern(WER_FKN)
+
     expect(pattern.getColumns().length).to.equal(4)
     expect(pattern.getColumns()[3].getStops()[6].getStopName()).to.equal('Aspendale')
     expect(pattern.getColumns()[3].getStops()[7]).to.be.instanceOf(ContinuationText)

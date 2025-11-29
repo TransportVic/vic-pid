@@ -7,8 +7,8 @@ export class PrePlatformLandscapePID extends MetroLCDPlatformPID {
   }
 
   // TODO: Fix to use its own class as we know it has issues at SHM at FSS
-  createStoppingPattern(stops) {
-    return new PlatformStoppingPattern(stops)
+  createStoppingPattern(service) {
+    return new PlatformStoppingPattern(service.stops)
   }
 
 }

@@ -9,8 +9,8 @@ export class PrePlatformPortraitPID extends FullLCDPIDBase {
     return ['pre-plat', 'portrait']
   }
 
-  createStoppingPattern(stops) {
-    return new PrePlatPortraitStoppingPattern(stops)
+  createStoppingPattern(service) {
+    return new PrePlatPortraitStoppingPattern(service.stops)
   }
 
   getSubsequentServiceCount() {

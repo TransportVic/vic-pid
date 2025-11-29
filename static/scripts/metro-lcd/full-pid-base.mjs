@@ -88,12 +88,12 @@ export class FullLCDPIDBase extends PID {
   }
 
   createStoppingPattern(stops) {
-    return new StoppingPattern(stops)
+    return new StoppingPattern(stops.stops)
   }
 
   #updateNextServicePattern(service) {
     if (service.stops.length) {
-      let stoppingPattern = this.createStoppingPattern(service.stops)
+      let stoppingPattern = this.createStoppingPattern(service)
       $('.next-service-pattern').innerHTML = stoppingPattern.toHTML()
       $('.next-service-pattern').className = `next-service-pattern ${service.line}`
       this.#currentPattern = stoppingPattern
