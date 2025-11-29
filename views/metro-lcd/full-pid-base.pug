@@ -6,6 +6,7 @@ block head
   link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/platform.css`)
   link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/pre-plat-portrait.css`)
   link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/stopping-pattern.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/next-service-header.css`)
 
 block scripts
   script(src=`${pidStaticBase}/scripts/metro-lcd/platform.mjs` type='module')
@@ -43,13 +44,7 @@ block pid
 
     div.line-marker.no-line
     div.next-service-info
-      div.next-service-header
-        div.left
-          span.next-service-sch-time
-          span.next-service-destination
-        div.right
-          span.next-service-platform
-          span.next-service-est-time
+      include ./templates/next-service-header
       div.next-service-pattern-info
         span.next-service-summary
     div.next-service-detail

@@ -1,19 +1,8 @@
 div.platform.landscape, div.pre-plat.landscape {
   --pid-body-width: calc(var(--width) * 0.96);
-  --next-svc-sch-time-font: calc(var(--height) * 0.077);
-  --next-svc-sch-time-letter-spacing: calc(var(--width) * 0.0005);
-  --next-svc-dest-font: calc(var(--height) * 0.098);
-  --next-svc-dest-letter-spacing: calc(var(--width) * 0.0015);
 
   --next-svc-disruption-margin: calc(var(--width) * 0.007);
   --next-svc-disruption-size: calc(var(--width) * 0.026);
-
-  --next-svc-plat-width: calc(var(--width) * 0.075);
-  --next-svc-plat-font: calc(var(--height) * 0.075);
-  --next-svc-plat-padding: calc(var(--height) * 0.01);
-
-  --next-svc-est-time-font: calc(var(--height) * 0.075);
-  --next-svc-est-time-padding: calc(var(--height) * 0.01);
 
   --next-svc-pattern-info-m-top:  calc(var(--height) * 0.015);
   --next-svc-pattern-info-m-bottom: calc(var(--height) * 0.015);
