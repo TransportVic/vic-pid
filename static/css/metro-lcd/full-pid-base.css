@@ -131,6 +131,7 @@ span.next-service-summary::before {
 span.next-service-summary {
   font-size: var(--next-svc-summary-font);
   font-weight: 400;
+  display: block;
 }
 
 div.next-service-detail {

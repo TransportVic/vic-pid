@@ -55,6 +55,8 @@ export function getTextSize(lines, length) {
 
 export class Clock {
 
+  static TIMEZONE = 'Australia/Melbourne'
+
   #element
   #format
 
@@ -74,7 +76,7 @@ export class Clock {
   }
 
   updateTime() {
-    this.#element.textContent = dayjs().format(this.#format)
+    this.#element.textContent = dayjs().tz(this.constructor.TIMEZONE).format(this.#format)
   }
 }
 
