@@ -6,6 +6,7 @@ block head
   link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/stopping-pattern.css`)
 
 block scripts
+  script(src=`${pidStaticBase}/scripts/metro-lcd/platform.mjs` type='module')
   script(src=`${pidStaticBase}/scripts/metro-lcd/half-platform.mjs` type='module')
   if testing
     script(src=`${pidStaticBase}/scripts/test-data.js`)

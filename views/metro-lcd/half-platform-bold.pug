@@ -5,6 +5,7 @@ block head
   link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/half-platform-bold.css`)
 
 block scripts
+  script(src=`${pidStaticBase}/scripts/metro-lcd/platform.mjs` type='module')
   script(src=`${pidStaticBase}/scripts/metro-lcd/half-platform-bold.mjs` type='module')
   if testing
     script(src=`${pidStaticBase}/scripts/test-data.js`)
@@ -28,13 +29,13 @@ block pid
     div.next-service-info
       div.next-service-header
         div.top
-          span.next-service-sch-time 10:10pm
-          span.next-service-destination Flinders Street
-          span.next-service-est-time 29 min
+          span.next-service-sch-time --:--
+          span.next-service-destination 
+          span.next-service-est-time -- min
         div.bottom
-          span.next-service-summary Not Stopping S Kensington
+          span.next-service-summary --
           span.next-service-pattern(style='opacity: 0')
-            span Service Pattern Service Pattern Service Pattern Service Pattern Service Pattern
+            span --
 
     div.pid-footer
       div.subsequent-service-info
@@ -43,11 +44,11 @@ block pid
             div.line-marker
             div.content
               div.top
-                div.left
-                  span.service-sch-time {0}
-                  span.service-destination {1}
-                div.right
-                  span.service-est-time {2}
+                //- div.left
+                span.service-sch-time {0}
+                span.service-destination {1}
+                //- div.right
+                span.service-est-time {2}
               div.bottom
                 span.service-summary {3}
         +serviceRow()

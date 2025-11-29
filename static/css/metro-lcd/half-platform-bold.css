@@ -24,32 +24,34 @@ div.pid.announcements-active #announcements {
   color: #fff;
 }
 
-div {
-  --body-margin: calc(var(--width) * 0.02);
+div.pid {
+  --body-margin: calc(var(--width) * 0.015);
   --body-width: calc(var(--width) - var(--body-margin) * 2);
+  --line-marker-height: calc(var(--height) * 0.06);
+  --main-height: calc(var(--height) * 0.58);
 }
 
 div.pid > div.line-marker {
   width: 100%;
-  height: calc(var(--height) * 0.06);
+  height: var(--line-marker-height);
 
   background-color: var(--line-colour);
 }
 
 div.next-service-info {
   width: var(--body-width);
-  height: calc(var(--height) * 0.5);
+  height: var(--main-height);
   margin-inline: var(--body-margin);
 }
 
 div.next-service-header {
   --svc-sch-time-width: calc(var(--width) * 0.19);
-  --dest-width: calc(var(--width) * 0.6);
+  --dest-width: calc(var(--width) * 0.55);
   --est-time-width: calc(var(--width) * 0.21);
 
   display: flex;
   flex-direction: column;
-  margin-top: calc(var(--height) * 0.03);
+  margin-top: calc(var(--height) * 0.04);
 }
 
 div.next-service-info.arrival div.next-service-header {
@@ -77,6 +79,14 @@ div.next-service-info.arrival span.next-service-dest {
 
 div.next-service-info.arrival span.next-service-summary {
   text-align: center;
+}
+
+div.next-service-header div.top {
+  line-height: calc(var(--height) * 0.22);
+}
+
+div.next-service-header div.top > span {
+  vertical-align: super;
 }
 
 span.next-service-sch-time {
@@ -119,13 +129,15 @@ span.next-service-est-time {
 }
 
 div.next-service-info div.bottom {
-  margin-top: calc(var(--height) * 0.02);
+  margin-top: calc(var(--height) * 0.03);
   height: calc(var(--height) * 0.18);
+
+  line-height: calc(var(--height) * 0.1);
 }
 
 span.next-service-summary, span.next-service-pattern {
   height: 0;
-  font-size: calc(var(--height) * 0.115);
+  font-size: calc(var(--height) * 0.12);
   font-weight: 400;
   margin: 0;
   margin-top: calc(var(--height) * -0.007);
@@ -139,7 +151,7 @@ span.next-service-pattern {
 }
 
 div.pid-footer {
-  --footer-height: calc(var(--height) * (1 - 0.57) - var(--body-margin));
+  --footer-height: calc(var(--height) - var(--line-marker-height) - var(--main-height) - var(--body-margin));
   --border-thickness: calc(var(--height) * 0.007);
 
   width: var(--body-width);
@@ -161,7 +173,7 @@ div.subsequent-service {
 
   width: var(--subsequent-service-width);
   height: var(--subsequent-service-height);
-  margin-top: calc(var(--body-margin) - var(--border-thickness) * 2);
+  margin-top: calc((var(--footer-height) - var(--subsequent-service-height)) / 2);
   display: flex;
 }
 
@@ -185,19 +197,23 @@ div.subsequent-service div.content {
 }
 
 div.subsequent-service div.content div.top {
-  --svc-sch-time-width: calc(var(--width) * 0.12);
-  --svc-est-time-width: calc(var(--width) * 0.11);
+  --svc-sch-time-width: calc(var(--width) * 0.1);
+  --svc-est-time-width: calc(var(--width) * 0.1);
   --svc-dest-width: calc(var(--width) * 0.3);
 
-  margin-top: calc(var(--height) * 0.01);
+  line-height: calc(var(--height) * 0.1);
 }
 
-div.subsequent-service div.content div.top div.left, div.subsequent-service div.content div.top div.right {
-  display: inline-block;
+div.subsequent-service div.content div.bottom {
+  line-height: calc(var(--height) * 0.1);
+}
+
+div.subsequent-service div.content span {
+  vertical-align: super;
 }
 
 div.subsequent-service div.content span.service-sch-time {
-  font-size: calc(var(--height) * 0.085);
+  font-size: calc(var(--height) * 0.08);
   font-weight: 400;
   width: var(--svc-sch-time-width);
 
@@ -205,7 +221,7 @@ div.subsequent-service div.content span.service-sch-time {
 }
 
 div.subsequent-service div.content span.service-destination {
-  font-size: calc(var(--height) * 0.11);
+  font-size: calc(var(--height) * 0.095);
   font-weight: bold;
   width: var(--svc-dest-width);
 
@@ -216,14 +232,14 @@ div.subsequent-service div.content span.service-est-time {
   --padding-width: calc(var(--width) * 0.004);
 
   width: var(--svc-est-time-width);
-  padding-block: calc(var(--width) * 0.006);
+  padding-block: calc(var(--width) * 0.005);
   padding-inline: var(--padding-width);
   margin-left: calc(var(--subsequent-service-width) - var(--svc-sch-time-width) - var(--svc-dest-width) - var(--svc-est-time-width) - var(--line-marker-thickness) * 2 - var(--padding-width) * 2);
 
-  font-size: calc(var(--height) * 0.085);
+  font-size: calc(var(--height) * 0.08);
   text-align: center;
 
-  display: block;
+  display: inline-block;
 
   background-color: #000;
   color: #fff;
@@ -231,7 +247,7 @@ div.subsequent-service div.content span.service-est-time {
 
 div.subsequent-service div.content span.service-summary {
   margin-top: calc(var(--height) * 0.01);
-  font-size: calc(var(--height) * 0.085);
+  font-size: calc(var(--height) * 0.08);
   font-weight: 400;
 }
 
@@ -245,9 +261,9 @@ div.clock {
 
   margin-top: auto;
   margin-bottom: var(--body-margin);
-  margin-left: var(--body-margin);
+  margin-left: auto;
   text-align: center;
 
-  font-size: calc(var(--height) * 0.14);
-  line-height: calc(var(--clock-height) * 0.99);
+  font-size: calc(var(--height) * 0.13);
+  line-height: calc(var(--clock-height) * 0.95);
 }
