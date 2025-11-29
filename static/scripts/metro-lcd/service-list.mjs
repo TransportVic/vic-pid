@@ -1,6 +1,25 @@
 import PID from '../pid.mjs'
 
-export class CompactServiceList extends PID {
+export class ServiceList extends PID {
+
+  #name
+  #lineClass
+  #serviceCount
+
+  constructor(name, lineClass, serviceCount) {
+    super()
+    this.#name = name
+    this.#lineClass = lineClass
+    this.#serviceCount = serviceCount
+  }
+
+  getName() { return this.#name }
+  getLineClass() { return this.#lineClass }
+  getServiceCount() { return this.#serviceCount }
+
+}
+
+export class CompactServiceList extends ServiceList {
 
   #HTML_DATA = (() => {
     const template = $('.service-list.compact.template')
@@ -23,21 +42,17 @@ export class CompactServiceList extends PID {
   #mount
 
   constructor(name, lineClass, serviceCount) {
-    super()
-    this.#name = name
-    this.#lineClass = lineClass
-    this.#serviceCount = serviceCount
-
+    super(name, lineClass, serviceCount)
     this.#html = this.#HTML_DATA.outerHTML
       .replace('{0}', lineClass)
       .replace('{1}', name)
-      .replace('{2}', Array(serviceCount).fill(this.#HTML_DATA.rowOuterHTML).join(''))
+      .replace('{2}', Array(this.getServiceCount()).fill(this.#HTML_DATA.rowOuterHTML).join(''))
   }
 
   updateServices(services) {
     let screenServices = services
-      .concat(Array(this.#serviceCount).fill(null))
-      .slice(0, this.#serviceCount)
+      .concat(Array(this.getServiceCount()).fill(null))
+      .slice(0, this.getServiceCount())
 
     this.#updateServices(screenServices)
   }
@@ -72,7 +87,7 @@ export class CompactServiceList extends PID {
 
 }
 
-export class CompactMultiServiceList extends PID {
+export class CompactMultiServiceList extends ServiceList {
 
   #HTML_DATA = (() => {
     const template = $('.service-list.multi.template')
@@ -87,29 +102,25 @@ export class CompactMultiServiceList extends PID {
     }
   })()
 
-  #name
   description
-  #serviceCount
 
   #html
   #mount
 
   constructor(name, description, serviceCount) {
-    super()
-    this.#name = name
+    super(name, '', serviceCount)
     this.description = description
-    this.#serviceCount = serviceCount
 
     this.#html = this.#HTML_DATA.outerHTML
       .replace('{0}', name)
       .replace('{1}', description)
-      .replace('{2}', Array(serviceCount).fill(this.#HTML_DATA.rowOuterHTML).join(''))
+      .replace('{2}', Array(this.getServiceCount()).fill(this.#HTML_DATA.rowOuterHTML).join(''))
   }
 
   updateServices(services) {
     let screenServices = services
-      .concat(Array(this.#serviceCount).fill(null))
-      .slice(0, this.#serviceCount)
+      .concat(Array(this.getServiceCount()).fill(null))
+      .slice(0, this.getServiceCount())
 
     this.#updateServices(screenServices)
   }
@@ -154,8 +165,8 @@ export class MiniCompactMultiServiceList extends CompactMultiServiceList {
 
 export class MiniCompactServiceList extends CompactServiceList {
 
-  constructor(name, lineClass, serviceCountt) {
-    super(name, lineClass, serviceCountt)
+  constructor(name, lineClass, serviceCount) {
+    super(name, lineClass, serviceCount)
   }
 
   toHTML() {
