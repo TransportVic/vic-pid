@@ -8,6 +8,9 @@ block head
 
 block scripts
   script(src=`${pidStaticBase}/scripts/metro-lcd/service-list.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/service-list-area.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/header.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/pid-utils.mjs` type='module')
   script.
     window.onload = () => {
       const BLY = new CompactServiceList('Lilydale, Belgrave, Alamein & Glen Waverley Lines', 'lilydale', 4)
@@ -16,11 +19,18 @@ block scripts
       const SHM = new CompactServiceList('Sandringham Line', 'sandringham', 2)
       const VLP = new CompactServiceList('Regional Services', 'vline', 1)
 
-      BLY.mount('#BLY')
-      CCY.mount('#CCY')
-      DNG.mount('#DNG')
-      SHM.mount('#SHM')
-      VLP.mount('#VLP')
+      const header = new Header('Trains from Richmond to:')
+      const area = new ServiceListArea([
+        new HalfServiceListArea([
+          BLY, CCY
+        ], 'left'),
+        new HalfServiceListArea([
+          DNG, SHM, VLP
+        ], 'right')
+      ])
+
+      header.mount('div.pid')
+      area.mount('div.pid')
 
       BLY.updateServices([{
         schTime: '9:19am',
@@ -121,9 +131,9 @@ block pid
   +compactServiceListTemplate()
 
   div.pid.pid-16-9.landscape.light.rmd
-    div.header
+    //- div.header
       span Trains from Richmond to:
-    div.sections
+    //- div.sections
       div.left
         div#BLY
         div#CCY

@@ -29,4 +29,26 @@ export class ServiceListArea {
 
 }
 
-if (typeof window !== 'undefined') window.ServiceListArea = ServiceListArea
+export class HalfServiceListArea extends ServiceListArea {
+
+  #side
+
+  constructor(components, side) {
+    super(components)
+    this.#side = side
+  }
+
+  getName() {
+    return this.#side
+  }
+
+  toHTML() {
+    return this.toInnerHTML()
+  }
+
+}
+
+if (typeof window !== 'undefined') {
+  window.ServiceListArea = ServiceListArea
+  window.HalfServiceListArea = HalfServiceListArea
+}

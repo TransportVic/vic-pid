@@ -8,15 +8,27 @@ block head
 
 block scripts
   script(src=`${pidStaticBase}/scripts/metro-lcd/service-list.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/service-list-area.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/header.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/clock.mjs` type='module')
   script(src=`${pidStaticBase}/scripts/pid-utils.mjs` type='module')
   script.
     window.onload = () => {
       const FSS = new CompactMultiServiceList('Flinders Street', '', 7)
       const CLP = new CompactMultiServiceList('City Loop', 'Parliament, Melbourne Central, Flagstaff', 1)
-      const clock = new Clock($('.clock'), 'h:mm:ss a')
 
-      FSS.mount('#FSS')
-      CLP.mount('#CLP')
+      const header = new Header('Trains from Richmond to:')
+      const area = new ServiceListArea([
+        new HalfServiceListArea([
+          FSS
+        ], 'left'),
+        new HalfServiceListArea([
+          CLP, new MountableClock('h:mm:ss a')
+        ], 'right')
+      ])
+
+      header.mount('div.pid')
+      area.mount('div.pid')
 
       FSS.updateServices([{
         platform: '7', estTime: 2, line: 'lilydale'
@@ -43,11 +55,3 @@ block pid
   +compactMultiServiceListTemplate()
 
   div.pid.pid-16-9.landscape.light.rmd
-    div.header
-      span Trains from Richmond to:
-    div.sections
-      div.left
-        div#FSS
-      div.right
-        div#CLP
-        div.clock
