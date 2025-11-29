@@ -131,6 +131,11 @@ div.next-service-header div.top > span {
   vertical-align: super;
 }
 
+div.next-service-header  span.next-service-destination.small {
+  font-size: calc(var(--height) * 0.185);
+  letter-spacing: calc(var(--width) * 0.0005);
+}
+
 div.next-service-header span.next-service-platform {
   display: none;
 }

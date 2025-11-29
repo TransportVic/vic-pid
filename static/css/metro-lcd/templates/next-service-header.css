@@ -2,6 +2,7 @@ div.next-service-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: baseline;
 
   --next-svc-sch-time-font: calc(var(--header-width) * 0.045);
   --next-svc-sch-time-letter-spacing: calc(var(--header-width) * 0.0005);
