@@ -8,6 +8,8 @@ block head
 
 block scripts
   script(src=`${pidStaticBase}/scripts/metro-lcd/service-list.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/service-list-area.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/header.mjs` type='module')
   script(src=`${pidStaticBase}/scripts/pid-utils.mjs` type='module')
   script.
     window.onload = () => {
@@ -16,10 +18,13 @@ block scripts
       const BLY = new MiniCompactServiceList('Lilydale, Belgrave, Alamein & Glen Waverley Lines', 'lilydale', 4)
       const DNG = new MiniCompactServiceList('Cranbourne & Pakenham Lines', 'cranbourne', 4)
 
-      CHL.mount('#CHL')
-      NOR.mount('#NOR')
-      BLY.mount('#BLY')
-      DNG.mount('#DNG')
+      const header = new BoldHeader('Trains from Melbourne Central')
+      const area = new ServiceListArea([
+        CHL, NOR, BLY, DNG
+      ])
+
+      header.mount('div.pid')
+      area.mount('div.pid')
 
       CHL.updateServices([{
         schTime: '7:56am',
@@ -131,10 +136,3 @@ block pid
   +compactMultiServiceListTemplate()
 
   div.pid.pid-16-9.portrait.light.mce
-    div.header.bold
-      span Trains from Melbourne Central
-    div.sections
-      div#CHL
-      div#NOR
-      div#BLY
-      div#DNG

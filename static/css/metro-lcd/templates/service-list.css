@@ -2,35 +2,11 @@ div.pid {
   --header-height: calc(var(--header-content-height) + var(--header-margin) * 2);
 }
 
-div.pid div.header.bold {
-  font-weight: 700;
-}
-
-div.pid.portrait div.header {
-  font-size: calc(var(--height) * 0.034);
-  margin-block: var(--header-margin);
-  width: var(--width);
-  height: var(--header-content-height);
-}
-
-div.pid.portrait div.header span {
-  margin-left: calc(var(--width) * 0.04);
+div.pid div.header span {
   font-weight: 400;
 }
 
-div.pid.landscape div.header {
-  font-size: calc(var(--height) * 0.06);
-  margin-block: var(--header-margin);
-  width: var(--width);
-  height: var(--header-content-height);
-}
-
-div.pid.landscape div.header span {
-  margin-left: calc(var(--width) * 0.02);
-  font-weight: 400;
-}
-
-div.pid div.header.bold {
+div.pid div.header.bold span {
   font-weight: 700;
 }
 
@@ -45,7 +21,6 @@ div.pid.portrait div.header {
 
 div.pid.portrait div.header span {
   margin-left: calc(var(--width) * 0.04);
-  font-weight: 400;
 }
 
 div.pid.landscape div.header {
@@ -57,7 +32,6 @@ div.pid.landscape div.header {
 
 div.pid.landscape div.header span {
   margin-left: calc(var(--width) * 0.02);
-  font-weight: 400;
 }
 
 div.sections {

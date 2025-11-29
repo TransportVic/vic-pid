@@ -8,6 +8,8 @@ block head
 
 block scripts
   script(src=`${pidStaticBase}/scripts/metro-lcd/service-list.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/service-list-area.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/header.mjs` type='module')
   script(src=`${pidStaticBase}/scripts/pid-utils.mjs` type='module')
   script.
     window.onload = () => {
@@ -19,13 +21,11 @@ block scripts
       const VLP = new MiniCompactServiceList('Regional Services', 'vline', 1)
       const RCE = new MiniCompactServiceList('Flemington Racecourse Line', 'flemington-racecourse', 1)
 
-      SSS.mount('#SSS')
-      FSS.mount('#FSS')
-      CLP.mount('#CLP')
-      NOR.mount('#NOR')
-      CCY.mount('#CCY')
-      VLP.mount('#VLP')
-      RCE.mount('#RCE')
+      const area = new ServiceListArea([
+        SSS, FSS, CLP, NOR, CCY, VLP, RCE
+      ])
+
+      area.mount('div.pid')
 
       SSS.updateServices([{
         platform: '5', estTime: 2, line: 'frankston'
@@ -107,11 +107,3 @@ block pid
   +compactMultiServiceListTemplate()
 
   div.pid.pid-16-9.portrait.light.nme
-    div.sections
-      div#SSS
-      div#FSS
-      div#CLP
-      div#NOR
-      div#CCY
-      div#VLP
-      div#RCE
