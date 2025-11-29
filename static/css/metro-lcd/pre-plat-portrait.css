@@ -57,7 +57,7 @@ div.pre-plat.portrait div.next-service-header {
   --next-svc-dest-font: calc(var(--height) * 0.048);
   --next-svc-dest-letter-spacing: calc(var(--width) * 0.0015);
   
-  --next-svc-plat-width: calc(var(--width) * 0.2);
+  --next-svc-plat-width: calc(var(--width) * 0.21);
   --next-svc-plat-font: calc(var(--height) * 0.055);
   --next-svc-plat-padding: calc(var(--height) * 0.007);
 
