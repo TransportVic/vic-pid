@@ -45,6 +45,10 @@ div.pid.portrait div.sections {
   justify-content: space-between;
 }
 
+div.pid.portrait:not(:has(div.header)) div.sections > div:first-child {
+  border-top: none;
+}
+
 div.pid.portrait div.sections > div {
   border-top: calc(var(--height) * 0.003) solid #000;
 }

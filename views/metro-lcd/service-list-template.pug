@@ -13,7 +13,7 @@ block scripts
   script(src=`${pidStaticBase}/scripts/pid-utils.mjs` type='module')
 
   for script of extraScripts || []
-    script(src=script.src)
+    script(src=script.src type='module')
  
 block pid
   +compactServiceListTemplate()
