@@ -80,4 +80,4 @@ export class Clock {
   }
 }
 
-window.Clock = Clock
+if (typeof window !== 'undefined') window.Clock = Clock

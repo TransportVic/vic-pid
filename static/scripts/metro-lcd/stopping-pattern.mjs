@@ -1,15 +1,10 @@
-import { splitStops } from '../pid-utils.mjs'
-
-export default class StoppingPattern {
+export class StoppingPattern {
 
   #columns
   #size
 
-  constructor(stops, cutoff, options) {
-    let { columns, size } = splitStops(
-      stops.map(stop => stop.stops ? new Stop(stop.name) : new ExpressStop(stop.name)),
-      false, options
-    )
+  constructor(stops) {
+    const { columns, size } = this.constructor.splitStops(stops)
 
     this.#columns = columns.map(column => new StopsColumn(column))
     this.#columns[this.#columns.length - 1].markTerminating()
@@ -24,6 +19,42 @@ export default class StoppingPattern {
       ${this.getColumns().map(column => column.toHTML()).join('')}
     </div>`
   }
+
+  static splitStops(stops) {
+    const rowCount = this.getRowCountSize(stops)
+    return this.splitStopsIntoColumns(stops, rowCount)
+  }
+
+  static getRowCountSize(stops) {
+    throw new Error()
+  }
+
+  static splitStopsIntoColumns(stops, columnSize) {
+    let parts = []
+  
+    let start = 0
+    for (let i = 0; true; i++) {
+      let end = start + columnSize
+      let part = stops.slice(start, end)
+      if (part.length === 0) break
+      parts.push(part)
+      start = end
+    }
+
+    return { columns: parts, size: columnSize }
+  }
+}
+
+export class PlatformStoppingPattern extends StoppingPattern {
+  
+  static getRowCountSize(stops) {
+    if (stops.length === 16) return 8
+
+    if (stops.length < 28) return 7
+    if (stops.length < 32) return 8
+    return 9
+  }
+
 }
 
 export class StopsColumn {

@@ -1,12 +1,5 @@
 import { expect } from 'chai'
-import StoppingPattern, { ArrowExpressStop, ExpressStop, Stop, StopsColumn, TerminatingStop } from '../static/scripts/metro-lcd/stopping-pattern.mjs'
-
-let FSS_PLATFORM = {
-  MAX_COLUMNS: 4,
-  CONNECTION_LOSS: 2,
-  MIN_COLUMN_SIZE: 6,
-  MAX_COLUMN_SIZE: 9
-}
+import { PlatformStoppingPattern, ArrowExpressStop, ExpressStop, Stop, StopsColumn, TerminatingStop } from '../static/scripts/metro-lcd/stopping-pattern.mjs'
 
 let RMD_WTL = [
   { name: 'Richmond', stops: true },
@@ -63,7 +56,7 @@ describe('The StopsColumn class', () => {
 
 describe('The StoppingPattern class', () => {
   it('Should break a list of stops down into their columns', () => {
-    let pattern = new StoppingPattern(RMD_WTL, false, FSS_PLATFORM)
+    let pattern = new PlatformStoppingPattern(RMD_WTL)
 
     expect(pattern.getColumns().length).to.equal(2)
     expect(pattern.getColumns()[0]).to.be.instanceOf(StopsColumn)
@@ -74,7 +67,7 @@ describe('The StoppingPattern class', () => {
   })
 
   it('Should mark the last stop of the last column as a terminating stop', () => {
-    let pattern = new StoppingPattern(RMD_WTL, false, FSS_PLATFORM)
+    let pattern = new PlatformStoppingPattern(RMD_WTL)
 
     expect(pattern.getColumns()[1].getStops()[6].getStopName()).to.equal('Westall')
     expect(pattern.getColumns()[1].getStops()[6]).to.be.instanceOf(TerminatingStop)

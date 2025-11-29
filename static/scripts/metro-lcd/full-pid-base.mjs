@@ -1,6 +1,6 @@
 import { getTextSize } from '../pid-utils.mjs'
 import PID from '../pid.mjs'
-import StoppingPattern from './stopping-pattern.mjs'
+import { StoppingPattern } from './stopping-pattern.mjs'
 
 export class FullLCDPIDBase extends PID {
 
