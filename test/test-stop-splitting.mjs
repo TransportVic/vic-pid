@@ -1,4 +1,4 @@
-import { PlatformStoppingPattern } from '../static/scripts/metro-lcd/stopping-pattern.mjs'
+import { PlatformStoppingPattern, PrePlatPortraitStoppingPattern } from '../static/scripts/metro-lcd/stopping-pattern.mjs'
 import { expect } from 'chai'
 
 let FSS_ESCALATOR = {
@@ -1051,7 +1051,7 @@ describe('The stop splitting function - FSS Platform', () => {
 })
 
 
-describe('The stop splitting function - FSS Escalator', () => {
+describe('The stop splitting function - Pre Platform Portrait', () => {
   it('Flinders Street - Glen Waverley', () => {
     let stops = [
       'Flinders Street',
@@ -1076,7 +1076,7 @@ describe('The stop splitting function - FSS Escalator', () => {
       'Glen Waverley'
     ]
 
-    expect(splitStops(stops, false, FSS_ESCALATOR).columns).to.deep.equals([
+    expect(PrePlatPortraitStoppingPattern.splitStops(stops).columns).to.deep.equals([
       [
         'Flinders Street',
         'Southern Cross',
@@ -1135,7 +1135,7 @@ describe('The stop splitting function - FSS Escalator', () => {
       'East Pakenham'
     ]
 
-    expect(splitStops(stops, false, FSS_ESCALATOR).columns).to.deep.equals([
+    expect(PrePlatPortraitStoppingPattern.splitStops(stops).columns).to.deep.equals([
       [
         'Flinders Street',
         'Richmond',
@@ -1186,7 +1186,7 @@ describe('The stop splitting function - FSS Escalator', () => {
       'Watergardens'
     ]
 
-    expect(splitStops(stops, false, FSS_ESCALATOR).columns).to.deep.equals([
+    expect(PrePlatPortraitStoppingPattern.splitStops(stops).columns).to.deep.equals([
       [
         'North Melbourne',
         'South Kensington',
@@ -1207,7 +1207,7 @@ describe('The stop splitting function - FSS Escalator', () => {
   it('Flinders Street - Bairnsdale', () => {
     let stops = fssBairnsdale
 
-    expect(splitStops(stops, false, FSS_ESCALATOR).columns).to.deep.equals([
+    expect(PrePlatPortraitStoppingPattern.splitStops(stops).columns).to.deep.equals([
       [
         'Flinders Street',
         'Richmond',
@@ -1290,7 +1290,7 @@ describe('The stop splitting function - FSS Escalator', () => {
       'Pakenham'
     ]
 
-    expect(splitStops(stops, false, FSS_ESCALATOR).columns).to.deep.equals([
+    expect(PrePlatPortraitStoppingPattern.splitStops(stops).columns).to.deep.equals([
       [
         'North Melbourne',
         'Southern Cross',

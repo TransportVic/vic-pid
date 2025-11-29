@@ -4,7 +4,8 @@ export class StoppingPattern {
   #size
 
   constructor(stops) {
-    const { columns, size } = this.constructor.splitStops(stops)
+    const stopData = stops.map(stop => stop.stops ? new Stop(stop.name) : new ExpressStop(stop.name))
+    const { columns, size } = this.constructor.splitStops(stopData)
 
     this.#columns = columns.map(column => new StopsColumn(column))
     this.#columns[this.#columns.length - 1].markTerminating()
@@ -21,11 +22,11 @@ export class StoppingPattern {
   }
 
   static splitStops(stops) {
-    const rowCount = this.getRowCountSize(stops)
+    const rowCount = this.getColumnSize(stops)
     return this.splitStopsIntoColumns(stops, rowCount)
   }
 
-  static getRowCountSize(stops) {
+  static getColumnSize(stops) {
     throw new Error()
   }
 
@@ -47,12 +48,26 @@ export class StoppingPattern {
 
 export class PlatformStoppingPattern extends StoppingPattern {
   
-  static getRowCountSize(stops) {
+  static getColumnSize(stops) {
     if (stops.length === 16) return 8
 
     if (stops.length < 28) return 7
     if (stops.length < 32) return 8
     return 9
+  }
+
+}
+
+export class PrePlatPortraitStoppingPattern extends StoppingPattern {
+
+  static getColumnSize(stops) {
+    return Math.max(this.getMinColumnSize(stops.length), Math.ceil(stops.length / 2))
+  }
+
+  static getMinColumnSize(count) {
+    if (count === 15) return 15
+    if (count === 16) return 13
+    return 14
   }
 
 }

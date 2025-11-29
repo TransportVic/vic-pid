@@ -1,6 +1,6 @@
 import { getTextSize } from '../pid-utils.mjs'
 import PID from '../pid.mjs'
-import { StoppingPattern } from './stopping-pattern.mjs'
+import { Stop, StoppingPattern } from './stopping-pattern.mjs'
 
 export class FullLCDPIDBase extends PID {
 
@@ -17,10 +17,6 @@ export class FullLCDPIDBase extends PID {
   
   getPIDClasses() {
     return []
-  }
-
-  getPIDConfig() {
-    return {}
   }
 
   getSubsequentServiceCount() { return 0 }
@@ -91,9 +87,13 @@ export class FullLCDPIDBase extends PID {
     } else this.hideNextServiceMessage()
   }
 
+  createStoppingPattern(stops) {
+    return new StoppingPattern(stops)
+  }
+
   #updateNextServicePattern(service) {
     if (service.stops.length) {
-      let stoppingPattern = new StoppingPattern(service.stops, false, this.getPIDConfig())
+      let stoppingPattern = this.createStoppingPattern(service.stops)
       $('.next-service-pattern').innerHTML = stoppingPattern.toHTML()
       $('.next-service-pattern').className = `next-service-pattern ${service.line}`
       this.#currentPattern = stoppingPattern

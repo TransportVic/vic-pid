@@ -1,4 +1,5 @@
 import { FullLCDPIDBase } from './full-pid-base.mjs'
+import { PrePlatPortraitStoppingPattern } from './stopping-pattern.mjs'
 
 export class PrePlatformPortraitPID extends FullLCDPIDBase {
 
@@ -8,17 +9,8 @@ export class PrePlatformPortraitPID extends FullLCDPIDBase {
     return ['pre-plat', 'portrait']
   }
 
-  getPIDConfig() {
-    return {
-      MAX_COLUMNS: 2,
-      CONNECTION_LOSS: 2,
-      MIN_COLUMN_SIZE: 5,
-      MAX_COLUMN_SIZE: 18,
-      PERFECT_SPLIT: false,
-    
-      ALWAYS_SPLIT: true,
-      ALWAYS_SPLIT_THRESHOLD: 20
-    }
+  createStoppingPattern(stops) {
+    return new PrePlatPortraitStoppingPattern(stops)
   }
 
   getSubsequentServiceCount() {
