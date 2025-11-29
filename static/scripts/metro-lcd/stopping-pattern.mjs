@@ -46,32 +46,6 @@ export class StoppingPattern {
   }
 }
 
-export class PlatformStoppingPattern extends StoppingPattern {
-  
-  static getColumnSize(stops) {
-    if (stops.length === 16) return 8
-
-    if (stops.length < 28) return 7
-    if (stops.length < 32) return 8
-    return 9
-  }
-
-}
-
-export class PrePlatPortraitStoppingPattern extends StoppingPattern {
-
-  static getColumnSize(stops) {
-    return Math.max(this.getMinColumnSize(stops.length), Math.ceil(stops.length / 2))
-  }
-
-  static getMinColumnSize(count) {
-    if (count === 15) return 15
-    if (count === 16) return 13
-    return 14
-  }
-
-}
-
 export class StopsColumn {
 
   #stops

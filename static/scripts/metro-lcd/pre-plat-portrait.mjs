@@ -1,5 +1,5 @@
 import { FullLCDPIDBase } from './full-pid-base.mjs'
-import { PrePlatPortraitStoppingPattern } from './stopping-pattern.mjs'
+import { StoppingPattern } from './stopping-pattern.mjs'
 
 export class PrePlatformPortraitPID extends FullLCDPIDBase {
 
@@ -29,4 +29,18 @@ export class PrePlatformPortraitPID extends FullLCDPIDBase {
   }
 }
 
-window.PrePlatformPortraitPID = PrePlatformPortraitPID
+export class PrePlatPortraitStoppingPattern extends StoppingPattern {
+
+  static getColumnSize(stops) {
+    return Math.max(this.getMinColumnSize(stops.length), Math.ceil(stops.length / 2))
+  }
+
+  static getMinColumnSize(count) {
+    if (count === 15) return 15
+    if (count === 16) return 13
+    return 14
+  }
+
+}
+
+if (typeof window !== 'undefined') window.PrePlatformPortraitPID = PrePlatformPortraitPID

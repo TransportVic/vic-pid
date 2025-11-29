@@ -164,8 +164,10 @@ export class MiniCompactServiceList extends CompactServiceList {
 
 }
 
-window.CompactMultiServiceList = CompactMultiServiceList
-window.MiniCompactMultiServiceList = MiniCompactMultiServiceList
+if (typeof window !== 'undefined') {
+  window.CompactMultiServiceList = CompactMultiServiceList
+  window.MiniCompactMultiServiceList = MiniCompactMultiServiceList
 
-window.CompactServiceList = CompactServiceList
-window.MiniCompactServiceList = MiniCompactServiceList
+  window.CompactServiceList = CompactServiceList
+  window.MiniCompactServiceList = MiniCompactServiceList
+}

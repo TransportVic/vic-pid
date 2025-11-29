@@ -38,18 +38,6 @@ export class HalfPlatformPID extends PID {
     })
   }
 
-  getPIDConfig() {
-    return {
-      MAX_COLUMNS: 4,
-      CONNECTION_LOSS: 2,
-      MIN_COLUMN_SIZE: 5,
-      MAX_COLUMN_SIZE: 6,
-      PERFECT_SPLIT: true,
-    
-      ALWAYS_SPLIT: false
-    }
-  }
-
   updateServices(services) {
     this.hideFixedMessage()
     if (services[0]) {
@@ -108,7 +96,7 @@ export class HalfPlatformPID extends PID {
 
   #updateNextServicePattern(service) {
     if (service.stops.length) {
-      let stoppingPattern = new StoppingPattern(service.stops, false, this.getPIDConfig())
+      let stoppingPattern = new HalfPlatformStoppingPattern(service.stops)
       $('.next-service-pattern').innerHTML = stoppingPattern.toHTML()
       $('.next-service-pattern').className = `next-service-pattern ${service.line}`
       this.#currentPattern = stoppingPattern
@@ -149,4 +137,14 @@ export class HalfPlatformPID extends PID {
 
 }
 
-window.HalfPlatformPID = HalfPlatformPID
+export class HalfPlatformStoppingPattern extends StoppingPattern {
+
+  static getColumnSize(stops) {
+    if (stops.length < 9) return 4
+    if (stops.length < 15) return 5
+    return 6
+  }
+
+}
+
+if (typeof window !== 'undefined') window.HalfPlatformPID = HalfPlatformPID

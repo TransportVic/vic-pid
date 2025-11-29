@@ -1,6 +1,6 @@
 import { expect } from 'chai'
-import { PlatformStoppingPattern, ArrowExpressStop, ExpressStop, Stop, StopsColumn, TerminatingStop } from '../static/scripts/metro-lcd/stopping-pattern.mjs'
-
+import { ArrowExpressStop, ExpressStop, Stop, StopsColumn, TerminatingStop } from '../static/scripts/metro-lcd/stopping-pattern.mjs'
+import { PlatformStoppingPattern } from '../static/scripts/metro-lcd/platform.mjs'
 let RMD_WTL = [
   { name: 'Richmond', stops: true },
   { name: 'South Yarra', stops: true },

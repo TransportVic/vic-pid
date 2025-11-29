@@ -214,4 +214,4 @@ export class FullLCDPIDBase extends PID {
   }
 }
 
-window.FullLCDPIDBase = FullLCDPIDBase
+if (typeof window !== 'undefined') window.FullLCDPIDBase = FullLCDPIDBase

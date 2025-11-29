@@ -1,4 +1,4 @@
-import { MetroLCDPlatformPID } from './platform.mjs'
+import { MetroLCDPlatformPID, PlatformStoppingPattern } from './platform.mjs'
 
 export class PrePlatformLandscapePID extends MetroLCDPlatformPID {
 
@@ -6,10 +6,11 @@ export class PrePlatformLandscapePID extends MetroLCDPlatformPID {
     return ['pre-plat', 'landscape']
   }
 
+  // TODO: Fix to use its own class as we know it has issues at SHM at FSS
   createStoppingPattern(stops) {
     return new PlatformStoppingPattern(stops)
   }
 
 }
 
-window.PrePlatformLandscapePID = PrePlatformLandscapePID
+if (typeof window !== 'undefined') window.PrePlatformLandscapePID = PrePlatformLandscapePID

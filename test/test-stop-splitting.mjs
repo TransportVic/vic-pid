@@ -1,16 +1,7 @@
-import { PlatformStoppingPattern, PrePlatPortraitStoppingPattern } from '../static/scripts/metro-lcd/stopping-pattern.mjs'
 import { expect } from 'chai'
-
-let FSS_ESCALATOR = {
-  MAX_COLUMNS: 2,
-  CONNECTION_LOSS: 2,
-  MIN_COLUMN_SIZE: 5,
-  MAX_COLUMN_SIZE: 18,
-  PERFECT_SPLIT: false,
-
-  ALWAYS_SPLIT: true,
-  ALWAYS_SPLIT_THRESHOLD: 20
-}
+import { PlatformStoppingPattern } from '../static/scripts/metro-lcd/platform.mjs'
+import { PrePlatPortraitStoppingPattern } from '../static/scripts/metro-lcd/pre-plat-portrait.mjs'
+import { HalfPlatformStoppingPattern } from '../static/scripts/metro-lcd/half-platform.mjs'
 
 let fssBairnsdale = [
   'Flinders Street',
@@ -57,10 +48,6 @@ let fssBairnsdale = [
   'Stratford',
   'Bairnsdale'
 ]
-
-function splitStops(stops) {
-  return PlatformStoppingPattern.splitStops(stops)
-}
 
 describe('The stop splitting function - FSS Platform', () => {
   it('Richmond - Westall', () => {
@@ -1324,5 +1311,112 @@ describe('The stop splitting function - Pre Platform Portrait', () => {
         'Pakenham'
       ]
     ])
+  })
+})
+
+describe('The stop splitting function - Half Platform', () => {
+  it('Heatherdale - Flinders Street', () => {
+    let stops = [
+      'Heatherdale',
+      'Mitcham',
+      'Nunawading',
+      'Blackburn',
+      'Laburnum',
+      'Box Hill',
+      'Union',
+      'Chatham',
+      'Canterbury',
+      'East Camberwell',
+      'Camberwell',
+      'Auburn',
+      'Glenferrie',
+      'Hawthorn',
+      'Burnley',
+      'East Richmond',
+      'Richmond',
+      'Parliament',
+      'Melbourne Central',
+      'Flagstaff',
+      'Southern Cross',
+      'Flinders Street'
+    ]
+
+    expect(HalfPlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+      [
+        'Heatherdale',
+        'Mitcham',
+        'Nunawading',
+        'Blackburn',
+        'Laburnum',
+        'Box Hill'
+      ], [
+        'Union',
+        'Chatham',
+        'Canterbury',
+        'East Camberwell',
+        'Camberwell',
+        'Auburn'
+      ], [
+        'Glenferrie',
+        'Hawthorn',
+        'Burnley',
+        'East Richmond',
+        'Richmond',
+        'Parliament',
+      ], [
+        'Melbourne Central',
+        'Flagstaff',
+        'Southern Cross',
+        'Flinders Street'
+      ]
+    ])
+  })
+
+  it('Heatherdale - Belgrave', () => {
+    let stops = [
+      'Heatherdale',
+      'Ringwood',
+      'Heathmont',
+      'Bayswater',
+      'Boronia',
+      'Ferntree Gully',
+      'Upper Ferntree Gully',
+      'Upwey',
+      'Tecoma',
+      'Belgrave'
+    ]
+
+    expect(HalfPlatformStoppingPattern.splitStops(stops).columns).to.deep.equals([
+      [
+        'Heatherdale',
+        'Ringwood',
+        'Heathmont',
+        'Bayswater',
+        'Boronia'
+      ], [
+        'Ferntree Gully',
+        'Upper Ferntree Gully',
+        'Upwey',
+        'Tecoma',
+        'Belgrave'
+      ]
+    ])
+  })
+
+  // Note: Need to pass in an array as it might want to tweak column size based on stops in the future
+  it('Clayton - Traralgon', () => {
+    expect(HalfPlatformStoppingPattern.getColumnSize(Array(30).fill(0))).to.equal(6)
+  })
+
+  it('Clayton - Flinders Street', () => {
+    expect(HalfPlatformStoppingPattern.getColumnSize(Array(24).fill(8))).to.equal(6)
+  })
+
+  it('Sunshine - Flinders Street', () => {
+    expect(HalfPlatformStoppingPattern.getColumnSize(Array(9).fill(0))).to.equal(5)
+  })
+
+  it('Mitcham - Upper Ferntree Gully', () => {
+    expect(HalfPlatformStoppingPattern.getColumnSize(Array(8).fill(0))).to.equal(4)
   })
 })

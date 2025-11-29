@@ -1,6 +1,5 @@
 import { Clock, getTextSize } from '../pid-utils.mjs'
 import PID from '../pid.mjs'
-import { StoppingPattern } from './stopping-pattern.mjs'
 
 export class HalfPlatformBoldPID extends PID {
 
@@ -139,4 +138,4 @@ export class HalfPlatformBoldPID extends PID {
   }
 }
 
-window.HalfPlatformBoldPID = HalfPlatformBoldPID
+if (typeof window !== 'undefined') window.HalfPlatformBoldPID = HalfPlatformBoldPID
