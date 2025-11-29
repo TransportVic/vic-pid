@@ -75,7 +75,10 @@ div.pid.landscape div.service-list {
   border-top: calc(var(--height) * 0.008) solid #000;
 }
 
-
+div.service-row {
+  display: flex;
+  align-items: center;
+}
 
 div.service-list div.service-row {
   --block-height: calc(var(--service-list-width) * 0.075);
