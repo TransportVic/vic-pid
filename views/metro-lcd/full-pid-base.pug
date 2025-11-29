@@ -32,6 +32,9 @@ block scripts
         pid.updateServices(window.services)
       }
 
+  for script of extraScripts || []
+    src(src=script.src)
+
 block pid
   div.pid.pid-16-9.showing-departure.light
     div#announcements
