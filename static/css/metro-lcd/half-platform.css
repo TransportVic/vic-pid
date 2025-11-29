@@ -58,34 +58,20 @@ div.next-service-info {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  --header-width: calc(var(--next-service-width) - var(--body-margin) * 2);
 }
 
 div.next-service-header {
-  --sch-time-width: calc(var(--width) * 0.14);
-  --dest-width: calc(var(--width) * 0.37);
-  --est-time-width: calc(var(--width) * 0.16);
-
-  width: calc(var(--next-service-width) - var(--body-margin) * 2);
-  height: var(--header-height);
+  width: var(--header-width);
+  height: calc(var(--height) * 0.2);
   margin-top: var(--body-margin);
+}
+
+div.next-service-pattern-info {
+  width: var(--header-width);
   border-bottom: var(--border-thickness) solid #000;
-
-  display: flex;
-  flex-direction: column;
-}
-
-span.next-service-sch-time {
-  width: var(--sch-time-width);
-  font-size: calc(var(--height) * 0.115);
-  display: inline-block;
-}
-
-span.next-service-destination {
-  width: var(--dest-width);
-  font-size: calc(var(--height) * 0.16);
-  line-height: calc(var(--height) * 0.18);
-  font-weight: bold;
-  display: inline-block;
+  height: calc(var(--header-height) - var(--height) * 0.2);
 }
 
 span.next-service-destination.small {
@@ -94,24 +80,6 @@ span.next-service-destination.small {
 
 span.next-service-destination.smaller {
   font-size: calc(var(--height) * 0.125);
-}
-
-span.next-service-est-time::before {
-  content: "\200b";
-}
-
-span.next-service-est-time {
-  width: var(--est-time-width);
-  font-size: calc(var(--height) * 0.14);
-  font-weight: 400;
-  padding-block: calc(var(--height) * 0.02);
-  text-align: center;
-  display: inline-block;
-
-  margin-left: calc(var(--next-service-width) - var(--sch-time-width) - var(--dest-width) - var(--est-time-width) - var(--body-margin) * 2);
-
-  background-color: #000;
-  color: #fff;
 }
 
 span.next-service-summary {
