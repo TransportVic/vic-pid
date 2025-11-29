@@ -2,13 +2,13 @@ extends ../../core/pid
 include ../../metro-lcd/templates/service-list
 
 block head
-  link(rel='stylesheet' href=`${staticContent}/css/colours.css`)
-  link(rel='stylesheet' href=`${staticContent}/css/test/service-list-nme.css`)
-  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/templates/service-list.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/test/service-list-nme.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/service-list.css`)
 
 block scripts
-  script(src=`${staticContent}/scripts/metro-lcd/service-list.mjs` type='module')
-  script(src=`${staticContent}/scripts/pid-utils.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/service-list.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/pid-utils.mjs` type='module')
   script.
     window.onload = () => {
       const SSS = new MiniCompactMultiServiceList('Southern Cross', '', 2)

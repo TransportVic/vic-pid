@@ -1,14 +1,14 @@
 extends ../core/pid
 
 block head
-  link(rel='stylesheet' href=`${staticContent}/css/colours.css`)
-  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/half-platform.css`)
-  link(rel='stylesheet' href=`${staticContent}/css/metro-lcd/stopping-pattern.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/half-platform.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/stopping-pattern.css`)
 
 block scripts
-  script(src=`${staticContent}/scripts/metro-lcd/half-platform.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/half-platform.mjs` type='module')
   if testing
-    script(src=`${staticContent}/scripts/test-data.js`)
+    script(src=`${pidStaticBase}/scripts/test-data.js`)
     script.
       window.onload = () => {
         const pid = new HalfPlatformPID()
@@ -19,7 +19,7 @@ block scripts
 block pid
   div.pid.pid-32-9.landscape.showing-departure.light
     div#announcements
-      img(src=`${staticContent}/img/announcements.svg`)
+      img(src=`${pidStaticBase}/img/announcements.svg`)
       p Please Listen For Announcements
 
     div#service-info

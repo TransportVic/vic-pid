@@ -44,7 +44,7 @@ for (let file of pugFiles) {
   }
 
   let compiled = pug.compileFile(file.path)({
-    staticContent: '/static',
+    pidStaticBase: '/static',
     testing: true
   })
 
@@ -80,7 +80,7 @@ pids.push({
 pids.sort((a, b) => a.name.localeCompare(b.name))
 
 await fs.writeFile(path.join(renderedDir, 'index.html'), pug.compileFile(path.join(__dirname, 'index.pug'))({
-  staticContent: '/static',
+  pidStaticBase: '/static',
   pids
 })) 
 

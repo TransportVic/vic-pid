@@ -17,7 +17,7 @@ app.use('/favicon.ico' , (req , res) => res.status(404).end())
 
 app.use((req, res, next) => {
   if (req.url.startsWith('/static')) return next()
-  res.render(req.url.slice(1), { staticContent: '/static', testing: true })
+  res.render(req.url.slice(1), { pidStaticBase: '/static', testing: true })
 })
 
 app.listen(8014)
