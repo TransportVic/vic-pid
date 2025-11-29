@@ -1,0 +1,140 @@
+extends ../../core/pid
+include ../../metro-lcd/templates/service-list
+
+block head
+  link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/test/service-list-nme.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/service-list.css`)
+
+block scripts
+  script(src=`${pidStaticBase}/scripts/metro-lcd/service-list.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/pid-utils.mjs` type='module')
+  script.
+    window.onload = () => {
+      const CHL = new MiniCompactServiceList('Mernda & Hurstbridge Lines', 'mernda', 4)
+      const NOR = new MiniCompactServiceList('Craigieburn, Sunbury & Upfield Lines', 'craigieburn', 4)
+      const BLY = new MiniCompactServiceList('Lilydale, Belgrave, Alamein & Glen Waverley Lines', 'lilydale', 4)
+      const DNG = new MiniCompactServiceList('Cranbourne & Pakenham Lines', 'cranbourne', 4)
+
+      CHL.mount('#CHL')
+      NOR.mount('#NOR')
+      BLY.mount('#BLY')
+      DNG.mount('#DNG')
+
+      CHL.updateServices([{
+        schTime: '7:56am',
+        estTime: 16,
+        destination: 'Mernda',
+        platform: '1',
+        disruptions: []
+      }, {
+        schTime: '8:06am',
+        estTime: 26,
+        destination: 'Hurstbridge',
+        platform: '1',
+        disruptions: []
+      }, {
+        schTime: '6:36am',
+        estTime: 58,
+        destination: 'Mernda',
+        platform: '1',
+        disruptions: []
+      }, {
+        schTime: '6:46am',
+        estTime: 66,
+        destination: 'Hurstbridge',
+        platform: '1',
+        disruptions: []
+      }])
+
+      NOR.updateServices([{
+        schTime: '7:40am',
+        estTime: 0,
+        destination: 'Upfield',
+        platform: '3',
+        disruptions: []
+      }, {
+        schTime: '7:50am',
+        estTime: 9,
+        destination: 'Craigieburn',
+        platform: '3',
+        disruptions: []
+      }, {
+        schTime: '8:15am',
+        estTime: 34,
+        destination: 'Sunbury',
+        platform: '3',
+        disruptions: []
+      }, {
+        schTime: '8:20am',
+        estTime: 39,
+        destination: 'Upfield',
+        platform: '3',
+        disruptions: []
+      }])
+
+      BLY.updateServices([{
+        schTime: '7:43am',
+        estTime: 3,
+        destination: 'Lilydale',
+        platform: '4',
+        disruptions: []
+      }, {
+        schTime: '8:06am',
+        estTime: 26,
+        destination: 'Glen Waverley',
+        platform: '4',
+        disruptions: []
+      }, {
+        schTime: '8:13am',
+        estTime: 33,
+        destination: 'Lilydale',
+        platform: '4',
+        disruptions: []
+      }, {
+        schTime: '8:36am',
+        estTime: 56,
+        destination: 'Glen Waverley',
+        platform: '4',
+        disruptions: []
+      }])
+
+      DNG.updateServices([{
+        schTime: '7:46am',
+        estTime: 8,
+        destination: 'East Pakenham',
+        platform: '2',
+        disruptions: []
+      }, {
+        schTime: '8:27am',
+        estTime: 49,
+        destination: 'East Pakenham',
+        platform: '2',
+        disruptions: []
+      }, {
+        schTime: '8:57am',
+        estTime: 79,
+        destination: 'East Pakenham',
+        platform: '2',
+        disruptions: []
+      }, {
+        schTime: '9:27am',
+        estTime: 109,
+        destination: 'Cranbourne',
+        platform: '2',
+        disruptions: []
+      }])
+    }
+ 
+block pid
+  +compactServiceListTemplate()
+  +compactMultiServiceListTemplate()
+
+  div.pid.pid-16-9.portrait.light
+    div.header
+      span Trains from Melbourne Central
+    div.sections
+      div#CHL
+      div#NOR
+      div#BLY
+      div#DNG

@@ -63,6 +63,8 @@ div.pre-plat.portrait div.next-service-header {
 
   --next-svc-est-time-font: calc(var(--height) * 0.026);
   --next-svc-est-time-padding: calc(var(--height) * 0.005);
+
+  align-items: flex-start;
 }
 
 div.pre-plat.portrait span.next-service-platform {
