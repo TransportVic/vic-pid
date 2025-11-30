@@ -1,4 +1,5 @@
 import { Clock } from '../pid-utils.mjs'
+import { CapacityIndicator } from './capacity-indicator.mjs'
 import { FullLCDPIDBase } from './full-pid-base.mjs'
 import { ContinuationText, StoppingPattern, TerminatingStop } from './stopping-pattern.mjs'
 
@@ -55,4 +56,28 @@ export class MetroPlatformStoppingPattern extends PlatformStoppingPattern {
 export class VLinePlatformStoppingPattern extends PlatformStoppingPattern {
 }
 
-if (typeof window !== 'undefined') window.MetroLCDPlatformPID = MetroLCDPlatformPID
+export class CapMetroLCDPlatformPID extends MetroLCDPlatformPID {
+
+  #indicator
+
+  constructor(position) {
+    super()
+
+    const indicator = new CapacityIndicator('indicator')
+    indicator.mount('.capacity-indicator-container')
+    indicator.setActive(position)
+    indicator.setCarriageCount(7)
+
+    this.#indicator = indicator
+  }
+
+  getPIDClasses() {
+    return ['platform', 'capacity', 'landscape']
+  }
+
+}
+
+if (typeof window !== 'undefined') {
+  window.MetroLCDPlatformPID = MetroLCDPlatformPID
+  window.CapMetroLCDPlatformPID = CapMetroLCDPlatformPID
+}

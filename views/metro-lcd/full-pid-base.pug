@@ -1,4 +1,5 @@
 extends ../core/pid
+include ../metro-lcd/templates/capacity-indicator
 
 block head
   link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
@@ -7,6 +8,7 @@ block head
   link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/pre-plat-portrait.css`)
   link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/stopping-pattern.css`)
   link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/next-service-header.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/capacity-indicator.css`)
 
 block scripts
   script(src=`${pidStaticBase}/scripts/metro-lcd/platform.mjs` type='module')
@@ -26,9 +28,11 @@ block scripts
             pid = new PrePlatformPortraitPID()
             break
           default:
-            pid = new MetroLCDPlatformPID()
+            if (search.hash.cap) pid = new CapMetroLCDPlatformPID(parseInt(search.hash.cap))
+            else pid = new MetroLCDPlatformPID()
             break
         }
+
         window.pid = pid
         pid.updateServices(window.services)
       }
@@ -37,6 +41,7 @@ block scripts
     script(src=script.src)
 
 block pid
+  +capacity-indicator-template()
   div.pid.pid-16-9.showing-departure.light
     div#announcements
       img(src=`${pidStaticBase}/img/announcements.svg`)
@@ -52,6 +57,7 @@ block pid
       div.service-message
     div.fixed-message
     div.pid-footer
+      div.capacity-indicator-container
       table.subsequent-service-info
         mixin serviceRow()
           tr.subsequent-service.no-line.template
