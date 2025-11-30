@@ -124,11 +124,12 @@ div.pid.landscape div.next-service-message.msg-size-5 {
 }
 
 div.pid.platform.capacity div.capacity-indicator-container {
-  --indicator-width: var(--subsequent-service-width);
+  --indicator-width: calc(var(--footer-content-height) * 7.5);
+  width: var(--subsequent-service-width);
   height: var(--footer-content-height);
 
   display: flex;
-  align-items: center;
+  justify-content: center;
   background-color: #000;
 }
 

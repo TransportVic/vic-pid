@@ -1,5 +1,5 @@
 .capacity-indicator {
-  --indicator-height: calc(var(--indicator-width) / 8.73);
+  --indicator-height: calc(var(--indicator-width) / 7.5);
   width: var(--indicator-width);
   height: var(--indicator-height);
 
@@ -12,8 +12,8 @@
 }
 
 div.carriage {
-  --carriage-height: calc(var(--indicator-height) * 0.4);
-  --end-margin: calc(var(--indicator-width) * 0.04);
+  --carriage-height: calc(var(--indicator-height) * 0.37);
+  --end-margin: calc(var(--indicator-width) * 0.01);
 
   display: flex;
   justify-content: flex-end;
@@ -24,7 +24,7 @@ div.carriage {
 }
 
 div.carriage.active {
-  --carriage-height: calc(var(--indicator-height) * 0.5);
+  --carriage-height: calc(var(--indicator-height) * 0.45);
 }
 
 div.carriage.blocked img {
@@ -72,7 +72,7 @@ div.door-indicator {
 
   background-color: var(--indicator-colour);
   margin-left: calc(var(--indicator-width) * 0.008);
-  margin-bottom: calc(var(--indicator-height) * 0.175);
+  margin-bottom: calc(var(--indicator-height) * 0.2);
 
   border-radius: calc(var(--indicator-width) * 0.001);
 }
