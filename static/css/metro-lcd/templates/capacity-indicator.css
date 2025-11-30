@@ -66,19 +66,19 @@ div.carriage.active div.door-indicators {
 }
 
 div.door-indicator {
-  width: calc(var(--indicator-width) * 0.017);
+  width: calc(var(--indicator-width) * 0.02);
   height: calc(var(--indicator-height) * 0.04);
   display: block;
 
   background-color: var(--indicator-colour);
-  margin-left: calc(var(--indicator-width) * 0.008);
+  margin-left: calc(var(--indicator-width) * 0.007);
   margin-bottom: calc(var(--indicator-height) * 0.17);
 
-  border-radius: calc(var(--indicator-width) * 0.001);
+  border-radius: calc(var(--indicator-width) * 0.002);
 }
 
 div.carriage.active div.door-indicator {
-  width: calc(var(--indicator-width) * 0.02);
+  width: calc(var(--indicator-width) * 0.023);
 }
 
 div.carriage.blocked div.door-indicators {
@@ -95,7 +95,7 @@ div.arrow {
   --arrow-width: calc(var(--indicator-width) * 0.025);
 
   position: absolute;
-  left: calc(var(--indicator-width) * 0.0515 - var(--arrow-width) / 2);
+  left: calc(var(--indicator-width) * 0.054 - var(--arrow-width) / 2);
   display: none;
 }
 

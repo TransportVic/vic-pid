@@ -8,13 +8,13 @@ export class PlatformScreenDoorPID extends PID {
   #subsequentServiceCount = 2
   #indicator
 
-  constructor() {
+  constructor(position) {
     super()
     this.#subsequentServiceTemplate = $('.subsequent-service.template').outerHTML.replace(' template', '')
 
     const indicator = new CapacityIndicator('indicator')
     indicator.mount('.capacity-indicator-container')
-    indicator.setActive(9)
+    indicator.setActive(position)
     indicator.setCarriageCount(7)
 
     this.#indicator = indicator
