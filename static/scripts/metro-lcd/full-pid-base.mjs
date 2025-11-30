@@ -27,7 +27,7 @@ export class FullLCDPIDBase extends PID {
         return this.#subsequentServiceTemplate
           .replace('no-line', `${service.line} ${service.disruptions.length > 0 ? 'disrupted' : ''}`)
           .replace('{0}', service.schTime)
-          .replace('{1}', this.shorternNextDestination(service.destination))
+          .replace('{1}', service.destination)
           .replace('{2}', service.summary)
           .replace('{3}', service.platform)
           .replace('{4}', this.formatEstimatedTime(service.estTime))
@@ -112,7 +112,7 @@ export class FullLCDPIDBase extends PID {
 
     $('span.next-service-platform').textContent = service.platform
     
-    $('span.next-service-destination').textContent = service.destination
+    $('span.next-service-destination').textContent = this.shorternNextDestination(service.destination)
     $('span.next-service-summary').textContent = service.summary
 
     $('div.line-marker').className = `line-marker ${service.line}`
