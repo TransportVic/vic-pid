@@ -1,0 +1,7 @@
+.capacity-indicator {
+  --indicator-width: calc(var(--width) * 0.8);
+}
+
+.pid {
+  justify-content: space-evenly;
+}

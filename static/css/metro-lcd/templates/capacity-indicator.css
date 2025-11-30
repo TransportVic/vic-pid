@@ -1,0 +1,124 @@
+.capacity-indicator {
+  --indicator-height: calc(var(--indicator-width) / 8.73);
+  width: var(--indicator-width);
+  height: var(--indicator-height);
+
+  display: flex;
+  background-color: black;
+  justify-content: space-evenly;
+  align-items: center;
+
+  position: relative;
+}
+
+div.carriage {
+  --carriage-height: calc(var(--indicator-height) * 0.4);
+  --end-margin: calc(var(--indicator-width) * 0.04);
+
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  position: relative;
+
+  height: var(--indicator-height);
+}
+
+div.carriage.active {
+  --carriage-height: calc(var(--indicator-height) * 0.5);
+}
+
+div.carriage.blocked img {
+  display: none;
+}
+
+div.carriage img {
+  height: var(--carriage-height);
+}
+
+div.carriage.blocked {
+  width: calc(var(--indicator-width) * 0.08);
+}
+
+div.carriage.active.blocked {
+  width: calc(var(--indicator-width) * 0.08 * 1.25);
+}
+
+div.carriage.carriage-0 {
+  margin-inline-start: var(--end-margin);
+}
+
+div.carriage.carriage-9 {
+  margin-inline-end: var(--end-margin);
+}
+
+div.door-indicators {
+  --margin-top: calc(var(--indicator-height) * 0.1);
+  --indicator-colour: white;
+
+  margin-top: var(--margin-top);
+  margin-left: calc(var(--indicator-width) * -0.0015);
+
+  display: flex;
+}
+
+div.carriage.active div.door-indicators {
+  margin-left: calc(var(--indicator-width) * 0.005);
+}
+
+div.door-indicator {
+  width: calc(var(--indicator-width) * 0.017);
+  height: calc(var(--indicator-height) * 0.04);
+  display: block;
+
+  background-color: var(--indicator-colour);
+  margin-left: calc(var(--indicator-width) * 0.008);
+  margin-bottom: calc(var(--indicator-height) * 0.175);
+
+  border-radius: calc(var(--indicator-width) * 0.001);
+}
+
+div.carriage.active div.door-indicator {
+  width: calc(var(--indicator-width) * 0.02);
+}
+
+div.carriage.blocked div.door-indicators {
+  margin-top: calc(var(--carriage-height) + var(--margin-top));
+  --indicator-colour: #CF202F;
+}
+
+
+div.carriage.active div.arrow {
+  display: block;
+}
+
+div.arrow {
+  --arrow-width: calc(var(--indicator-width) * 0.025);
+
+  position: absolute;
+  left: calc(var(--indicator-width) * 0.0515 - var(--arrow-width) / 2);
+  display: none;
+}
+
+div.arrow.top {
+  top: 0;
+  width: 0; 
+  height: 0; 
+  border-left: calc(var(--arrow-width) / 2) solid transparent;
+  border-right: calc(var(--arrow-width) / 2) solid transparent;
+  
+  border-top: calc(var(--arrow-width) / 2) solid white;
+}
+
+div.arrow.bottom {
+  bottom: 0;
+  width: 0; 
+  height: 0; 
+  border-left: calc(var(--arrow-width) / 2) solid transparent;
+  border-right: calc(var(--arrow-width) / 2) solid transparent;
+  
+  border-bottom: calc(var(--arrow-width) / 2) solid white;
+}
+
+div.arrows.template, div.capacity-indicator.template {
+  display: none;
+}

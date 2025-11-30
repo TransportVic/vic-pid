@@ -1,0 +1,21 @@
+mixin door-indicator()
+  div.door-indicators
+    div.door-indicator
+    div.door-indicator
+    div.door-indicator
+
+mixin arrows()
+  div.arrow.top
+  div.arrow.bottom
+
+mixin capacity-indicator-template()
+  div.capacity-indicator.template(id='{0}')
+    for i in Array(9).fill(0).map((_, i) => i)
+      div(class=`carriage carriage-${i}`)
+        img(src=`${pidStaticBase}/img/carriage-intermediate.svg`)
+        +door-indicator()
+        +arrows()
+    div(class=`carriage carriage-9`)
+        img(src=`${pidStaticBase}/img/carriage-end.svg`)
+        +door-indicator()
+        +arrows()

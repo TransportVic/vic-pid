@@ -1,0 +1,30 @@
+extends ../core/pid
+
+include ../metro-lcd/templates/capacity-indicator
+
+block head
+  link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/test/capacity-indicator-test.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/capacity-indicator.css`)
+
+block scripts
+  script(src=`${pidStaticBase}/scripts/metro-lcd/capacity-indicator.mjs` type='module')
+  script.
+    window.onload = () => {
+      const indicator = new CapacityIndicator('indicator')
+      indicator.mount('div.pid')
+      window.indicator = indicator
+
+      $('#active').on('change', () => indicator.setActive(parseInt($('#active').value)))
+      $('#count').on('change', () => indicator.setCarriageCount(parseInt($('#count').value)))
+    }
+
+block pid
+  +capacity-indicator-template()
+  div.pid.pid-32-9.landscape.light
+    div
+      label(for='count') Carriage Count 
+      input#count
+    div
+      label(for='active') Active Carriage
+      input#active
