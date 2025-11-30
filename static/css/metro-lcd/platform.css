@@ -123,8 +123,12 @@ div.pid.landscape div.next-service-message.msg-size-5 {
   font-size: calc(var(--height) * 0.1);
 }
 
+div.pid.platform.capacity {
+  --footer-height: calc(var(--height) * 0.15);
+}
+
 div.pid.platform.capacity div.capacity-indicator-container {
-  --indicator-width: calc(var(--footer-content-height) * 7.5);
+  --indicator-width: calc(var(--footer-content-height) * 8.8);
   width: var(--subsequent-service-width);
   height: var(--footer-content-height);
 

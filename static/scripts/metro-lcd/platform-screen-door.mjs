@@ -14,7 +14,7 @@ export class PlatformScreenDoorPID extends PID {
 
     const indicator = new CapacityIndicator('indicator')
     indicator.mount('.capacity-indicator-container')
-    indicator.setActive(0)
+    indicator.setActive(9)
     indicator.setCarriageCount(7)
 
     this.#indicator = indicator

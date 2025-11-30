@@ -94,8 +94,8 @@ span.next-service-summary {
 }
 
 div.next-service-detail {
-  --indicator-width: calc(var(--width) * 0.5);
-  --service-detail-height: calc(var(--indicator-width) / 7.5);
+  --indicator-width: calc(var(--width) * 0.65);
+  --service-detail-height: calc(var(--indicator-width) / 8.8);
   height: var(--service-detail-height);
 }
 

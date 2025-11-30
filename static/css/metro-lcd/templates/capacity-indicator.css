@@ -1,5 +1,5 @@
 .capacity-indicator {
-  --indicator-height: calc(var(--indicator-width) / 7.5);
+  --indicator-height: calc(var(--indicator-width) / 8.8);
   width: var(--indicator-width);
   height: var(--indicator-height);
 
