@@ -155,3 +155,15 @@ html, body {
     --height: calc(var(--screen-width) * 9 / 32);
   }
 }
+
+.pid-48-9.landscape {
+  --width: calc(var(--screen-height) / 9 * 48);
+  --height: var(--screen-height);
+}
+
+@media (max-aspect-ratio: 48/9) {
+  .pid-48-9.landscape {
+    --width: var(--screen-width);
+    --height: calc(var(--screen-width) * 9 / 48);
+  }
+}
