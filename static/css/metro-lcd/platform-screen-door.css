@@ -77,10 +77,6 @@ div.next-service-header {
   margin-top: var(--body-margin);
 }
 
-div.next-service-pattern-info {
-  width: var(--header-width);
-}
-
 span.next-service-destination.small {
   font-size: calc(var(--height) * 0.145);
 }
@@ -89,8 +85,15 @@ span.next-service-destination.smaller {
   font-size: calc(var(--height) * 0.125);
 }
 
+div.next-service-pattern-info {
+  width: var(--header-width);
+  height: calc(var(--height) * 0.19);
+  position: relative;
+}
+
 span.next-service-summary {
   font-size: calc(var(--height) * 0.122);
+  position: absolute;
 }
 
 div.next-service-detail {
