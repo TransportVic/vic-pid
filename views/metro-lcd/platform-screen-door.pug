@@ -1,0 +1,60 @@
+extends ../core/pid
+include ../metro-lcd/templates/capacity-indicator
+
+block head
+  link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/platform-screen-door.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/next-service-header.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/capacity-indicator.css`)
+
+block scripts
+  script(src=`${pidStaticBase}/scripts/metro-lcd/platform-screen-door.mjs` type='module')
+  if testing
+    script(src=`${pidStaticBase}/scripts/test-data.js`)
+    script.
+      window.onload = () => {
+        const pid = new PlatformScreenDoorPID()
+        window.pid = pid
+        pid.updateServices(window.services)
+      }
+
+  for script of extraScripts || []
+    script(src=script.src)
+
+block pid
+  +capacity-indicator-template()
+  div.pid.pid-48-9.landscape.showing-departure.light
+    div#announcements
+      img(src=`${pidStaticBase}/img/announcements.svg`)
+      p Please Listen For Announcements
+
+    div#no-trains
+      p No trains departing
+      p from this platform
+
+    div#service-info
+      div.fixed-message
+      div.line-marker
+      div.next-service-info
+        include ./templates/next-service-header
+        div.next-service-pattern-info
+          span.next-service-summary
+        div.next-service-detail
+          div.capacity-indicator-container
+          div.service-message
+      div.subsequent-service-info
+          mixin serviceRow()
+            div.subsequent-service.no-line.template
+              div.line-marker
+              div.content
+                div.top
+                  div.left
+                    span.service-sch-time {0}
+                    span.service-destination {1}
+                  div.right
+                    span.service-est-time {2}
+                div.bottom
+                  span.service-summary {3}
+          +serviceRow()
+          div.spacer
+          +serviceRow()

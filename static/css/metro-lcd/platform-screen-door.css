@@ -1,0 +1,198 @@
+div.pid.announcements-active #announcements {
+  display: flex;
+}
+
+div.pid.no-trains #no-trains {
+  display: flex;
+}
+
+#announcements, #no-trains {
+  background: #000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: var(--width);
+  height: var(--height);
+  gap: calc(var(--width) * 0.02);
+
+  z-index: 1000;
+}
+
+#no-trains {
+  flex-direction: column;
+  gap: 0;
+}
+
+#announcements img {
+  height: calc(var(--height) * 0.3);
+}
+
+#announcements p {
+  font-size: calc(var(--height) * 0.12);
+  color: #fff;
+}
+
+#no-trains p {
+  margin: 0;
+  font-size: calc(var(--height) * 0.25);
+  color: #fff;
+}
+
+div.pid {
+  --body-margin: calc(var(--width) * 0.015);
+  --border-thickness: calc(var(--width) * 0.003);
+}
+
+div#service-info {
+  --next-service-width: calc(var(--width) * 0.625);
+  --line-marker-width: calc(var(--width) * 0.02);
+
+  --subsequent-service-width: calc(var(--width) - var(--line-marker-width) - var(--next-service-width) - var(--border-thickness));
+
+  display: flex;
+}
+
+div#service-info > div.line-marker {
+  width: var(--line-marker-width);
+  height: var(--height);
+
+  background-color: var(--line-colour);
+}
+
+div.next-service-info {
+  width: var(--next-service-width);
+  height: var(--height);
+  border-right: var(--border-thickness) solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  --header-width: calc(var(--next-service-width) - var(--body-margin) * 2);
+}
+
+div.next-service-header {
+  width: var(--header-width);
+  margin-top: var(--body-margin);
+}
+
+div.next-service-pattern-info {
+  width: var(--header-width);
+}
+
+span.next-service-destination.small {
+  font-size: calc(var(--height) * 0.145);
+}
+
+span.next-service-destination.smaller {
+  font-size: calc(var(--height) * 0.125);
+}
+
+span.next-service-summary {
+  font-size: calc(var(--height) * 0.122);
+}
+
+div.next-service-detail {
+  --indicator-width: calc(var(--width) * 0.5);
+  --service-detail-height: calc(var(--indicator-width) / 7.5);
+  height: var(--service-detail-height);
+}
+
+div.capacity-indicator-container {
+  width: var(--next-service-width);
+  height: var(--service-detail-height);
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+}
+
+
+div.subsequent-service-info {
+  width: var(--subsequent-service-width);
+  height: var(--height);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+div.subsequent-service-info > div.spacer {
+  width: calc(var(--subsequent-service-width) * 0.9);
+  height: calc(var(--height) * 0.01);
+  display: block;
+  background-color: #000;
+}
+
+div.subsequent-service {
+  width: calc(var(--subsequent-service-width) * 0.9);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+div.subsequent-service:nth-child(2) {
+  border-bottom: none;
+}
+
+div.subsequent-service div.line-marker {
+  --thickness: calc(var(--width) * 0.007);
+
+  width: var(--thickness);
+  height: calc(var(--height) * 0.4);
+  margin-right: var(--thickness);
+  display: block;
+
+  background-color: var(--line-colour);
+}
+
+div.subsequent-service div.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+div.subsequent-service div.content div.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div.subsequent-service div.content div.top div.left {
+  display: flex;
+  flex-direction: column;
+}
+
+
+div.subsequent-service div.content span.service-est-time {
+  width: calc(var(--width) * 0.08);
+  padding-block: calc(var(--width) * 0.006);
+  padding-inline: calc(var(--width) * 0.002);
+
+  font-size: calc(var(--height) * 0.1);
+  text-align: center;
+
+  display: block;
+
+  background-color: #000;
+  color: #fff;
+}
+
+
+div.subsequent-service div.content span.service-sch-time {
+  font-size: calc(var(--height) * 0.09);
+}
+
+div.subsequent-service div.content span.service-destination {
+  font-size: calc(var(--height) * 0.11);
+  font-weight: bold;
+}
+
+div.subsequent-service div.content span.service-summary {
+  margin-top: calc(var(--height) * 0.01);
+  font-size: calc(var(--height) * 0.09);
+  display: block;
+  width: 100%
+}
