@@ -27,7 +27,7 @@ export class FullLCDPIDBase extends PID {
         return this.#subsequentServiceTemplate
           .replace('no-line', `${service.line} ${service.disruptions.length > 0 ? 'disrupted' : ''}`)
           .replace('{0}', service.schTime)
-          .replace('{1}', service.destination)
+          .replace('{1}', this.shorternNextDestination(service.destination))
           .replace('{2}', service.summary)
           .replace('{3}', service.platform)
           .replace('{4}', this.formatEstimatedTime(service.estTime))
@@ -211,6 +211,13 @@ export class FullLCDPIDBase extends PID {
     this.#setMainServiceMessageClasses()
     $('div.service-message').innerHTML = `<i class="arrival-icon"></i><span>This train is not taking passengers.<br>Don't board this train.</span>`
     $('div.service-message').className = `service-message arrival`
+  }
+
+  shorternNextDestination(dest) {
+    if (dest === 'Flemington Racecourse') return 'Flemington Races'
+    if (dest === 'Upper Ferntree Gully') return 'Upper F.T Gully' 
+
+    return dest
   }
 }
 
