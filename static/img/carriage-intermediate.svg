@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="38.664833mm"
+   width="41.839836mm"
    height="22.35471mm"
-   viewBox="0 0 38.664833 22.35471"
+   viewBox="0 0 41.839836 22.35471"
    version="1.1"
    id="svg5"
    sodipodi:docname="carriage-intermediate.svg"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.1598906"
-     inkscape:cx="115.95921"
-     inkscape:cy="45.262891"
+     inkscape:zoom="2.3197812"
+     inkscape:cx="115.74367"
+     inkscape:cy="45.478427"
      inkscape:window-width="1312"
      inkscape:window-height="847"
      inkscape:window-x="0"
@@ -42,7 +42,7 @@
     <path
        id="rect891"
        style="fill:#ffffff;fill-opacity:1;stroke-width:3.77953;stroke-linecap:round;stroke-linejoin:round"
-       d="m 896.86719,350.46484 c -4.18772,0 -7.5586,3.37088 -7.5586,7.5586 0,23.12435 0,46.24869 0,69.37304 v 7.5586 h 7.5586 131.01561 7.5606 v -7.5586 c 0,-23.12435 0,-46.24869 0,-69.37304 0,-4.18772 -3.3729,-7.5586 -7.5606,-7.5586 z"
+       d="m 896.86719,350.46484 c -4.18772,0 -7.5586,3.37088 -7.5586,7.5586 v 69.37304 7.5586 h 7.5586 143.01561 7.5606 v -7.5586 -69.37304 c 0,-4.18772 -3.3729,-7.5586 -7.5606,-7.5586 z"
        transform="scale(0.26458333)"
        sodipodi:nodetypes="sccccccccss" />
   </g>

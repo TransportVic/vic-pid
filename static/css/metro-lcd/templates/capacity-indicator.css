@@ -12,7 +12,7 @@
 }
 
 div.carriage {
-  --carriage-height: calc(var(--indicator-height) * 0.37);
+  --carriage-height: calc(var(--indicator-height) * 0.4);
   --end-margin: calc(var(--indicator-width) * 0.01);
 
   display: flex;
@@ -24,7 +24,7 @@ div.carriage {
 }
 
 div.carriage.active {
-  --carriage-height: calc(var(--indicator-height) * 0.45);
+  --carriage-height: calc(var(--indicator-height) * 0.5);
 }
 
 div.carriage.blocked img {
@@ -72,7 +72,7 @@ div.door-indicator {
 
   background-color: var(--indicator-colour);
   margin-left: calc(var(--indicator-width) * 0.008);
-  margin-bottom: calc(var(--indicator-height) * 0.2);
+  margin-bottom: calc(var(--indicator-height) * 0.17);
 
   border-radius: calc(var(--indicator-width) * 0.001);
 }
