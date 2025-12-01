@@ -72,6 +72,8 @@ div.next-service-pattern-info {
   width: var(--header-width);
   border-bottom: var(--border-thickness) solid #000;
   height: calc(var(--header-height) - var(--height) * 0.2);
+
+  display: flex;
 }
 
 span.next-service-destination.small {
