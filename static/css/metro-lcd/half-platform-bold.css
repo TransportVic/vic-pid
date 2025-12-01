@@ -75,6 +75,8 @@ div.next-service-info {
   width: var(--body-width);
   height: var(--main-height);
   margin-inline: var(--body-margin);
+
+  --header-width: var(--width);
 }
 
 div.next-service-header {
@@ -123,10 +125,6 @@ div.next-service-header div.top {
   line-height: calc(var(--height) * 0.22);
 }
 
-div.next-service-header {
-  --header-width: var(--width);
-}
-
 div.next-service-header div.top > span {
   vertical-align: super;
 }
@@ -138,26 +136,6 @@ div.next-service-header  span.next-service-destination.small {
 
 div.next-service-header span.next-service-platform {
   display: none;
-}
-
-div.next-service-pattern-info {
-  margin-top: calc(var(--height) * 0.06);
-  height: calc(var(--height) * 0.18);
-}
-
-span.next-service-summary, span.next-service-pattern {
-  height: 0;
-  font-size: calc(var(--height) * 0.12);
-  font-weight: 400;
-  margin: 0;
-  margin-top: calc(var(--height) * -0.007);
-
-  display: block;
-}
-
-span.next-service-pattern {
-  white-space: nowrap;
-  overflow-x: clip;
 }
 
 div.pid-footer {
