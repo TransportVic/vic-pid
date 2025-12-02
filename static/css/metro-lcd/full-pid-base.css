@@ -42,6 +42,7 @@ div.next-service-info {
   width: var(--pid-body-width);
   margin-top: calc(var(--height) * 0.015);
   border-bottom: calc(var(--height) * 0.004) solid #000;
+  --header-width: var(--pid-body-width);
 }
 
 div.portrait div.next-service-header div.left, div.portrait div.next-service-header div.right {
@@ -50,10 +51,6 @@ div.portrait div.next-service-header div.left, div.portrait div.next-service-hea
 
 div.landscape div.next-service-header div.left, div.landscape div.next-service-header div.right {
   flex-direction: row;
-}
-
-div.next-service-header {
-  --header-width: var(--width);
 }
 
 div.pid.landscape div.next-service-info.disrupted span.next-service-destination::after,
@@ -71,7 +68,7 @@ tr.subsequent-service.disrupted td.service-destination span::after {
   height: var(--next-svc-disruption-size);
 }
 
-div.next-service-pattern-info {
+div.pid div.next-service-pattern-info {
   margin-top: var(--next-svc-pattern-info-m-top);
   margin-bottom: var(--next-svc-pattern-info-m-bottom);
 }
@@ -81,7 +78,7 @@ span.next-service-summary::before {
 }
 
 span.next-service-summary {
-  font-size: var(--next-svc-summary-font);
+  font-size: var(--next-svc-summary-font) !important;
   font-weight: 400;
   display: block;
 }

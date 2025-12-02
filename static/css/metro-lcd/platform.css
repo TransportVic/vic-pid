@@ -4,8 +4,8 @@ div.platform.landscape, div.pre-plat.landscape {
   --next-svc-disruption-margin: calc(var(--width) * 0.007);
   --next-svc-disruption-size: calc(var(--width) * 0.026);
 
-  --next-svc-pattern-info-m-top:  calc(var(--height) * 0.015);
-  --next-svc-pattern-info-m-bottom: calc(var(--height) * 0.015);
+  --next-svc-pattern-info-m-top:  calc(var(--height) * 0.018);
+  --next-svc-pattern-info-m-bottom: 0;
 
   --next-svc-summary-font: calc(var(--height) * 0.047);
 
@@ -57,6 +57,10 @@ div.pid.platform span.next-service-platform {
 
 div.pid.pre-plat.landscape span.next-service-est-time {
   margin-left: calc(var(--width) * 0.005);
+}
+
+div.pid.landscape div.next-service-pattern-info {
+  height: calc(var(--height) * 0.07);
 }
 
 div.pid.platform tr.subsequent-service td.service-platform {

@@ -29,16 +29,13 @@ block pid
       p Please Listen For Announcements
 
     div#no-trains
-      p No trains departing
-      p from this platform
+      p No trains departing from this platform
 
     div#service-info
       div.fixed-message
       div.line-marker
-      div.next-service-info
+      div.next-service-info-container
         include ./templates/next-service-header
-        div.next-service-pattern-info
-          span.next-service-summary
         div.next-service-detail
           div.capacity-indicator-container
           div.service-message

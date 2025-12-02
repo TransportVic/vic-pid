@@ -60,7 +60,7 @@ div#service-info > div.line-marker {
   background-color: var(--line-colour);
 }
 
-div.next-service-info {
+div.next-service-info-container {
   width: var(--next-service-width);
   height: var(--height);
   border-right: var(--border-thickness) solid #000;
@@ -72,8 +72,7 @@ div.next-service-info {
   --header-width: calc(var(--next-service-width) - var(--body-margin) * 2);
 }
 
-div.next-service-header {
-  width: var(--header-width);
+div.next-service-info {
   margin-top: var(--body-margin);
 }
 
@@ -83,17 +82,6 @@ span.next-service-destination.small {
 
 span.next-service-destination.smaller {
   font-size: calc(var(--height) * 0.125);
-}
-
-div.next-service-pattern-info {
-  width: var(--header-width);
-  height: calc(var(--height) * 0.19);
-  position: relative;
-}
-
-span.next-service-summary {
-  font-size: calc(var(--height) * 0.122);
-  position: absolute;
 }
 
 div.next-service-detail {

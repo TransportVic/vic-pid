@@ -1,3 +1,7 @@
+div.next-service-info {
+  width: var(--header-width);
+}
+
 div.next-service-header {
   display: flex;
   flex-direction: row;
@@ -14,6 +18,7 @@ div.next-service-header {
   --next-svc-plat-font: calc(var(--header-width) * 0.05);
   --next-svc-plat-padding: calc(var(--header-width) * 0.009);
 
+  --next-svc-est-time-width: calc(var(--header-width) * 0.21);
   --next-svc-est-time-font: calc(var(--header-width) * 0.05);
   --next-svc-est-time-padding: calc(var(--header-width) * 0.009);
 }
@@ -53,7 +58,7 @@ span.next-service-est-time::before {
 }
 
 span.next-service-est-time {
-  width: calc(var(--header-width) * 0.21);
+  width: var(--next-svc-est-time-width);
   font-size: var(--next-svc-est-time-font);
   font-weight: 400;
   display: inline-block;
@@ -72,7 +77,7 @@ div.next-service-pattern-info {
   position: relative;
 }
 
-span.next-service-summary, span.next-service-pattern {
+span.next-service-summary, span.next-service-pattern-text {
   position: absolute;
   top: 0;
   left: 0;
@@ -86,7 +91,7 @@ span.next-service-summary, span.next-service-pattern {
   display: block;
 }
 
-span.next-service-pattern {
+span.next-service-pattern-text {
   white-space: nowrap;
   overflow-x: clip;
 }

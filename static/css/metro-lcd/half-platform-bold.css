@@ -76,7 +76,7 @@ div.next-service-info {
   height: var(--main-height);
   margin-inline: var(--body-margin);
 
-  --header-width: var(--width);
+  --header-width: var(--body-width);
 }
 
 div.next-service-header {

@@ -5,7 +5,7 @@ div.pre-plat.portrait {
   --next-svc-disruption-size: calc(var(--width) * 0.05);
 
   --next-svc-pattern-info-m-top: calc(var(--height) * 0.007);
-  --next-svc-pattern-info-m-bottom: calc(var(--height) * 0.013);
+  --next-svc-pattern-info-m-bottom: calc(var(--height) * 0.02);
 
   --next-svc-summary-font: calc(var(--height) * 0.03);
 
@@ -60,7 +60,8 @@ div.pre-plat.portrait div.next-service-header {
   --next-svc-plat-width: calc(var(--width) * 0.21);
   --next-svc-plat-font: calc(var(--height) * 0.055);
   --next-svc-plat-padding: calc(var(--height) * 0.007);
-
+  
+  --next-svc-est-time-width: calc(var(--width) * 0.21);
   --next-svc-est-time-font: calc(var(--height) * 0.026);
   --next-svc-est-time-padding: calc(var(--height) * 0.005);
 
