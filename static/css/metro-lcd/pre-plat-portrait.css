@@ -4,16 +4,11 @@ div.pre-plat.portrait {
   --next-svc-disruption-margin: calc(var(--width) * 0.015);
   --next-svc-disruption-size: calc(var(--width) * 0.05);
 
-  --next-svc-pattern-info-m-top: calc(var(--height) * 0.007);
-  --next-svc-pattern-info-m-bottom: calc(var(--height) * 0.02);
-
-  --next-svc-summary-font: calc(var(--height) * 0.03);
-
   --next-svc-pattern-font: calc(var(--height) * 0.022);
   --next-svc-pattern-letter-spacing: calc(var(--width) * 0.0007);
   --next-svc-pattern-line-height: 1.12;
 
-  --next-svc-pattern-height: calc(var(--height) * 0.56);
+  --next-svc-pattern-height: calc(var(--height) * 0.55);
 
   --arrow-length: calc(var(--height) * 0.01);
   --arrow-thickness: calc(var(--stop-column-width) * 0.6);
@@ -51,29 +46,8 @@ div.pre-plat.portrait {
   --disruption-hatch-padding: calc(var(--width) * 0.024);
 }
 
-div.pre-plat.portrait div.next-service-header {
-  --next-svc-sch-time-font: calc(var(--height) * 0.038);
-  --next-svc-sch-time-letter-spacing: calc(var(--width) * 0.0005);
-  --next-svc-dest-font: calc(var(--height) * 0.048);
-  --next-svc-dest-letter-spacing: calc(var(--width) * 0.0015);
-  
-  --next-svc-plat-width: calc(var(--width) * 0.21);
-  --next-svc-plat-font: calc(var(--height) * 0.055);
-  --next-svc-plat-padding: calc(var(--height) * 0.007);
-  
-  --next-svc-est-time-width: calc(var(--width) * 0.21);
-  --next-svc-est-time-font: calc(var(--height) * 0.026);
-  --next-svc-est-time-padding: calc(var(--height) * 0.005);
-
-  align-items: flex-start;
-}
-
 div.pre-plat.portrait span.next-service-platform {
   font-weight: 700;
-}
-
-div.pre-plat.portrait span.next-service-est-time {
-  margin-top: calc(var(--height) * 0.003);
 }
 
 div.pid.pre-plat.portrait tr.subsequent-service td.service-summary {

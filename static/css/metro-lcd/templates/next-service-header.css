@@ -23,9 +23,32 @@ div.next-service-header {
   --next-svc-est-time-padding: calc(var(--header-width) * 0.009);
 }
 
+div.next-service-info.compact div.next-service-header {
+  --next-svc-sch-time-font: calc(var(--height) * 0.038);
+  --next-svc-sch-time-letter-spacing: calc(var(--width) * 0.0005);
+  --next-svc-dest-font: calc(var(--height) * 0.048);
+  --next-svc-dest-letter-spacing: calc(var(--width) * 0.0015);
+  
+  --next-svc-plat-width: calc(var(--width) * 0.21);
+  --next-svc-plat-font: calc(var(--height) * 0.055);
+  --next-svc-plat-padding: calc(var(--height) * 0.007);
+  
+  --next-svc-est-time-width: calc(var(--width) * 0.21);
+  --next-svc-est-time-font: calc(var(--height) * 0.026);
+  --next-svc-est-time-padding: calc(var(--height) * 0.005);
+
+  align-items: flex-start;
+}
+
 div.next-service-header div.left, div.next-service-header div.right {
   display: flex;
+  flex-direction: row;
   align-items: baseline;
+}
+
+div.next-service-info.compact div.next-service-header div.left,
+div.next-service-info.compact div.next-service-header div.right {
+  flex-direction: column;
 }
 
 span.next-service-sch-time {
@@ -69,12 +92,21 @@ span.next-service-est-time {
   color: #fff;
 }
 
+div.next-service-info.compact span.next-service-est-time {
+  margin-top: calc(var(--height) * 0.003);
+}
+
 div.next-service-pattern-info {
   margin-top: calc(var(--header-width) * 0.016);
   height: calc(var(--header-width) * 0.05);
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+div.next-service-info.compact div.next-service-pattern-info {
+  margin-top: calc(var(--header-width) * 0.0324);
+  height: calc(var(--header-width) * 0.08);
 }
 
 span.next-service-summary, span.next-service-pattern-text {
@@ -91,7 +123,16 @@ span.next-service-summary, span.next-service-pattern-text {
   display: block;
 }
 
+div.next-service-info.compact span.next-service-summary,
+div.next-service-info.compact span.next-service-pattern-text {
+  font-size: calc(var(--header-width) * 0.05);
+}
+
 span.next-service-pattern-text {
   white-space: nowrap;
   overflow-x: clip;
+}
+
+div.next-service-info.compact span.next-service-pattern-text {
+  margin-top: calc(var(--header-width) * -0.068);
 }

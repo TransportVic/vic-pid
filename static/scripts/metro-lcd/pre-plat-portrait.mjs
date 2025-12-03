@@ -27,6 +27,8 @@ export class PrePlatformPortraitPID extends FullLCDPIDBase {
     if (this.getSubsequentServiceCount() !== this.BASE_SVC_COUNT) return
     super.showDisruption(origin, text)
   }
+
+  getHeaderClass() { return 'compact' }
 }
 
 export class PrePlatPortraitStoppingPattern extends StoppingPattern {

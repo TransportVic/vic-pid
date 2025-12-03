@@ -1,0 +1,12 @@
+div.pid {
+  display: flex;
+  --header-width: calc(var(--width) * 0.9);
+}
+
+div span.next-service-platform {
+  font-weight: 700;
+}
+
+div span.next-service-est-time {
+  margin-top: calc(var(--height) * 0.003);
+}

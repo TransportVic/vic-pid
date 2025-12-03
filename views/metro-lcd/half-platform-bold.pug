@@ -1,4 +1,5 @@
 extends ../core/pid
+include ./templates/next-service-header
 
 block head
   link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
@@ -33,7 +34,7 @@ block pid
     div.fixed-message
 
     div.line-marker.no-line
-    include ./templates/next-service-header
+    +serviceHeader()
 
     div.pid-footer
       div.subsequent-service-info

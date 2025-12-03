@@ -1,5 +1,6 @@
 extends ../core/pid
 include ../metro-lcd/templates/capacity-indicator
+include ./templates/next-service-header
 
 block head
   link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
@@ -35,7 +36,7 @@ block pid
       div.fixed-message
       div.line-marker
       div.next-service-info-container
-        include ./templates/next-service-header
+        +serviceHeader()
         div.next-service-detail
           div.capacity-indicator-container
           div.service-message

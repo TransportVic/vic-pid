@@ -1,0 +1,26 @@
+extends ../core/pid
+include ../metro-lcd/templates/next-service-header
+
+block head
+  link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/next-service-header.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/test/portrait-service-header.css`)
+
+block scripts
+  script.
+    window.onload = () => {
+      const set = (q, t) => Array.from(document.querySelectorAll(q)).forEach(e => e.innerHTML = t)
+
+      set('.next-service-sch-time', '12:00pm')
+      set('.next-service-destination', 'City Loop')
+      set('.next-service-platform', '13')
+      set('.next-service-est-time', '10 min')
+      set('.next-service-summary', 'Stops All via Metro Tunnel')
+      set('.next-service-pattern-text', '<span>Test Test Test</span>')
+    }
+
+block pid
+  div.pid.pid-16-9.portrait.light(style='justify-content: center;')
+    +serviceHeader('compact')
+    +serviceHeader('compact')
+    +serviceHeader('compact')

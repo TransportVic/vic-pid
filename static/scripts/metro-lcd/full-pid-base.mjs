@@ -104,8 +104,10 @@ export class FullLCDPIDBase extends PID {
 
   getCurrentPattern() { return this.#currentPattern }
 
+  getHeaderClass() { return '' }
+
   #updateNextServiceInfo(service) {
-    $('div.next-service-info').className = `next-service-info ${service.line} ${service.disruptions.length > 0 ? 'disrupted' : ''}`
+    $('div.next-service-info').className = `next-service-info ${this.getHeaderClass()} ${service.line} ${service.disruptions.length > 0 ? 'disrupted' : ''}`
 
     $('span.next-service-sch-time').textContent = service.schTime
     $('span.next-service-est-time').textContent = this.formatEstimatedTime(service.estTime)
