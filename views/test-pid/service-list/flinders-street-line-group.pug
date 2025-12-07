@@ -1,0 +1,61 @@
+extends ../../core/pid
+include ../../metro-lcd/templates/service-list
+include ../../metro-lcd/templates/next-service-header
+
+block head
+  link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/test/service-list-test.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/service-list.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/next-service-header.css`)
+
+block scripts
+  script(src=`${pidStaticBase}/scripts/metro-lcd/service-list.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/service-list-area.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/header.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/pid-utils.mjs` type='module')
+  script.
+    window.onload = () => {
+      const NOR = new LineGroupServiceList('Craigieburn, Sunbury & Upfield Lines', 'craigieburn', 3, 4)
+
+      NOR.mount('div.pid')
+      window.NOR = NOR
+      NOR.updateServices([{
+        schTime: '7:40am',
+        estTime: 0,
+        destination: 'Upfield',
+        platform: '3',
+        disruptions: [],
+        summary: 'Stops All via Sthn Cross',
+        line: 'upfield'
+      }, {
+        schTime: '7:50am',
+        estTime: 9,
+        destination: 'Craigieburn',
+        platform: '3',
+        disruptions: [],
+        summary: 'Stops All via Sthn Cross',
+        line: 'craigieburn'
+      }, {
+        schTime: '8:15am',
+        estTime: 34,
+        destination: 'Sunbury',
+        platform: '3',
+        disruptions: [],
+        summary: 'Ltd Express via Sthn Cross',
+        line: 'sunbury'
+      }, {
+        schTime: '8:20am',
+        estTime: 39,
+        destination: 'Upfield',
+        platform: '3',
+        disruptions: [],
+        summary: 'Stops All via Sthn Cross',
+        line: 'upfield'
+      }])
+    }
+ 
+block pid
+  +compactServiceListTemplate()
+  +serviceHeader('compact template')
+
+  div.pid.pid-16-9.portrait.light.fss

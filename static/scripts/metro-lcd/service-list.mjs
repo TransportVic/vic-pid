@@ -1,4 +1,5 @@
-import PID from '../pid.mjs'
+import PID from '../pid.mjs' 
+import { BoldLineHeader } from './header.mjs'
 
 export class ServiceList extends PID {
 
@@ -16,6 +17,8 @@ export class ServiceList extends PID {
   getName() { return this.#name }
   getLineClass() { return this.#lineClass }
   getServiceCount() { return this.#serviceCount }
+  mount() {}
+  toHTML() {}
 
 }
 
@@ -33,10 +36,6 @@ export class CompactServiceList extends ServiceList {
       rowOuterHTML
     }
   })()
-
-  #name
-  #lineClass
-  #serviceCount
 
   #html
   #mount
@@ -82,7 +81,12 @@ export class CompactServiceList extends ServiceList {
 
   mount(query) {
     this.#mount = $(query)
-    this.#mount.innerHTML = this.toHTML()
+    this.#mount.innerHTML += this.toHTML()
+  }
+
+  removeHeader() {
+    $('.service-list.compact .line-marker', this.#mount).remove()
+    $('.service-list.compact .content > p.title', this.#mount).remove()
   }
 
 }
@@ -146,7 +150,7 @@ export class CompactMultiServiceList extends ServiceList {
 
   mount(query) {
     this.#mount = $(query)
-    this.#mount.innerHTML = this.toHTML()
+    this.#mount.innerHTML += this.toHTML()
   }
 
 }
@@ -175,10 +179,100 @@ export class MiniCompactServiceList extends CompactServiceList {
 
 }
 
+export class LineGroupServiceList extends ServiceList {
+
+  #HTML_DATA = (() => {
+    const headerTemplate = $('.next-service-info.template')
+    if (!headerTemplate) return null
+
+    const outerHTML = headerTemplate.outerHTML
+    return {
+      outerHTML: outerHTML.replaceAll('template', '')
+    }
+  })()
+
+  #smallServices
+  #smallServiceCount
+  #header
+  #mount
+
+  constructor(name, lineClass, bigServiceCount, smallServiceCount) {
+    super(name, lineClass, bigServiceCount)
+    this.#header = new BoldLineHeader(name, lineClass)
+    this.#smallServices = new CompactServiceList(name, lineClass, smallServiceCount)
+    this.#smallServiceCount = smallServiceCount
+  }
+
+  escapeName(name) {
+    return name.toLowerCase().replace(/[^\w]+/g, '-')
+  }
+
+  mount(query) {
+    const escapedName = this.escapeName(this.getName())
+    const container = $(query)
+    container.innerHTML = `<div class='line-group-container ${escapedName}'></div>`
+
+    const subQuery = query + ` .line-group-container.${escapedName}`
+    this.#mount = $(subQuery)
+    this.#header.mount(subQuery)
+
+    this.#mount.innerHTML += `<div class='inner'></div>`
+    const containerQuery = subQuery + ' .inner'
+
+    const bigServiceHTML = Array(this.getServiceCount()).fill(this.#HTML_DATA.outerHTML).join('')
+    $(containerQuery).innerHTML += bigServiceHTML
+
+    this.#smallServices.mount(containerQuery)
+    this.#smallServices.removeHeader()
+  }
+
+  updateServices(services) {
+    const totalServiceCount = this.getServiceCount() + this.#smallServiceCount
+    const allServices = services.concat(Array(totalServiceCount).fill(null))
+
+    const bigServices = Array.from(this.#mount.querySelectorAll('.next-service-info'))
+    allServices.slice(0, this.getServiceCount()).forEach((service, i) => {
+      const container = bigServices[i]
+
+      if (service) {
+        container.className = `next-service-info compact ${service.line} ${service.disruptions.length > 0 ? 'disrupted' : ''}`
+
+        $('span.next-service-sch-time', container).textContent = service.schTime
+        $('span.next-service-est-time', container).textContent = this.formatEstimatedTime(service.estTime)
+
+        $('span.next-service-platform', container).textContent = service.platform
+        
+        $('span.next-service-destination', container).textContent = this.shorternNextDestination(service.destination)
+        $('span.next-service-summary', container).textContent = service.summary
+      } else {
+        container.className = `next-service-info compact`
+
+        $('span.next-service-sch-time', container).textContent = '--'
+        $('span.next-service-est-time', container).textContent = ''
+
+        $('span.next-service-platform', container).innerHTML = '&nbsp;'
+        
+        $('span.next-service-destination', container).textContent = '--'
+        $('span.next-service-summary', container).textContent = ''
+      }
+    })
+
+    this.#smallServices.updateServices(allServices.slice(this.getServiceCount()))
+  }
+
+  shorternNextDestination(dest) {
+    if (dest === 'Flemington Racecourse') return 'Flemington Races'
+    if (dest === 'Upper Ferntree Gully') return 'Upper F.T Gully' 
+
+    return dest
+  }
+}
+
 if (typeof window !== 'undefined') {
   window.CompactMultiServiceList = CompactMultiServiceList
   window.MiniCompactMultiServiceList = MiniCompactMultiServiceList
 
   window.CompactServiceList = CompactServiceList
   window.MiniCompactServiceList = MiniCompactServiceList
+  window.LineGroupServiceList = LineGroupServiceList
 }

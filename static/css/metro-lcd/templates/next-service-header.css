@@ -2,6 +2,10 @@ div.next-service-info {
   width: var(--header-width);
 }
 
+div.next-service-info.template {
+  display: none;
+}
+
 div.next-service-header {
   display: flex;
   flex-direction: row;

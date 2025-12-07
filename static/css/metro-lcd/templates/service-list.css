@@ -19,6 +19,10 @@ div.pid.portrait div.header {
   align-items: center;
 }
 
+div.pid.portrait div.header.multiline {
+  align-items: flex-start;
+}
+
 div.pid.portrait div.header span {
   margin-left: calc(var(--width) * 0.04);
 }
@@ -281,4 +285,50 @@ div.landscape div.clock {
   text-align: center;
   font-size: calc(var(--height) * 0.06);
   line-height: calc(var(--height) * 0.095);
+}
+
+div.line-group-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  --service-list-width: var(--width);
+  --header-width: calc(var(--width) * 0.92);
+  height: var(--area-height);
+}
+
+div.line-group-container div.line-marker {
+  width: 100%;
+  height: calc(var(--width) * 0.04);
+
+  background-color: var(--line-colour);
+}
+
+div.line-group-container > div.header {
+  --header-content-height: calc(var(--height) * 0.08);
+  --header-margin: calc(var(--height) * 0.01);
+}
+
+div.line-group-container div.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.line-group-container div.next-service-info {
+  padding-block: calc(var(--height) * 0.018);
+  border-top: calc(var(--height) * 0.0015) solid #000;
+}
+
+div.line-group-container div.next-service-info div.next-service-header div.right {
+  --next-svc-plat-width: calc(var(--service-list-width) * 0.19);
+  --next-svc-est-time-width: var(--next-svc-plat-width);
+}
+
+div.line-group-container div.service-list {
+  margin-top: auto;
+}
+
+div.line-group-container div.service-list div.content {
+  --content-margin: calc(var(--service-list-width) * 0.04);
 }
