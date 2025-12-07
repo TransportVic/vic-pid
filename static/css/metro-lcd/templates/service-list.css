@@ -35,7 +35,7 @@ div.pid.landscape div.header {
 }
 
 div.pid.landscape div.header span {
-  margin-left: calc(var(--width) * 0.02);
+  margin-inline: calc(var(--width) * 0.02);
 }
 
 div.sections {
