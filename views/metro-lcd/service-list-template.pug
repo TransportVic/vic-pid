@@ -1,5 +1,6 @@
 extends ../core/pid
 include ./templates/service-list
+include ./templates/next-service-header
 
 block head
   link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
@@ -18,5 +19,6 @@ block scripts
 block pid
   +compactServiceListTemplate()
   +compactMultiServiceListTemplate()
+  +serviceHeader('compact template')
 
   div.pid.pid-16-9.light
