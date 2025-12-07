@@ -49,7 +49,9 @@ div.pid.portrait div.sections {
   justify-content: space-between;
 }
 
-div.pid.portrait:not(:has(div.header)) div.sections > div:first-child {
+div.pid.portrait:not(:has(div.header)) div.sections > div:first-child,
+div.pid.portrait div.sections:not(:has(> :nth-child(2))) > div:first-child, 
+div.pid.portrait div.sections:has(div.line-group-container) > div:first-child {
   border-top: none;
 }
 

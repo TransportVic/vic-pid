@@ -16,8 +16,10 @@ block scripts
   script.
     window.onload = () => {
       const NOR = new LineGroupServiceList('Craigieburn, Sunbury & Upfield Lines', 'craigieburn', 3, 4)
+      const area = new ServiceListArea([ NOR ])
 
-      NOR.mount('div.pid')
+      area.mount('div.pid')
+
       window.NOR = NOR
       NOR.updateServices([{
         schTime: '7:40am',
