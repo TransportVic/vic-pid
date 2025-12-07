@@ -24,7 +24,7 @@ div.pid.portrait div.header.multiline {
 }
 
 div.pid.portrait div.header span {
-  margin-left: calc(var(--width) * 0.04);
+  margin-inline: calc(var(--width) * 0.04);
 }
 
 div.pid.landscape div.header {
@@ -35,7 +35,7 @@ div.pid.landscape div.header {
 }
 
 div.pid.landscape div.header span {
-  margin-inline: calc(var(--width) * 0.02);
+  margin-left: calc(var(--width) * 0.02);
 }
 
 div.sections {
