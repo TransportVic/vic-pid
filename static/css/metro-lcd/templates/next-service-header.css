@@ -15,16 +15,16 @@ div.next-service-header {
   --next-svc-sch-time-font: calc(var(--header-width) * 0.045);
   --next-svc-sch-time-letter-spacing: calc(var(--header-width) * 0.0005);
 
-  --next-svc-dest-font: calc(var(--header-width) * 0.058);
+  --next-svc-dest-font: calc(var(--header-width) * 0.054);
   --next-svc-dest-letter-spacing: calc(var(--header-width) * 0.0015);
 
   --next-svc-plat-width: calc(var(--header-width) * 0.075);
   --next-svc-plat-font: calc(var(--header-width) * 0.05);
-  --next-svc-plat-padding: calc(var(--header-width) * 0.009);
+  --next-svc-plat-padding: calc(var(--header-width) * 0.003);
 
   --next-svc-est-time-width: calc(var(--header-width) * 0.21);
   --next-svc-est-time-font: calc(var(--header-width) * 0.05);
-  --next-svc-est-time-padding: calc(var(--header-width) * 0.009);
+  --next-svc-est-time-padding: calc(var(--header-width) * 0.003);
 }
 
 div.next-service-info.compact div.next-service-header {
@@ -101,8 +101,8 @@ div.next-service-info.compact span.next-service-est-time {
 }
 
 div.next-service-pattern-info {
-  margin-top: calc(var(--header-width) * 0.016);
-  height: calc(var(--header-width) * 0.05);
+  margin-top: calc(var(--header-width) * 0.01);
+  height: calc(var(--header-width) * 0.045);
   display: flex;
   flex-direction: column;
   position: relative;
