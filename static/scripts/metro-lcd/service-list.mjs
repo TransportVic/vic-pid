@@ -1,5 +1,5 @@
 import PID from '../pid.mjs' 
-import { BoldLineHeader } from './header.mjs'
+import { BoldLineHeader, MiniBoldLineHeader } from './header.mjs'
 
 export class ServiceList extends PID {
 
@@ -195,10 +195,12 @@ export class LineGroupServiceList extends ServiceList {
   #smallServiceCount
   #header
   #mount
+  #mini
 
-  constructor(name, lineClass, bigServiceCount, smallServiceCount) {
+  constructor(name, lineClass, bigServiceCount, smallServiceCount, mini) {
     super(name, lineClass, bigServiceCount)
-    this.#header = new BoldLineHeader(name, lineClass)
+    this.#mini = mini
+    this.#header = mini ? new MiniBoldLineHeader(name, lineClass) : new BoldLineHeader(name, lineClass)
     this.#smallServices = new CompactServiceList(name, lineClass, smallServiceCount)
     this.#smallServiceCount = smallServiceCount
   }
@@ -210,7 +212,7 @@ export class LineGroupServiceList extends ServiceList {
   mount(query) {
     const escapedName = this.escapeName(this.getName())
     const container = $(query)
-    container.innerHTML = `<div class='line-group-container ${escapedName}'></div>`
+    container.innerHTML = `<div class='line-group-container ${escapedName} ${this.#mini ? 'mini' : ''}'></div>`
 
     const subQuery = query + ` .line-group-container.${escapedName}`
     this.#mount = $(subQuery)

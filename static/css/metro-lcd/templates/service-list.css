@@ -81,6 +81,25 @@ div.pid.landscape div.service-list {
   border-top: calc(var(--height) * 0.008) solid #000;
 }
 
+div.landscape div.sections > div > div:not(:first-child) > div.service-list.mini {
+  border-top: none;
+}
+
+div.sections > div > div > div.service-list.mini::before {
+  content: "\200b";
+  border-top: calc(var(--height) * 0.0015) solid #000;
+  height: 0;
+  display: block;
+  width: calc(100% - 2 * var(--content-margin));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.landscape div.sections > div > div:first-child > div.service-list.mini::before,
+div.portrait:not(:has(.header)) div.sections > div:first-child > div:first-child > div.service-list.mini::before {
+  display: none;
+}
+
 div.service-row {
   display: flex;
   align-items: center;
@@ -88,7 +107,7 @@ div.service-row {
 
 div.service-list div.service-row {
   --block-height: calc(var(--service-list-width) * 0.075);
-  --font-size: calc(var(--service-list-width) * 0.045);
+  --font-size: calc(var(--service-list-width) * 0.042);
 
   --line-marker-width: calc(var(--service-list-width) * 0.017);
   --sch-time-margin: calc(var(--service-list-width) * 0.02);
@@ -113,24 +132,29 @@ div.service-list.mini div.service-row {
 }
 
 
-div.service-list > div.content {
+div.service-list {
   --content-margin: calc(var(--service-list-width) * 0.04);
   --content-width: calc(var(--service-list-width) - var(--content-margin) * 2);
+}
 
+div.service-list.mini {
+  --content-margin: calc(var(--service-list-width) * 0.03);
+}
+
+div.line-group-container div.service-list {
+  --content-margin: calc(var(--service-list-width) * 0.04);
+}
+
+div.service-list > div.content {
   width: var(--content-width);
   margin-inline: var(--content-margin);
 
   margin-bottom: calc(var(--service-list-width) * 0.01);
 }
 
-div.service-list.mini > div.content {
-  --content-margin: calc(var(--service-list-width) * 0.03);
-}
-
 div.service-list.template {
   display: none;
 }
-
 
 div.service-list.compact {
   width: var(--service-list-width);
@@ -299,7 +323,8 @@ div.line-group-container {
   height: var(--area-height);
 }
 
-div.line-group-container div.line-marker {
+div.line-group-container div.line-marker,
+div.line-marker.page-header {
   width: 100%;
   height: calc(var(--width) * 0.04);
 
@@ -309,6 +334,10 @@ div.line-group-container div.line-marker {
 div.line-group-container > div.header {
   --header-content-height: calc(var(--height) * 0.08);
   --header-margin: calc(var(--height) * 0.01);
+}
+
+div.line-group-container > div.header.mini {
+  --header-content-height: calc(var(--height) * 0.04);
 }
 
 div.line-group-container div.inner {
@@ -327,10 +356,10 @@ div.line-group-container div.next-service-info div.next-service-header div.right
   --next-svc-est-time-width: var(--next-svc-plat-width);
 }
 
-div.line-group-container div.service-list {
-  margin-top: auto;
+div.line-group-container.mini div.next-service-info {
+  margin-bottom: calc(var(--height) * 0.03);  
 }
 
-div.line-group-container div.service-list div.content {
-  --content-margin: calc(var(--service-list-width) * 0.04);
+div.line-group-container div.service-list {
+  margin-top: auto;
 }

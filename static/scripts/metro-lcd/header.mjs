@@ -40,10 +40,18 @@ export class BoldLineHeader extends BoldHeader {
   }
 
   toHTML() {
-    return `<div class="line-marker ${this.#line}"></div>` + super.toHTML()
+    return `<div class="line-marker page-header ${this.#line}"></div>` + super.toHTML()
+  }
+}
+
+export class MiniBoldLineHeader extends BoldLineHeader {
+
+  getClasses() {
+    return super.getClasses() + ' multiline mini'
   }
 }
 
 if (typeof window !== 'undefined') window.Header = Header
 if (typeof window !== 'undefined') window.BoldHeader = BoldHeader
 if (typeof window !== 'undefined') window.BoldLineHeader = BoldLineHeader
+if (typeof window !== 'undefined') window.MiniBoldLineHeader = MiniBoldLineHeader
