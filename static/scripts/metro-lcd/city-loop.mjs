@@ -1,9 +1,12 @@
+const loopDiagramURL = import.meta.resolve('../../img/city-loop.svg')
+
 export default class CityLoop {
 
   #station
   #sizing
   #mount
 
+  #svgContainer
   #svgMount
   #svgWidth
   #svgHeight
@@ -13,10 +16,10 @@ export default class CityLoop {
     this.#sizing = sizing
   }
 
-  getName() { return 'city-loop' }
+  getName() { return 'city-loop-diagram' }
 
   async getLoopDiagram() {
-    const data = await fetch('../../static/img/city-loop.svg')
+    const data = await fetch(loopDiagramURL)
     return await data.text()
   }
 
@@ -26,6 +29,8 @@ export default class CityLoop {
     const container = document.createElement('div')
     container.className = 'city-loop'
     container.innerHTML = await this.getLoopDiagram()
+
+    this.#svgContainer = container
     this.#svgMount = container.children[0]
     this.#svgWidth = parseFloat(this.#svgMount.getAttribute('width'))
     this.#svgHeight = parseFloat(this.#svgMount.getAttribute('height'))
@@ -75,10 +80,13 @@ export default class CityLoop {
 
   onResize() {
     const containerSize = this.getContainerSize()
-    const targetSize = containerSize * 0.8
+    const targetSize = containerSize * 0.95
     const scaleFactor = targetSize / this.getBaseSize()
 
     this.#svgMount.style.transform = `scale(${scaleFactor})`
+
+    this.#svgContainer.style.width = `${this.#svgWidth * scaleFactor}px`
+    this.#svgContainer.style.height = `${this.#svgHeight * scaleFactor}px`
   }
 
 }
