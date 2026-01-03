@@ -1,0 +1,28 @@
+extends ../../core/pid
+include ../../metro-lcd/templates/service-list
+include ../../metro-lcd/templates/next-service-header
+
+block head
+  link(rel='stylesheet' href=`${pidStaticBase}/css/colours.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/test/service-list-test.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/service-list.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/next-service-header.css`)
+  link(rel='stylesheet' href=`${pidStaticBase}/css/metro-lcd/templates/city-loop.css`)
+
+block scripts
+  script(src=`${pidStaticBase}/scripts/metro-lcd/service-list.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/service-list-area.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/city-loop.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/metro-lcd/header.mjs` type='module')
+  script(src=`${pidStaticBase}/scripts/pid-utils.mjs` type='module')
+  script.
+    window.onload = () => {
+      const loopDiagram = new CityLoop('FSS', 'width')
+      loopDiagram.mount('div.pid')
+    }
+ 
+block pid
+  +compactServiceListTemplate()
+  +serviceHeader('compact template')
+
+  div.pid.pid-16-9.portrait.light.fss
