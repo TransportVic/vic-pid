@@ -39,8 +39,9 @@ export class CompactServiceList extends ServiceList {
 
   #html
   #mount
+  #hideTopBorder
 
-  constructor(name, lineClass, serviceCount) {
+  constructor(name, lineClass, serviceCount, hideTopBorder) {
     super(name, lineClass, serviceCount)
     this.#html = this.#HTML_DATA.outerHTML
       .replace('{0}', lineClass)
@@ -76,6 +77,9 @@ export class CompactServiceList extends ServiceList {
   }
 
   toHTML() {
+    if (this.#hideTopBorder) {
+      return this.#html.replace('service-list compact', 'service-list compact hide-top-border')
+    }
     return this.#html
   }
 

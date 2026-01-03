@@ -59,6 +59,10 @@ div.pid.portrait div.sections > div {
   border-top: calc(var(--height) * 0.003) solid #000;
 }
 
+div.pid.portrait div.sections.no-border > div {
+  border-top: none;
+}
+
 div.pid.landscape div#left, div.pid.landscape div#right {
   --border-thickness: calc(var(--width) * 0.002);
   --service-list-width: calc(var(--width) / 2 - var(--border-thickness));
@@ -174,6 +178,10 @@ div.service-list.compact p.title {
 div.service-list.compact div.service-row {
   width: var(--content-width);
   border-top: calc(var(--service-list-width) * 0.0025) solid #000;
+}
+
+div.service-list.compact.hide-top-border div.services > div.service-row:first-child {
+  border-top: none;
 }
 
 div.service-list.compact div.service-row > * {
@@ -311,6 +319,20 @@ div.landscape div.clock {
   text-align: center;
   font-size: calc(var(--height) * 0.06);
   line-height: calc(var(--height) * 0.095);
+}
+
+div.portrait div.clock {
+  width: calc(var(--width) * 0.94);
+  height: calc(var(--height) * 0.06);
+  border: calc(var(--height) * 0.003) solid #000;
+  box-sizing: border-box;
+
+  margin-inline: auto;
+  margin-bottom: calc(var(--height) * 0.015);
+  
+  text-align: center;
+  font-size: calc(var(--height) * 0.04);
+  line-height: calc(var(--height) * 0.053);
 }
 
 div.line-group-container {

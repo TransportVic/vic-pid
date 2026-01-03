@@ -5,15 +5,17 @@ export default class CityLoop {
   #station
   #sizing
   #mount
+  #showTopBorder
 
   #svgContainer
   #svgMount
   #svgWidth
   #svgHeight
 
-  constructor(station, sizing) {
+  constructor(station, sizing, showTopBorder) {
     this.#station = station
     this.#sizing = sizing
+    this.#showTopBorder = showTopBorder
   }
 
   getName() { return 'city-loop-diagram' }
@@ -27,7 +29,7 @@ export default class CityLoop {
     this.#mount = $(query)
     
     const container = document.createElement('div')
-    container.className = 'city-loop'
+    container.className = `city-loop ${this.#showTopBorder ? 'top-border' : ''}`
     container.innerHTML = await this.getLoopDiagram()
 
     this.#svgContainer = container

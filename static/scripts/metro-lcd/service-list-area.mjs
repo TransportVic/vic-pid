@@ -2,23 +2,29 @@ export class ServiceListArea {
 
   #components
   #mount
+  #borderStyle
 
-  constructor(components) { this.#components = components }
+  constructor(components, borderStyle) {
+    this.#components = components
+    this.#borderStyle = borderStyle
+  }
 
   escapeName(name) {
     return name.toLowerCase().replace(/[^\w]+/g, '-')
   }
+
+  getComponentClass() { return 'section-inner' }
 
   getComponentIDs() {
     return this.#components.map(component => ({ component, id: this.escapeName(component.getName()) }))
   }
 
   toInnerHTML() {
-    return this.getComponentIDs().map(({ id }) => `<div id="${id}"></div>`).join('')
+    return this.getComponentIDs().map(({ id }) => `<div class="${this.getComponentClass()}" id="${id}"></div>`).join('')
   }
 
   toHTML() {
-    return `<div class="sections">${this.toInnerHTML()}</div>`
+    return `<div class="sections ${this.#borderStyle || ''}">${this.toInnerHTML()}</div>`
   }
 
   mount(query) {
@@ -27,20 +33,28 @@ export class ServiceListArea {
     this.getComponentIDs().forEach(({ component, id }) => component.mount(`#${id}`))
   }
 
+  addComponent(component) {
+    this.#components.push(component)
+  }
+
 }
 
 export class HalfServiceListArea extends ServiceListArea {
 
   #side
+  #borderStyle
 
-  constructor(components, side) {
+  constructor(components, side, borderStyle) {
     super(components)
     this.#side = side
+    this.#borderStyle = borderStyle
   }
 
   getName() {
     return this.#side
   }
+
+  getComponentClass() { return '' }
 
   toHTML() {
     return this.toInnerHTML()

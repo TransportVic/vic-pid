@@ -1,3 +1,12 @@
+div.city-loop {
+  margin: auto;
+}
+
+div.city-loop.top-border {
+  padding-block: calc(var(--height) * 0.01); 
+  border-top: calc(var(--height) * 0.0015) solid #000;
+}
+
 div.city-loop > svg {
   transform-origin: top left;
 }
