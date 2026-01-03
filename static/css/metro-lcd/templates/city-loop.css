@@ -3,10 +3,34 @@ div.city-loop {
 }
 
 div.city-loop.top-border {
-  padding-block: calc(var(--height) * 0.01); 
+  padding-block: calc(var(--height) * 0.01);
   border-top: calc(var(--height) * 0.0015) solid #000;
 }
 
 div.city-loop > svg {
   transform-origin: top left;
+}
+
+#right:has(#city-loop-diagram) #city-loop-diagram {
+  width: 100%;
+  padding-top: calc(var(--height) * 0.05);
+  margin: auto;
+}
+
+#right:has(#city-loop-diagram) #clock-container {
+  margin-top: auto;
+}
+
+#right:has(#city-loop-diagram) #clock-container .clock {
+  margin-bottom: calc(var(--height) * 0.03);
+}
+
+#right:has(#city-loop-diagram) {
+  display: flex;
+  justify-content: center;
+  border-top: calc(var(--height) * 0.008) solid #000;
+}
+
+svg tspan {
+  font-family: NetworkSans !important;
 }
