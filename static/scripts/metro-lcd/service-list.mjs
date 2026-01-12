@@ -7,6 +7,8 @@ export class ServiceList extends PID {
   #lineClass
   #serviceCount
 
+  #hideDeparting = false
+
   constructor(name, lineClass, serviceCount) {
     super()
     this.#name = name
@@ -19,6 +21,15 @@ export class ServiceList extends PID {
   getServiceCount() { return this.#serviceCount }
   mount() {}
   toHTML() {}
+
+  hideDepartingServices() {
+    this.#hideDeparting = true
+  }
+
+  filter(services) {
+    if (this.#hideDeparting) return services.filter(s => s.estTime >= 1)
+    return services
+  }
 
 }
 
@@ -50,7 +61,7 @@ export class CompactServiceList extends ServiceList {
   }
 
   updateServices(services) {
-    let screenServices = services
+    let screenServices = this.filter(services)
       .concat(Array(this.getServiceCount()).fill(null))
       .slice(0, this.getServiceCount())
 
@@ -126,7 +137,7 @@ export class CompactMultiServiceList extends ServiceList {
   }
 
   updateServices(services) {
-    let screenServices = services
+    let screenServices = this.filter(services)
       .concat(Array(this.getServiceCount()).fill(null))
       .slice(0, this.getServiceCount())
 
@@ -234,7 +245,7 @@ export class LineGroupServiceList extends ServiceList {
 
   updateServices(services) {
     const totalServiceCount = this.getServiceCount() + this.#smallServiceCount
-    const allServices = services.concat(Array(totalServiceCount).fill(null))
+    const allServices = this.filter(services).concat(Array(totalServiceCount).fill(null))
 
     const bigServices = Array.from(this.#mount.querySelectorAll('.next-service-info'))
     allServices.slice(0, this.getServiceCount()).forEach((service, i) => {
